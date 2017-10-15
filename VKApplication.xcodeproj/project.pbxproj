@@ -14,6 +14,9 @@
 		A3875BA41F920B74004A1D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3875BA21F920B74004A1D47 /* LaunchScreen.storyboard */; };
 		A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */; };
 		A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875BB31F921334004A1D47 /* StartViewController.swift */; };
+		A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */; };
+		A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */; };
+		A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E771F93EE430060AB55 /* KeychainKey.swift */; };
 		B25DBA804B9547B12146ECD9 /* Pods_VKApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		A3875BA51F920B74004A1D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		A3875BB31F921334004A1D47 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		A3E18E771F93EE430060AB55 /* KeychainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
 		AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +79,7 @@
 		A3875B981F920B74004A1D47 /* VKApplication */ = {
 			isa = PBXGroup;
 			children = (
+				A3E18E721F93E9C10060AB55 /* Constants */,
 				A3875BAD1F921088004A1D47 /* Presentation */,
 				A3875BAC1F920FDA004A1D47 /* Entities */,
 				A3875BAB1F920FC7004A1D47 /* Services */,
@@ -131,6 +138,16 @@
 				A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		A3E18E721F93E9C10060AB55 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */,
+				A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */,
+				A3E18E771F93EE430060AB55 /* KeychainKey.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		F126F9D711BDE953717B62AF /* Pods */ = {
@@ -279,7 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */,
+				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */,
+				A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */,
 				A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */,
 				A3875B9C1F920B74004A1D47 /* ViewController.swift in Sources */,
 				A3875B9A1F920B74004A1D47 /* AppDelegate.swift in Sources */,
