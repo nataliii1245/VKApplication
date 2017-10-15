@@ -55,6 +55,7 @@
                         <viewLayoutGuide key="safeArea" id="5b4-I5-YyC"/>
                     </view>
                     <connections>
+                        <outlet property="webView" destination="zvy-cQ-YQX" id="m4R-jl-WMz"/>
                         <segue destination="rK8-cc-fHH" kind="presentation" identifier="ShowTabBarControllerFromAuthorizationSegue" id="2ds-Kv-dfw"/>
                     </connections>
                 </viewController>
