@@ -8,15 +8,16 @@
 
 import UIKit
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        if !UserDefaults.standard.bool(forKey: "isUserAuthorized") {
-            performSegue(withIdentifier: "ShowAuthorizationSegue", sender: nil)
+        if UserDefaults.standard.bool(forKey: UserDefaultsKey.isUserAuthorized) {
+            performSegue(withIdentifier: .showTabBarControllerFromStart, sender: nil)
         } else {
-            performSegue(withIdentifier: "ShowTabBarControllerSegue", sender: nil)
+            performSegue(withIdentifier: .showAuthorization, sender: nil)
         }
     }
+    
 }
