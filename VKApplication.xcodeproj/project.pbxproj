@@ -14,6 +14,7 @@
 		A3875BA41F920B74004A1D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3875BA21F920B74004A1D47 /* LaunchScreen.storyboard */; };
 		A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */; };
 		A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875BB31F921334004A1D47 /* StartViewController.swift */; };
+		A3E18E711F93DFF10060AB55 /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E701F93DFF10060AB55 /* AuthorizationService.swift */; };
 		A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */; };
 		A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */; };
 		A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E771F93EE430060AB55 /* KeychainKey.swift */; };
@@ -32,6 +33,7 @@
 		A3875BA51F920B74004A1D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		A3875BB31F921334004A1D47 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A3E18E701F93DFF10060AB55 /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		A3E18E771F93EE430060AB55 /* KeychainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		A3875BAF1F9210F0004A1D47 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A3E18E701F93DFF10060AB55 /* AuthorizationService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */,
 				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */,
+				A3E18E711F93DFF10060AB55 /* AuthorizationService.swift in Sources */,
 				A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */,
 				A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */,
 				A3875B9C1F920B74004A1D47 /* ViewController.swift in Sources */,
