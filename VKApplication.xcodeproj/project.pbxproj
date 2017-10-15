@@ -18,6 +18,9 @@
 		A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */; };
 		A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */; };
 		A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E771F93EE430060AB55 /* KeychainKey.swift */; };
+		A3E18E7C1F93FE2A0060AB55 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E7B1F93FE2A0060AB55 /* Friend.swift */; };
+		A3E18E7E1F93FE750060AB55 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E7D1F93FE750060AB55 /* Group.swift */; };
+		A3E18E801F93FEA70060AB55 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E7F1F93FEA70060AB55 /* Photo.swift */; };
 		B25DBA804B9547B12146ECD9 /* Pods_VKApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		A3E18E771F93EE430060AB55 /* KeychainKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKey.swift; sourceTree = "<group>"; };
+		A3E18E7B1F93FE2A0060AB55 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		A3E18E7D1F93FE750060AB55 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		A3E18E7F1F93FEA70060AB55 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +113,9 @@
 		A3875BAC1F920FDA004A1D47 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A3E18E7B1F93FE2A0060AB55 /* Friend.swift */,
+				A3E18E7D1F93FE750060AB55 /* Group.swift */,
+				A3E18E7F1F93FEA70060AB55 /* Photo.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -302,9 +311,12 @@
 				A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */,
 				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */,
+				A3E18E7E1F93FE750060AB55 /* Group.swift in Sources */,
 				A3E18E711F93DFF10060AB55 /* AuthorizationService.swift in Sources */,
 				A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */,
 				A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */,
+				A3E18E801F93FEA70060AB55 /* Photo.swift in Sources */,
+				A3E18E7C1F93FE2A0060AB55 /* Friend.swift in Sources */,
 				A3875B9C1F920B74004A1D47 /* ViewController.swift in Sources */,
 				A3875B9A1F920B74004A1D47 /* AppDelegate.swift in Sources */,
 			);
