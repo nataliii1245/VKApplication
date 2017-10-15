@@ -31,7 +31,7 @@
         <!--Authorization View Controller-->
         <scene sceneID="AOa-Jn-1Qj">
             <objects>
-                <viewController id="b8w-9l-tTp" customClass="AuthorizationViewController" sceneMemberID="viewController">
+                <viewController id="b8w-9l-tTp" customClass="AuthorizationViewController" customModule="VKApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6X2-Dn-cCp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
