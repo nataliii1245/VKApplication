@@ -1,0 +1,100 @@
+//
+//  GroupService.swift
+//  VKApplication
+//
+//  Created by Natalia Volkova on 16.10.2017.
+//  Copyright © 2017 Nataliia Volkova. All rights reserved.
+//
+
+import Foundation
+import Alamofire
+import SwiftyJSON
+import SwiftKeychainWrapper
+
+class GroupService {
+    
+    /// Запрос на получение груп пользователя
+    class func getUsersGroups(_ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) {
+        let parameters: Parameters = [
+            "v" : "5.68",
+            "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)",
+            "extended" : "1"
+        ]
+        
+        sessionManager.request("https://api.vk.com/method/groups.get", parameters: parameters).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let groupsResponse = GetUserGroupsResponse(json: JSON(value))
+                let groups = groupsResponse?.groups
+                completion(groups!)
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
+    
+    /// Запрос на поиск группы по ключевому слову
+    class func searchGroups(keyWords: String, _ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
+        
+        let parameters: Parameters = [
+            "q" : "\(keyWords)",
+            "v" : "5.68",
+            "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)"
+        ]
+        
+        let request = sessionManager.request("https://api.vk.com/method/groups.search", parameters: parameters).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let groupsResponse = SearchGroupsResponse(json: JSON(value))
+                let groups = groupsResponse?.groups
+                completion(groups!)
+            case .failure(let error):
+                failure(error)
+            }
+        }
+        
+        return request
+    }
+    
+    /// Запрос на вступление в группу
+    class func joinGroup(id: Int, _ completion: @escaping (Bool) -> Void, _ failure: @escaping (Error) -> Void) {
+        
+        let parameters: Parameters = [
+            "group_id" : "\(id)",
+            "v" : "5.68",
+            "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)"
+        ]
+        
+        sessionManager.request("https://api.vk.com/method/groups.join", parameters: parameters).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let joinGroupsResponse = JoinGroupResponse(json: JSON(value))
+                completion((joinGroupsResponse != nil))
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
+    
+    /// Запрос на выход из группы
+    class func leaveGroup(id: Int, _ completion: @escaping (Bool) -> Void, _ failure: @escaping (Error) -> Void) {
+        
+        let parameters: Parameters = [
+            "group_id" : "\(id)",
+            "v" : "5.68",
+            "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)"
+        ]
+        
+        sessionManager.request("https://api.vk.com/method/groups.leave", parameters: parameters).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let leaveGroupsResponse = LeaveGroupResponse(json: JSON(value))
+                completion((leaveGroupsResponse != nil))
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
+    
+}
+
