@@ -14,7 +14,7 @@ enum SegueIdentifier: String {
     case showTabBarControllerFromStart = "ShowTabBarControllerFromStartSegue"
     case showAuthorization = "ShowAuthorizationSegue"
     case showTabBarControllerFromAuthorization = "ShowTabBarControllerFromAuthorizationSegue"
-
+    case showFriendPhotos = "ShowFriendPhotosSegue"
 }
 
 
