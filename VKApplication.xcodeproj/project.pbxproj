@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A30076331F9530500064598E /* FriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30076321F9530500064598E /* FriendsListTableViewController.swift */; };
 		A30076351F9530670064598E /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30076341F9530670064598E /* FriendListTableViewCell.swift */; };
+		A30076371F95326E0064598E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30076361F95326E0064598E /* DatabaseManager.swift */; };
 		A3875B9A1F920B74004A1D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875B991F920B74004A1D47 /* AppDelegate.swift */; };
 		A3875B9C1F920B74004A1D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875B9B1F920B74004A1D47 /* ViewController.swift */; };
 		A3875B9F1F920B74004A1D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3875B9D1F920B74004A1D47 /* Main.storyboard */; };
@@ -127,6 +128,7 @@
 			children = (
 				A3875BAF1F9210F0004A1D47 /* Network */,
 				A3875BAE1F9210E2004A1D47 /* Configuration */,
+				A30076361F95326E0064598E /* DatabaseManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -334,12 +336,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30BCCAF1F954E8000C6495F /* PhotoCollectionViewCell.swift in Sources */,
 				A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */,
 				A30076351F9530670064598E /* FriendListTableViewCell.swift in Sources */,
 				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */,
 				A30076331F9530500064598E /* FriendsListTableViewController.swift in Sources */,
 				A3C713CB1F94764800387AD6 /* TabBarController.swift in Sources */,
+				A30076371F95326E0064598E /* DatabaseManager.swift in Sources */,
 				A3E18E7E1F93FE750060AB55 /* Group.swift in Sources */,
 				A3E18E711F93DFF10060AB55 /* AuthorizationService.swift in Sources */,
 				A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */,
@@ -348,6 +352,7 @@
 				A3E18E801F93FEA70060AB55 /* Photo.swift in Sources */,
 				A3E18E7C1F93FE2A0060AB55 /* Friend.swift in Sources */,
 				A3E18E841F9417590060AB55 /* GroupService.swift in Sources */,
+				A30076391F9536210064598E /* PhotoCollectionViewController.swift in Sources */,
 				A3875B9C1F920B74004A1D47 /* ViewController.swift in Sources */,
 				A3875B9A1F920B74004A1D47 /* AppDelegate.swift in Sources */,
 				A3E18E821F9417430060AB55 /* FriendService.swift in Sources */,
