@@ -34,8 +34,9 @@ class GroupService {
     }
     
     /// Запрос на поиск группы по ключевому слову
-    class func searchGroups(keyWords: String, _ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
+    class func searchGroups(keyWords: String, _ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) -> Request? {
         
+        if !keyWords.isEmpty {
         let parameters: Parameters = [
             "q" : "\(keyWords)",
             "v" : "5.68",
@@ -53,7 +54,11 @@ class GroupService {
             }
         }
         
-        return request
+            return request
+            
+        } else {
+            return(nil)
+        }
     }
     
     /// Запрос на вступление в группу
