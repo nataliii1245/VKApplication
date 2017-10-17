@@ -19,17 +19,14 @@ class Friend: Object {
     convenience init?(json: JSON) {
         self.init()
         
-        guard let id = json["id"].int,
-            let firstName = json["first_name"].string,
-            let lastName = json["last_name"].string,
-            let photo = json["photo_200_orig"].string
-            else {
-                return nil
-        }
-        
+        guard let id = json["id"].int else { return nil }
         self.id = id
+        guard let firstName = json["first_name"].string,
+            let lastName = json["last_name"].string else { return nil }
         self.name = firstName + " " + lastName
+        guard let photo = json["photo_200_orig"].string else { return nil }
         self.photo = photo
+    
     }
     
     override static func primaryKey() -> String {

@@ -22,8 +22,10 @@ extension FriendsListTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Загружаем список друзей из БД
         friends = DatabaseManager.loadFriends()
         
+        // Запрашиваем заново друзей
         FriendsService.getUserFriends({ friends in
             self.friends = friends
             
@@ -46,6 +48,7 @@ extension FriendsListTableViewController {
         }
     }
     
+    // Передача объекта типа Friend на экран коллекции фотографий пользователя
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewController = segue.destination as! PhotoCollectionViewController
         let friend = sender as! Friend
@@ -83,9 +86,12 @@ extension FriendsListTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let friend = friends[indexPath.row]
+        
+        // Переход на экран коллекции фотографий пользователя
         performSegue(withIdentifier: SegueIdentifier.showFriendPhotos, sender: friend)
     }
     
+    // Удаление друга из списка
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         // Если была нажата кнопка удалить
