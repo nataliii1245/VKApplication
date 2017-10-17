@@ -11,13 +11,15 @@ private let reuseIdentifier = "Cell"
 
 class PhotoCollectionViewController: UICollectionViewController {
     
-    ///
+    /// Объект хранит данные типа  Friend
     var friend: Friend!
-    ///
+    
+    /// Объект хранит массив объектов типа Photo
     var photos: [Photo] = []
     
     // Количество элементов в строке коллекции
     let itemsPerRow: CGFloat = 1
+    
     // Задание отступов
     let sectionInsets = UIEdgeInsets(top: 30.0, left: 15.0, bottom: 30.0, right: 15.0)
 }
@@ -31,11 +33,14 @@ extension PhotoCollectionViewController {
         
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
+        // Загрузить фотографии из БД
         photos = DatabaseManager.loadPhotos()
         
+        // Загрузить новые фотографии с сервера
         PhotoService.getUserPhotos(ownerID: friend.id, { photos in
             self.photos = photos
             
+            // Сохранить новые фотографии в БД
             DatabaseManager.removePhotos()
             DatabaseManager.savePhotos(self.photos)
             
@@ -64,7 +69,7 @@ extension PhotoCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
         let friendPhoto = photos[indexPath.row]
         
         cell.configure(for: friendPhoto)
@@ -78,7 +83,7 @@ extension PhotoCollectionViewController {
 
 // MARK: - UICollectionViewFlowLayout
 
-extension PhotoCollectionViewController {
+extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let availableWidth = view.frame.width - paddingSpace

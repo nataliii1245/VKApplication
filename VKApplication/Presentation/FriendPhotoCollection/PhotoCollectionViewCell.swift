@@ -14,7 +14,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoView: UIImageView!
     func configure(for photo: Photo) {
         
-        var image_url: NSURL = NSURL(string: photo.url)!
+        let image_url: NSURL = NSURL(string: photo.url)!
         let image_from_url_request: NSURLRequest = NSURLRequest(url: image_url as URL)
         
         NSURLConnection.sendAsynchronousRequest(
