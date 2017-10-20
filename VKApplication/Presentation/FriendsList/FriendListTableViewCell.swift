@@ -42,4 +42,9 @@ class FriendListTableViewCell: UITableViewCell {
         friendName.text = friend.name
         friendPhoto.image = photo
     }
+    
+    func clean() {
+        friendName.text = nil
+        friendPhoto.image = nil
+    }
 }

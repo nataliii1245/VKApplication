@@ -7,11 +7,39 @@
 //
 
 import UIKit
+import RealmSwift
+import Alamofire
 
 class FriendsListTableViewController: UITableViewController {
 
     /// Друзья
-    private var friends: [Friend] = []
+    private var friends: Results<Friend>?
+    
+    /// Активный запрос на получение друзей
+    var activeRequest: Request?
+    /// Токен Realm
+    var token: NotificationToken?
+    
+    func pairFriendListTableAndRealm() {
+        friends = DatabaseManager.loadFriends()
+        token = friends?.addNotificationBlock { [weak self] changes in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                
+                tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                
+                tableView.endUpdates()
+            case .error(let error):
+                fatalError("\(error)")
+            }
+        }
+    }
     
 }
 
@@ -22,27 +50,27 @@ extension FriendsListTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Загружаем список друзей из БД
-        friends = DatabaseManager.loadFriends()
+        pairFriendListTableAndRealm()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // Запрашиваем заново друзей
-        FriendsService.getUserFriends({ friends in
-            self.friends = friends
+        self.activeRequest?.cancel()
+        self.activeRequest = FriendsService.getUserFriends({ friends in
             
             // Сохраняем в бд
-            DatabaseManager.removeFriends()
             DatabaseManager.saveFriends(friends)
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
         }) { error in
-            let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default)
-            alertController.addAction(okAction)
+            guard error._code != NSURLErrorCancelled else { return }
             
             DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alertController.addAction(okAction)
+                
                 self.present(alertController, animated: true)
             }
         }
@@ -63,16 +91,17 @@ extension FriendsListTableViewController {
 extension FriendsListTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return friends?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let friend = friends[indexPath.row]
-        
-        // Получаем ячейку из пула
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendListTableViewCell", for: indexPath) as! FriendListTableViewCell
-        cell.configure(for: friend)
         
+        guard let friend = friends?[indexPath.row] else {
+            cell.clean()
+            return cell
+        }
+        cell.configure(for: friend)
         return cell
     }
     
@@ -85,7 +114,7 @@ extension FriendsListTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let friend = friends[indexPath.row]
+        guard let friend = friends?[indexPath.row] else { return }
         
         // Переход на экран коллекции фотографий пользователя
         performSegue(withIdentifier: SegueIdentifier.showFriendPhotos, sender: friend)
@@ -93,11 +122,11 @@ extension FriendsListTableViewController {
     
     // Удаление друга из списка
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard let friend = friends?[indexPath.row] else { return }
         
-        // Если была нажата кнопка удалить
         if editingStyle == .delete {
-            friends.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            // TODO: - Отправлять запрос
+            DatabaseManager.removeFriend(friend)
         }
     }
     

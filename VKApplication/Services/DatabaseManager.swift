@@ -13,42 +13,53 @@ final class DatabaseManager {
  
     // MARK: - Friends
     
+    /// Загрузка списка друзей из БД
+    class func loadFriends() -> Results<Friend>? {
+        do {
+            let realm = try Realm()
+            let friends = realm.objects(Friend.self).sorted(byKeyPath: "displaySequence", ascending: true)
+            
+            return friends
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     /// Сохранение списка друзей в бд
     class func saveFriends(_ friends: [Friend]) {
         do {
             let realm = try Realm()
+            
+            // Получили друзей в бд
+            let existingFriends = realm.objects(Friend.self)
+            
+            // Получаем id загруженных друзей
+            let loadedFriendsIds = friends.map { $0.id }
+            
+            // Получаем друзей, которых нет среди загруженных
+            let deletionsFriends = existingFriends.filter { !loadedFriendsIds.contains($0.id) }
+            
+            // Записываем новые данные
             try realm.write {
-                realm.add(friends)
+                realm.delete(deletionsFriends)
+                realm.add(friends, update: true)
             }
         } catch {
             print(error)
         }
     }
     
-    /// Удаление списка друзей из бд
-    class func removeFriends() {
+    /// Удалить друга
+    class func removeFriend(_ friend: Friend) {
         do {
-            let friends = loadFriends()
-            
             let realm = try Realm()
+            
             try realm.write {
-                realm.delete(friends)
+                realm.delete(friend)
             }
         } catch {
             print(error)
-        }
-    }
-    
-    /// Загрузка списка друзей из БД
-    class func loadFriends() -> [Friend] {
-        do {
-            let realm = try Realm()
-            let friends = realm.objects(Friend.self)
-            
-            return Array(friends)
-        } catch {
-            print(error)
-            return []
         }
     }
     
@@ -108,7 +119,7 @@ final class DatabaseManager {
     }
     
     /// Удаление списка фотографий из бд
-    class func removePhotos(){
+    class func removePhotos() {
         do {
             let photos = loadPhotos()
             

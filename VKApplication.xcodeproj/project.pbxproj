@@ -179,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				A3875BAF1F9210F0004A1D47 /* Network */,
-				A3875BAE1F9210E2004A1D47 /* Configuration */,
 				A30076361F95326E0064598E /* DatabaseManager.swift */,
 			);
 			path = Services;
@@ -207,13 +206,6 @@
 				A30BCCBF1F95549A00C6495F /* SearchGroupsList */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		A3875BAE1F9210E2004A1D47 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		A3875BAF1F9210F0004A1D47 /* Network */ = {

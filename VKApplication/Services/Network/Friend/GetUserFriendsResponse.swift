@@ -15,8 +15,19 @@ final class GetUserFriendsResponse {
     
     required init?(json: JSON) {
         guard let friendsJSONArray = json["response"]["items"].array else { return nil }
-        let friends = friendsJSONArray.flatMap { Friend(json: $0) }
-        self.friends = friends
         
+        var friends: [Friend] = []
+        
+        var index = 0
+        for friendJson in friendsJSONArray {
+            guard let friend = Friend(json: friendJson) else { continue }
+            
+            friend.displaySequence = index
+            index += 1
+            
+            friends.append(friend)
+        }
+        
+        self.friends = friends
     }
 }

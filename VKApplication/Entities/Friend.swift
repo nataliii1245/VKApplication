@@ -15,6 +15,7 @@ class Friend: Object {
     @objc dynamic var id = 0
     @objc dynamic var name = ""
     @objc dynamic var photo = ""
+    @objc dynamic var displaySequence = 0
     
     convenience init?(json: JSON) {
         self.init()
@@ -26,7 +27,6 @@ class Friend: Object {
         self.name = firstName + " " + lastName
         guard let photo = json["photo_200_orig"].string else { return nil }
         self.photo = photo
-    
     }
     
     override static func primaryKey() -> String {

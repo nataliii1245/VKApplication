@@ -14,7 +14,7 @@ import SwiftKeychainWrapper
 class FriendsService {
     
     /// Запрос на получение друзей пользователя
-    class func getUserFriends(_ completion: @escaping ([Friend]) -> Void, _ failure: @escaping (Error) -> Void) {
+    class func getUserFriends(_ completion: @escaping ([Friend]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
         let parameters: Parameters = [
             "access_token" : "\(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)",
             "v" : "5.68",
@@ -22,7 +22,7 @@ class FriendsService {
             "order": "hints"
         ]
         
-        sessionManager.request("https://api.vk.com/method/friends.get", parameters: parameters).responseJSON { response in
+        let request = sessionManager.request("https://api.vk.com/method/friends.get", parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let friendsResponse = GetUserFriendsResponse(json: JSON(value))
@@ -32,6 +32,8 @@ class FriendsService {
                 failure(error)
             }
         }
+        
+        return request
     }
 
 }
