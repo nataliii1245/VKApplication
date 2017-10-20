@@ -14,14 +14,14 @@ import SwiftKeychainWrapper
 class GroupService {
     
     /// Запрос на получение груп пользователя
-    class func getUsersGroups(_ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) {
+    class func getUsersGroups(_ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
         let parameters: Parameters = [
             "v" : "5.68",
             "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)",
             "extended" : "1"
         ]
         
-        sessionManager.request("https://api.vk.com/method/groups.get", parameters: parameters).responseJSON { response in
+        let request = sessionManager.request("https://api.vk.com/method/groups.get", parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let groupsResponse = GetUserGroupsResponse(json: JSON(value))
@@ -31,6 +31,8 @@ class GroupService {
                 failure(error)
             }
         }
+        
+        return request
     }
     
     /// Запрос на поиск группы по ключевому слову

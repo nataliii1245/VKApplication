@@ -65,42 +65,53 @@ final class DatabaseManager {
     
     // MARK: - Groups
     
-    /// Сохранение списка групп в бд
-    class func saveGroups(_ groups: [Group]) {
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(groups)
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
-    /// Удаление списка групп из бд
-    class func removeGroups() {
-        do {
-            let groups = loadGroups()
-            
-            let realm = try Realm()
-            try realm.write {
-                realm.delete(groups)
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
     /// Загрузка списка групп из бд
-    class func loadGroups() -> [Group] {
+    class func loadGroups() -> Results<Group>? {
         do {
             let realm = try Realm()
             let groups = realm.objects(Group.self)
             
-            return Array(groups)
+            return groups
         } catch {
             print(error)
-            return []
+            return nil
+        }
+    }
+    
+    /// Сохранение списка групп в бд
+    class func saveGroups(_ groups: [Group]) {
+        do {
+            let realm = try Realm()
+            
+            // Получили группы в бд
+            let existingGroups = realm.objects(Group.self)
+            
+            // Получаем id загруженных групп
+            let loadedGroupsIds = groups.map { $0.id }
+            
+            // Получаем группы, которых нет среди загруженных
+            let deletionsGroups = existingGroups.filter { !loadedGroupsIds.contains($0.id) }
+            
+            // Записываем новые данные
+            try realm.write {
+                realm.delete(deletionsGroups)
+                realm.add(groups, update: true)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    /// Удалить группу
+    class func removeGroup(_ group: Group) {
+        do {
+            let realm = try Realm()
+            
+            try realm.write {
+                realm.delete(group)
+            }
+        } catch {
+            print(error)
         }
     }
     

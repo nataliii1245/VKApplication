@@ -28,5 +28,11 @@ class UserGroupsListTableViewCell: UITableViewCell {
         groupPhoto.image = photo
         groupTheme.text = group.type
     }
+    
+    func clean() {
+        groupName.text = nil
+        groupPhoto.image = nil
+        groupTheme.text = nil
+    }
 
 }

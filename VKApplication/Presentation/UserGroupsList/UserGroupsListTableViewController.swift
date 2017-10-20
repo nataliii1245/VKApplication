@@ -8,52 +8,82 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
 
 class UserGroupsListTableViewController: UITableViewController {
-
+    
     let groupsSearchController = UISearchController(searchResultsController: nil)
     
-    var groups: [Group] = []
-    
+    /// Группы
+    var groups: Results<Group>?
+    /// Отфильтрованные группы
     var filteredGroups = [Group]()
     
-    var isFiltering: Bool {
-        return groupsSearchController.isActive && !searchBarIsEmpty
-    }
+    /// Активный запрос на получение групп
+    var activeRequest: Request?
+    /// Токен Realm
+    var token: NotificationToken?
     
-    var searchBarIsEmpty: Bool {
+    var isSearchBarEmpty: Bool {
         return groupsSearchController.searchBar.text?.isEmpty ?? true
     }
     
-    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredGroups = groups.filter({
-            ( group : Group) -> Bool in
-            return group.name.lowercased().contains(searchText.lowercased())
-        })
+    var isFiltering: Bool {
+        return groupsSearchController.isActive && !isSearchBarEmpty
+    }
+    
+    /// Синхронизация между базой данных и таблицей
+    func pairGroupListTableAndRealm() {
+        groups = DatabaseManager.loadGroups()
+        token = groups?.addNotificationBlock { [weak self] changes in
+            guard let `self` = self else { return }
+            
+            guard let tableView = self.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                if self.isFiltering {
+                    self.filterContentForSearchText(self.groupsSearchController.searchBar.text!)
+                    tableView.reloadData()
+                } else {
+                    tableView.beginUpdates()
+                    
+                    tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                    tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                    tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                    
+                    tableView.endUpdates()
+                }
+            case .error(let error):
+                fatalError("\(error)")
+            }
+        }
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        defer { self.tableView.reloadData() }
+        guard let groups = groups else {
+            filteredGroups.removeAll()
+            return
+        }
         
-        tableView.reloadData()
+        filteredGroups = groups.filter { $0.name.lowercased().contains(searchText.lowercased()) }
     }
     
     func leaveGroup(group: Group) {
         GroupService.leaveGroup(id: group.id, { isSuccess in
-            do {
-                let groupName = group.name
-                
-                let realm = try Realm()
-                try realm.write {
-                    realm.delete(group)
-                }
-                
-                let alertController = UIAlertController(title: nil, message: "Вы успешно вышли из группы \(groupName)", preferredStyle: .alert)
-                
-                let okAction = UIAlertAction(title: "OK", style: .default)
-                alertController.addAction(okAction)
-                
-                DispatchQueue.main.async {
-                    self.present(alertController, animated: true)
-                }
-            } catch {
-                print(error)
+            let groupName = group.name
+            
+            DatabaseManager.removeGroup(group)
+            
+            let alertController = UIAlertController(title: nil, message: "Вы успешно вышли из группы \(groupName)", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(okAction)
+            
+            DispatchQueue.main.async {
+                self.present(alertController, animated: true)
             }
         }) { error in
             let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
@@ -65,6 +95,15 @@ class UserGroupsListTableViewController: UITableViewController {
                 self.present(alertController, animated: true)
             }
         }
+    }
+    
+    /// Настройка
+    func setup() {
+        definesPresentationContext = true
+        
+        tableView.tableHeaderView = groupsSearchController.searchBar
+        groupsSearchController.searchResultsUpdater = self
+        groupsSearchController.dimsBackgroundDuringPresentation = false
     }
 }
 
@@ -75,76 +114,78 @@ extension UserGroupsListTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        groupsSearchController.searchResultsUpdater = self as? UISearchResultsUpdating
-        
-        groupsSearchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = groupsSearchController.searchBar
-        
-        GroupService.getUsersGroups({ groups in
-            self.groups = groups
-            
-            DatabaseManager.removeGroups()
-            DatabaseManager.saveGroups(groups)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }) { error in
-            let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default)
-            alertController.addAction(okAction)
-            
-            DispatchQueue.main.async {
-                self.present(alertController, animated: true)
-            }
-        }
+        setup()
+        pairGroupListTableAndRealm()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        groups = DatabaseManager.loadGroups()
-        tableView.reloadData()
+        // Запрашиваем заново друзей
+        self.activeRequest?.cancel()
+        self.activeRequest = GroupService.getUsersGroups({ groups in
+            
+            // Сохраняем в бд
+            DatabaseManager.saveGroups(groups)
+        }) { error in
+            guard error._code != NSURLErrorCancelled else { return }
+            
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true)
+            }
+        }
     }
+    
 }
 
 // MARK: - UITableViewDataSource
 
 extension UserGroupsListTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return filteredGroups.count
         }
-        return groups.count
+        return groups?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserGroupsListTableViewCell", for: indexPath) as! UserGroupsListTableViewCell
-        let group: Group
+        
         if isFiltering {
-            group = filteredGroups[indexPath.row]
+            let group = filteredGroups[indexPath.row]
+            cell.configure(for: group)
         } else {
-            group = groups[indexPath.row]
+            guard let group = groups?[indexPath.row] else {
+                cell.clean()
+                return cell
+            }
+            
+            cell.configure(for: group)
         }
-        // Получаем ячейку из пула
-        cell.configure(for: group)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let group: Group
             if isFiltering {
-                group = filteredGroups.remove(at: indexPath.row)
-                if let index = groups.index(where: { $0.id == group.id }) {
-                    groups.remove(at: index)
-                }
+                let group = filteredGroups.remove(at: indexPath.row)
+                
+                DatabaseManager.removeGroup(group)
+                leaveGroup(group: group)
             } else {
-                group = groups.remove(at: indexPath.row)
+                guard let group = groups?[indexPath.row] else { return }
+                
+                DatabaseManager.removeGroup(group)
+                leaveGroup(group: group)
             }
-            leaveGroup(group: group)
+            
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -160,5 +201,3 @@ extension UserGroupsListTableViewController: UISearchResultsUpdating {
     }
     
 }
-
-
