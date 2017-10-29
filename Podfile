@@ -7,5 +7,6 @@ target 'VKApplication' do
   pod 'SwiftyJSON'
   pod 'SwiftKeychainWrapper'
   pod 'RealmSwift'
+  pod 'SDWebImage'
 
 end
