@@ -37,3 +37,6 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 .build/
+
+# MacOS
+.DS_Store
