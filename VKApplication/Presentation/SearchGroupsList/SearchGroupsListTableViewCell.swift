@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchGroupsListTableViewCell: UITableViewCell {
 
@@ -22,10 +23,10 @@ class SearchGroupsListTableViewCell: UITableViewCell {
     }
     
     func configure(for group: Group) {
-        let photo = UIImage(named: group.photo)
-        
         groupName.text = group.name
-        groupPhoto.image = photo
         groupTheme.text = group.type
+        
+        let imageUrl = URL(string: group.photo)
+        groupPhoto.sd_setImage(with: imageUrl, placeholderImage: nil)
     }
 }

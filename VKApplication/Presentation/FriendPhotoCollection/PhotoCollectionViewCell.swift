@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
@@ -14,19 +15,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoView: UIImageView!
     func configure(for photo: Photo) {
         
-        let image_url: NSURL = NSURL(string: photo.url)!
-        let image_from_url_request: NSURLRequest = NSURLRequest(url: image_url as URL)
-        
-        NSURLConnection.sendAsynchronousRequest(
-            image_from_url_request as URLRequest, queue: OperationQueue.main,
-            completionHandler: {(response: URLResponse!,
-                data: Data!,
-                error: Error!) -> Void in
-                
-                if error == nil && data != nil {
-                    self.photoView.image = UIImage(data: data)
-                }
-                
-        })
-    }
+        let imageUrl = URL(string: photo.url)
+        photoView.sd_setImage(with: imageUrl, placeholderImage: nil)
+        }
 }
