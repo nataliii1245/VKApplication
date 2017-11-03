@@ -12,6 +12,8 @@ import SwiftyJSON
 final class GetNewsFeedResponse {
     
     let newsFeedPosts: [NewsFeedPost]
+    let groupsSource: [Group]
+    let profilesSource: [Friend]
     
     required init?(json: JSON) {
         /*
@@ -27,8 +29,17 @@ final class GetNewsFeedResponse {
          */
         
         guard let newsFeedPostsJSONArray = json["response"]["items"].array else { return nil }
-        let newsFeedPosts = newsFeedPostsJSONArray.flatMap { NewsFeedPost(json: $0) }
+        let newsFeedPosts = newsFeedPostsJSONArray.flatMap { NewsFeedPost(json: $0, isRepost: false) }
         self.newsFeedPosts = newsFeedPosts
+        
+        guard let groupsSourceJSONArray = json["response"]["groups"].array else { return nil }
+        let groupsSource = groupsSourceJSONArray.flatMap { Group(json: $0) }
+        self.groupsSource = groupsSource
+        
+        guard let profilesSourceJSONArray = json["response"]["profiles"].array else { return nil }
+        let profilesSource = profilesSourceJSONArray.flatMap { Friend(json: $0) }
+        self.profilesSource = profilesSource
+        print(profilesSource)
     }
     
 }

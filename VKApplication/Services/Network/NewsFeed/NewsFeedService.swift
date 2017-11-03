@@ -17,7 +17,7 @@ class NewsFeedService {
     
     // Создание запроса на получение новостей
     
-    class func getNewsFeed(_ completion: @escaping ([NewsFeedPost]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
+    class func getNewsFeed(_ completion: @escaping ([NewsFeedPost], [Group], [Friend]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
         let parameters: Parameters = [
             "filters" : "post",
             "count" : "100",
@@ -32,9 +32,10 @@ class NewsFeedService {
                 let json = JSON(value)
                 guard let newsFeedResponse = GetNewsFeedResponse(json: json) else { return }
                 let news = newsFeedResponse.newsFeedPosts
-                completion(news)
+                let groups = newsFeedResponse.groupsSource
+                let profiles = newsFeedResponse.profilesSource
+                completion(news, groups, profiles)
             case .failure(let error):
-                print(error) // вот тут так сделать
                 failure(error)
             }
         }
