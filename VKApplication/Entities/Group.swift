@@ -23,9 +23,7 @@ class Group: Object {
             let name = json["name"].string,
             let type = json["type"].string,
             let photo = json["photo_200"].string
-            else {
-                return nil
-        }
+        else { return nil }
         
         self.id = id
         self.name = name

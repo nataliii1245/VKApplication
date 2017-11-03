@@ -25,8 +25,19 @@ class Friend: Object {
         guard let firstName = json["first_name"].string,
             let lastName = json["last_name"].string else { return nil }
         self.name = firstName + " " + lastName
-        guard let photo = json["photo_200_orig"].string else { return nil }
-        self.photo = photo
+        
+        if let photo_200_orig = json["photo_200_orig"].string {
+            self.photo = photo_200_orig
+        } else if let photo_100 = json["photo_100"].string {
+            self.photo = photo_100
+        } else if let photo_50 = json["photo_50"].string {
+            self.photo = photo_50
+        }  else {
+            return
+        }
+        
+//        guard let photo = json["photo_200_orig"].string else { return nil }
+//        self.photo = photo
     }
     
     override static func primaryKey() -> String {
