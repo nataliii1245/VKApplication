@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/nataliii/Homeworks/VKApplication/VKApplication/Presentation/NewsFeed/NewsFeedTableViewDataSource.swift">
+   </FileRef>
+   <FileRef
       location = "group:VKApplication.xcodeproj">
    </FileRef>
    <FileRef
