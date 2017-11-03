@@ -13,17 +13,41 @@ class LinkAttachment: Attachment {
     /// URL ссылки
     let url: String
     /// Заголовок ссылки
-    let title: String
-    /// Описание ссылки
-    let description: String
+    var title: String? = nil
+    /// Подпись ссылки (если имеется).
+    var caption: String? = nil
+    /// Ссылка на фото
+    var photoUrl: String? = nil
+    /// Ширина фото
+    var width: Int? = nil
+    /// Высота фото
+    var height: Int? = nil
+    
     
     init?(json: JSON) {
         guard let url = json["url"].string else { return nil }
         self.url = url
-        guard let title = json["title"].string else { return nil }
-        self.title = title
-        guard let description = json["description"].string else { return nil }
-        self.description = description
+        self.title = json["title"].string
+        self.caption = json["caption"].string
+        
+        if let photo_2560 = json["photo"]["photo_2560"].string {
+            photoUrl = photo_2560
+        } else if let photo_1280 = json["photo"]["photo_1280"].string {
+            photoUrl = photo_1280
+        } else if let photo_807 = json["photo"]["photo_807"].string {
+            photoUrl = photo_807
+        } else if let photo_604 = json["photo"]["photo_604"].string {
+            photoUrl = photo_604
+        } else if let photo_130 = json["photo"]["photo_130"].string {
+            photoUrl = photo_130
+        } else if let photo_75 = json["photo"]["photo_75"].string {
+            photoUrl = photo_75
+        }
+        
+        self.width = json["photo"]["width"].int
+        self.height = json["photo"]["height"].int
     }
     
 }
+
+

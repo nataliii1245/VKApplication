@@ -18,8 +18,8 @@ class PollAttachment: Attachment {
     let question: String
     /// Количество голосов
     let votes: Int
-    
-    // TODO: Сделать модель ответов на опрос https://vk.com/dev/objects/poll
+    /// Масив ответов на опрос
+    let pollAnswerAttachments:[PollAnswerModel]
     
     init?(json: JSON) {
         guard let id = json["id"].int else { return nil }
@@ -30,6 +30,15 @@ class PollAttachment: Attachment {
         self.question = question
         guard let votes = json["votes"].int else { return nil }
         self.votes = votes
+        guard let pollAnswerAttachmentsArray = json["answers"].array else { return nil }
+        var pollAnswerArray: [PollAnswerModel] = []
+        for pollAnswer in pollAnswerAttachmentsArray {
+            if let answer = PollAnswerModel(json: pollAnswer) {
+                pollAnswerArray.append(answer)
+            }
+        }
+        self.pollAnswerAttachments =  pollAnswerArray
+        
     }
     
 }

@@ -15,6 +15,7 @@ class DocAttachment: Attachment {
     let size: Int
     let ext: String
     let url: String
+    let date: Int
     
     init?(json: JSON) {
         guard let id = json["id"].int else { return nil }
@@ -27,6 +28,8 @@ class DocAttachment: Attachment {
         self.ext = ext
         guard let url = json["url"].string else { return nil }
         self.url = url
+        guard let date = json["date"].int else { return nil }
+        self.date = date
     }
     
 }
