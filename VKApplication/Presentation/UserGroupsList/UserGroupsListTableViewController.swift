@@ -24,21 +24,31 @@ class UserGroupsListTableViewController: UITableViewController {
     /// Токен Realm
     var token: NotificationToken?
     
+    /// Есть ли текст в поисковой строке
     var isSearchBarEmpty: Bool {
         return groupsSearchController.searchBar.text?.isEmpty ?? true
     }
     
+    /// Отфильтрованы ли данный
     var isFiltering: Bool {
         return groupsSearchController.isActive && !isSearchBarEmpty
     }
     
     /// Синхронизация между базой данных и таблицей
     func pairGroupListTableAndRealm() {
+        
+        // Загружаем группы
         groups = DatabaseManager.loadGroups()
-        token = groups?.addNotificationBlock { [weak self] changes in
+        // Добавляем блок уведомлений
+        token = groups?.observe { [weak self] changes in
+            
+            // Если можем создать экземпляр контроллера
             guard let `self` = self else { return }
             
+            // Получаем ссылку на tableView
             guard let tableView = self.tableView else { return }
+            
+            // Смотрим изменения
             switch changes {
             case .initial:
                 tableView.reloadData()
@@ -61,20 +71,26 @@ class UserGroupsListTableViewController: UITableViewController {
         }
     }
     
+    /// Фильтрация групп согласно поисковой строке
     func filterContentForSearchText(_ searchText: String) {
+        
+        // Defer - выполнится в любом случае
         defer { self.tableView.reloadData() }
         guard let groups = groups else {
             filteredGroups.removeAll()
             return
         }
         
+        // Отфильтрованные группы
         filteredGroups = groups.filter { $0.name.lowercased().contains(searchText.lowercased()) }
     }
     
+    /// Функция выхода из группы
     func leaveGroup(group: Group) {
         GroupService.leaveGroup(id: group.id, { isSuccess in
             let groupName = group.name
             
+            // Удаляем группу из БД
             DatabaseManager.removeGroup(group)
             
             let alertController = UIAlertController(title: nil, message: "Вы успешно вышли из группы \(groupName)", preferredStyle: .alert)
@@ -97,7 +113,7 @@ class UserGroupsListTableViewController: UITableViewController {
         }
     }
     
-    /// Настройка
+    /// Настройка groupsSearchController
     func setup() {
         definesPresentationContext = true
         
@@ -114,7 +130,10 @@ extension UserGroupsListTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Настраиваем groupsSearchController
         setup()
+        
+        // Обращаемся к функции, связывающей БД и таблицу
         pairGroupListTableAndRealm()
     }
     
@@ -177,7 +196,10 @@ extension UserGroupsListTableViewController {
             if isFiltering {
                 let group = filteredGroups.remove(at: indexPath.row)
                 
+                // Удаляем группу из БД
                 DatabaseManager.removeGroup(group)
+                
+                // Вызываем функцию, осуществляющую выход из группы
                 leaveGroup(group: group)
             } else {
                 guard let group = groups?[indexPath.row] else { return }

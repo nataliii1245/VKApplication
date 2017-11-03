@@ -84,7 +84,7 @@ extension SearchGroupsListTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        groupsSearchController.searchResultsUpdater = self as? UISearchResultsUpdating
+        groupsSearchController.searchResultsUpdater = self 
         
         groupsSearchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true

@@ -22,7 +22,7 @@ class FriendsListTableViewController: UITableViewController {
     
     func pairFriendListTableAndRealm() {
         friends = DatabaseManager.loadFriends()
-        token = friends?.addNotificationBlock { [weak self] changes in
+        token = friends?.observe { [weak self] changes in
             guard let tableView = self?.tableView else { return }
             switch changes {
             case .initial:
@@ -55,7 +55,7 @@ extension FriendsListTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+            
         // Запрашиваем заново друзей
         self.activeRequest?.cancel()
         self.activeRequest = FriendsService.getUserFriends({ friends in
@@ -74,7 +74,8 @@ extension FriendsListTableViewController {
                 self.present(alertController, animated: true)
             }
         }
-    }
+        }
+    
     
     // Передача объекта типа Friend на экран коллекции фотографий пользователя
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
