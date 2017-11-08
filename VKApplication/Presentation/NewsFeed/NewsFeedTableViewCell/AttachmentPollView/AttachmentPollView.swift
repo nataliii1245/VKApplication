@@ -24,19 +24,18 @@ final class AttachmentPollView: UIView {
     
     // MARK: - Публичные свойства
     
+    ///
     var answers: [PollAnswerModel] = [] {
-        willSet {
+        didSet {
             for answer in answers {
                 let answerView = AttachmentPollAnswerView(frame: .zero)
                 pollAnswersStackView.addArrangedSubview(answerView)
                 
-                answerView.name = answer.text
-                print(answer.rate)
-//                answerView.percent = CGFloat(answer.rate) / 100
+                answerView.name = "\(answer.text) (\(answer.votes))"
+                answerView.percent = CGFloat(answer.rate / 100)
             }
         }
     }
-    
     
     
     // MARK: - Инициализация
@@ -56,6 +55,7 @@ final class AttachmentPollView: UIView {
     /// Инициализация объекта
     private func initPhase2() {
         setupRootView()
+        setup()
     }
     
 }
@@ -72,7 +72,7 @@ extension AttachmentPollView {
             return themeLabel.text
         }
         set {
-            themeLabel.text = theme
+            themeLabel.text = newValue
         }
     }
     
@@ -98,8 +98,15 @@ private extension AttachmentPollView {
     func setupRootView() {
         let view = fromNib()
         self.addSubview(view)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layoutAttachAll(to: self)
+    }
+    
+    func setup() {
+        layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1).cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 5
     }
     
 }
-
-

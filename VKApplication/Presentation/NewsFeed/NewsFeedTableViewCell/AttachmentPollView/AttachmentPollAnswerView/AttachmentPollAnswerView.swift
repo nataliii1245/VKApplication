@@ -40,6 +40,7 @@ final class AttachmentPollAnswerView: UIView {
     /// Инициализация объекта
     private func initPhase2() {
         setupRootView()
+        setup()
     }
     
 }
@@ -86,11 +87,16 @@ private extension AttachmentPollAnswerView {
         let view = fromNib()
         self.addSubview(view)
         
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layoutAttachAll(to: self)
+    }
+    
+    func setup() {
+        backgroundView.layer.cornerRadius = backgroundView.frame.height / 10
+        backgroundView.layer.masksToBounds = true
         
+        coloredView.layer.cornerRadius = coloredView.frame.height / 10
+        coloredView.layer.masksToBounds = true
     }
     
 }
-

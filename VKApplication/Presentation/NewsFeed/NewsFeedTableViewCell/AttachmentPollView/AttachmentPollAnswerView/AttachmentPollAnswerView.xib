@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,10 +28,10 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljy-MA-fdl">
                             <rect key="frame" x="0.0" y="0.0" width="176.5" height="50"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.80392156862745101" green="0.88235294117647056" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.91324752569198608" green="0.92522531747817993" blue="0.94591468572616577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Ljy-MA-fdl" firstAttribute="leading" secondItem="Yya-kU-PYR" secondAttribute="leading" id="4cK-dp-g31"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ljy-MA-fdl" secondAttribute="trailing" id="I7S-Jf-XVZ"/>
@@ -40,9 +40,8 @@
                         <constraint firstItem="Ljy-MA-fdl" firstAttribute="top" secondItem="Yya-kU-PYR" secondAttribute="top" id="xT0-Q3-GTd"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Du-pU-qOe">
-                    <rect key="frame" x="166" y="14" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Du-pU-qOe">
+                    <rect key="frame" x="166.5" y="15" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -51,9 +50,15 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Yya-kU-PYR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6Lg-A9-fQ0"/>
-                <constraint firstItem="Yya-kU-PYR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ABk-x6-dDZ"/>
+                <constraint firstItem="9Du-pU-qOe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="DNM-Jp-uCb"/>
+                <constraint firstItem="9Du-pU-qOe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Iug-SP-RSG"/>
+                <constraint firstItem="9Du-pU-qOe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="LCM-06-U1b"/>
+                <constraint firstItem="Yya-kU-PYR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="bhs-Nn-3d6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yya-kU-PYR" secondAttribute="trailing" id="fMd-mK-k1o"/>
-                <constraint firstAttribute="bottom" secondItem="Yya-kU-PYR" secondAttribute="bottom" id="v5G-ze-aAF"/>
+                <constraint firstItem="9Du-pU-qOe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gFv-LM-xUT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Du-pU-qOe" secondAttribute="bottom" constant="8" id="lKV-dr-9Oz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Du-pU-qOe" secondAttribute="trailing" constant="15" id="o4g-tx-mjF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Yya-kU-PYR" secondAttribute="bottom" id="pPg-a8-a28"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
