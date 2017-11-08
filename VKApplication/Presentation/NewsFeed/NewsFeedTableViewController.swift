@@ -30,23 +30,40 @@ extension NewsFeedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        // Запрашиваем заново новости
+        if let refreshControl = refreshControl, !refreshControl.isRefreshing {
+            tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - refreshControl.frame.height), animated: false)
+            
+            refreshControl.beginRefreshing()
+            refreshControl.sendActions(for: .valueChanged)
+        }
+    }
+    
+}
+
+// MARK: - Приватные методы
+
+private extension NewsFeedTableViewController {
+    
+    func loadData() {
         self.activeRequest?.cancel()
-        self.activeRequest =  NewsFeedService.getNewsFeed({ news, groups, profiles in
+        self.activeRequest = NewsFeedService.getNewsFeed({ news, groups, profiles in
             self.news = news
             self.groupsSource = groups
             self.profilesSource = profiles
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refreshControl?.endRefreshing()
             }
         }) { error in
             guard error._code != NSURLErrorCancelled else { return }
@@ -57,10 +74,14 @@ extension NewsFeedTableViewController {
             alertController.addAction(okAction)
             
             DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
                 self.present(alertController, animated: true)
             }
         }
-        
+    }
+    
+    @objc private func refreshData() {
+        loadData()
     }
     
 }
