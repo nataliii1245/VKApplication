@@ -23,6 +23,9 @@ final class RepostHeaderView: UIView {
     
     @IBOutlet private weak var repostTextLabel: UILabel!
     
+    @IBOutlet private weak var repostIconImageView: UIImageView!
+    
+    
     // MARK: - Публичные свойства
     
     /// URL изображения
@@ -59,6 +62,7 @@ final class RepostHeaderView: UIView {
     /// Инициализация объекта
     private func initPhase2() {
         setupRootView()
+        setup()
     }
     
 }
@@ -113,12 +117,14 @@ private extension RepostHeaderView {
         let view = fromNib()
         self.addSubview(view)
         
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layoutAttachAll(to: self)
-        
+    }
+    
+    func setup() {
         photoImageView.layer.cornerRadius = photoImageView.bounds.width / 2
         photoImageView.clipsToBounds = true
+        repostIconImageView.image = repostIconImageView.image?.mask(with: #colorLiteral(red: 0.5764705882, green: 0.6823529412, blue: 0.8, alpha: 1))
     }
     
 }
