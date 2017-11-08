@@ -39,7 +39,6 @@ final class GetNewsFeedResponse {
         guard let profilesSourceJSONArray = json["response"]["profiles"].array else { return nil }
         let profilesSource = profilesSourceJSONArray.flatMap { Friend(json: $0) }
         self.profilesSource = profilesSource
-        print(profilesSource)
     }
     
 }

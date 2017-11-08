@@ -12,8 +12,8 @@ class AttachmentModel {
     let entity: Attachment?
     
     init?(json: JSON) {
-        guard let type = json["type"].string else { return nil }
-        guard let attachmentType = AttachmentType(rawValue: type) else { return nil }
+        guard let type = json["type"].string else { Bug.shared.catch(json); return nil }
+        guard let attachmentType = AttachmentType(rawValue: type) else { Bug.shared.catch(json); return nil }
         
         switch attachmentType {
         case .photo:

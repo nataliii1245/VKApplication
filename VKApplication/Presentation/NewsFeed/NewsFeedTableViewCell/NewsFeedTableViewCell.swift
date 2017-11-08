@@ -90,6 +90,9 @@ private extension NewsFeedTableViewCell {
         linksStackView.clean()
         linksStackView.isHidden = true
         
+        pollStackView.clean()
+        pollStackView.isHidden = true
+        
         sourceAuthorLabel.isHidden = true
     }
 
@@ -189,6 +192,12 @@ private extension NewsFeedTableViewCell {
                 attachmentDocView.nameAndExtension = docAttachment.title
                 attachmentDocView.postDate = docAttachment.date
             } else if let pollAttachment = attachment as? PollAttachment {
+                let attachmentPollView = AttachmentPollView(frame: .zero)
+                self.pollStackView.addArrangedSubview(attachmentPollView)
+                
+                attachmentPollView.answers = pollAttachment.pollAnswerAttachments
+                attachmentPollView.theme = pollAttachment.question
+                attachmentPollView.info = "Общее количество голосов: (\(pollAttachment.votes))"
                 
             } else if let linkAttachment = attachment as? LinkAttachment {
                 let attachmentLinkView = AttachmentLinkView(frame: .zero)
@@ -213,23 +222,15 @@ private extension NewsFeedTableViewCell {
         audiosStackView.isHidden = audiosStackView.arrangedSubviews.isEmpty
         linksStackView.isHidden = linksStackView.arrangedSubviews.isEmpty
         docsStackView.isHidden = docsStackView.arrangedSubviews.isEmpty
+        pollStackView.isHidden = pollStackView.arrangedSubviews.isEmpty
     }
     
     // Конфигурирование блока статистики записи
     func configurePostStatistics(for newsItem: NewsFeedPost) {
-        likesCounterLabel.text = String(newsItem.likesCount!)
-        commentsCounterLabel.text = String(newsItem.commentsCount!)
-        repostCounterLabel.text = String(newsItem.repostsCount!)
-        
-        guard let views = newsItem.views else {
-            viewsCounterLabel.isHidden = true
-            viewsCounterLabel.text = nil
-            
-            return
-        }
-        
-        viewsCounterLabel.isHidden = false
-        viewsCounterLabel.text = String(views)
+        likesCounterLabel.text = String(newsItem.likesCount ?? 0)
+        commentsCounterLabel.text = String(newsItem.commentsCount ?? 0)
+        repostCounterLabel.text = String(newsItem.repostsCount ?? 0)
+        viewsCounterLabel.text = String(newsItem.views ?? 0)
     }
     
     // Конфигурирование информации о дате поста

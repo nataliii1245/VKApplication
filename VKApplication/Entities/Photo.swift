@@ -22,9 +22,7 @@ class Photo: Object {
         guard let id = json["id"].int,
             let ownerId = json["owner_id"].int,
             let url = json["photo_1280"].string
-            else {
-                return nil
-        }
+        else { Bug.shared.catch(json); return nil }
         
         self.id = id
         self.ownerId = ownerId

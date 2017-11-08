@@ -15,18 +15,18 @@ class PollAnswerModel {
     /// Текст ответа
     let text: String
     /// Число проголосовавших за этот ответ
-    let votes: String
+    let votes: Int
     /// Рейтинг ответа
-    let rate: Int
+    let rate: Double
     
     init?(json: JSON) {
-        guard let id = json["id"].int else { return nil }
+        guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
         self.id = id
-        guard let text = json["text"].string else { return nil }
+        guard let text = json["text"].string else { Bug.shared.catch(json); return nil }
         self.text = text
-        guard let votes = json["votes"].string else { return nil }
+        guard let votes = json["votes"].int else { Bug.shared.catch(json); return nil }
         self.votes = votes
-        guard let rate = json["rate"].int else { return nil }
+        guard let rate = json["rate"].double else { Bug.shared.catch(json); return nil }
         self.rate = rate
     }
 }

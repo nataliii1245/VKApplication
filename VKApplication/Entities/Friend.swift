@@ -20,10 +20,10 @@ class Friend: Object {
     convenience init?(json: JSON) {
         self.init()
         
-        guard let id = json["id"].int else { return nil }
+        guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
         self.id = id
         guard let firstName = json["first_name"].string,
-            let lastName = json["last_name"].string else { return nil }
+            let lastName = json["last_name"].string else { Bug.shared.catch(json); return nil }
         self.name = firstName + " " + lastName
         
         if let photo_200_orig = json["photo_200_orig"].string {
@@ -33,11 +33,8 @@ class Friend: Object {
         } else if let photo_50 = json["photo_50"].string {
             self.photo = photo_50
         }  else {
-            return
+            Bug.shared.catch(json); return nil
         }
-        
-//        guard let photo = json["photo_200_orig"].string else { return nil }
-//        self.photo = photo
     }
     
     override static func primaryKey() -> String {

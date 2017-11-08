@@ -25,7 +25,7 @@ class LinkAttachment: Attachment {
     
     
     init?(json: JSON) {
-        guard let url = json["url"].string else { return nil }
+        guard let url = json["url"].string else { Bug.shared.catch(json); return nil }
         self.url = url
         self.title = json["title"].string
         self.caption = json["caption"].string

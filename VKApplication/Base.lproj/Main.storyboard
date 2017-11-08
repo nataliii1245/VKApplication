@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -328,15 +328,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsFeedTableViewCell" rowHeight="486" id="Hit-Tl-Y8L" customClass="NewsFeedTableViewCell" customModule="VKApplication" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="486"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsFeedTableViewCell" rowHeight="494" id="Hit-Tl-Y8L" customClass="NewsFeedTableViewCell" customModule="VKApplication" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="494"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hit-Tl-Y8L" id="W0N-rF-IaH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="485.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="493.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dfl-hD-Com">
-                                            <rect key="frame" x="15" y="8" width="345" height="461.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dfl-hD-Com">
+                                            <rect key="frame" x="15" y="12" width="345" height="459"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r2E-dD-uZ7" userLabel="Header Stack View">
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="40"/>
@@ -367,38 +367,38 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Текст поста" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2x-Hy-vRl">
-                                                    <rect key="frame" x="0.0" y="48" width="345" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст поста" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2x-Hy-vRl">
+                                                    <rect key="frame" x="0.0" y="48" width="345" height="11.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OIk-kc-kAR" userLabel="Repost Headers Stack View">
-                                                    <rect key="frame" x="0.0" y="70" width="345" height="50"/>
+                                                    <rect key="frame" x="0.0" y="67.5" width="345" height="50"/>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UMI-bM-677" userLabel="Images Stack View">
-                                                    <rect key="frame" x="0.0" y="128" width="345" height="50"/>
+                                                    <rect key="frame" x="0.0" y="125.5" width="345" height="50"/>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eKS-6Y-SXy" userLabel="Audios Stack View">
-                                                    <rect key="frame" x="0.0" y="186" width="345" height="50"/>
+                                                    <rect key="frame" x="0.0" y="183.5" width="345" height="50"/>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dEc-sf-oyZ" userLabel="Links Stack View">
-                                                    <rect key="frame" x="0.0" y="244" width="345" height="50"/>
+                                                    <rect key="frame" x="0.0" y="241.5" width="345" height="50"/>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UBG-1d-FTY">
-                                                    <rect key="frame" x="0.0" y="302" width="345" height="50"/>
+                                                    <rect key="frame" x="0.0" y="299.5" width="345" height="50"/>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-wX-v3e">
-                                                    <rect key="frame" x="0.0" y="360" width="345" height="50"/>
+                                                    <rect key="frame" x="0.0" y="357.5" width="345" height="50"/>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Имя автора" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebB-hg-WdN">
-                                                    <rect key="frame" x="0.0" y="418" width="345" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя автора" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebB-hg-WdN">
+                                                    <rect key="frame" x="0.0" y="415.5" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kns-2Y-89p" userLabel="Statistics Stack View">
-                                                    <rect key="frame" x="0.0" y="446.5" width="345" height="15"/>
+                                                    <rect key="frame" x="0.0" y="444" width="345" height="15"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uow-0Q-TWF" userLabel="Likes Stack View">
                                                             <rect key="frame" x="0.0" y="0.0" width="65" height="15"/>
@@ -479,8 +479,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="dfl-hD-Com" firstAttribute="leading" secondItem="W0N-rF-IaH" secondAttribute="leading" constant="15" id="1eE-WN-vBa"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dfl-hD-Com" secondAttribute="bottom" constant="8" id="Tv6-Ve-v0a"/>
-                                        <constraint firstItem="dfl-hD-Com" firstAttribute="top" secondItem="W0N-rF-IaH" secondAttribute="top" constant="8" id="aUZ-Qe-lSw"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dfl-hD-Com" secondAttribute="bottom" constant="12" id="Tv6-Ve-v0a"/>
+                                        <constraint firstItem="dfl-hD-Com" firstAttribute="top" secondItem="W0N-rF-IaH" secondAttribute="top" constant="12" id="aUZ-Qe-lSw"/>
                                         <constraint firstAttribute="trailing" secondItem="dfl-hD-Com" secondAttribute="trailing" constant="15" id="jSp-U2-GpA"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -494,6 +494,7 @@
                                     <outlet property="imagesStackView" destination="UMI-bM-677" id="9IM-hM-4P9"/>
                                     <outlet property="likesCounterLabel" destination="xNn-XK-Yhy" id="JG9-aJ-o9s"/>
                                     <outlet property="linksStackView" destination="dEc-sf-oyZ" id="slU-h5-Fvz"/>
+                                    <outlet property="pollStackView" destination="4SQ-wX-v3e" id="AgC-BK-r8t"/>
                                     <outlet property="postTextLabel" destination="s2x-Hy-vRl" id="87x-Hm-RrS"/>
                                     <outlet property="repostCounterLabel" destination="UXJ-tS-OKL" id="36T-o6-xYG"/>
                                     <outlet property="repostHeadersStackView" destination="OIk-kc-kAR" id="SAU-OI-hu5"/>

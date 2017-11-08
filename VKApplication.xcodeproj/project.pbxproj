@@ -54,6 +54,7 @@
 		A3A8C9B11FA2909400388BCF /* LinkAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C9B01FA2909400388BCF /* LinkAttachment.swift */; };
 		A3BFC32F1FABA43900616E3D /* PollAnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BFC32E1FABA43900616E3D /* PollAnswerModel.swift */; };
 		A3BFC3321FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */; };
+		A3C5085C1FAD0935006734C8 /* UIImage+MaskWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */; };
 		A3C713CB1F94764800387AD6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C713CA1F94764800387AD6 /* TabBarController.swift */; };
 		A3D4B0BF1FA87C9E00DFC3FB /* AttachmentLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D4B0BE1FA87C9E00DFC3FB /* AttachmentLinkView.xib */; };
 		A3D4B0C11FA8842500DFC3FB /* AttachmentLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4B0C01FA8842500DFC3FB /* AttachmentLinkView.swift */; };
@@ -130,6 +131,7 @@
 		A3A8C9B01FA2909400388BCF /* LinkAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAttachment.swift; sourceTree = "<group>"; };
 		A3BFC32E1FABA43900616E3D /* PollAnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAnswerModel.swift; sourceTree = "<group>"; };
 		A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellDataSource.swift; sourceTree = "<group>"; };
+		A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+MaskWithColor.swift"; sourceTree = "<group>"; };
 		A3C713CA1F94764800387AD6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = VKApplication/Presentation/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		A3D4B0BE1FA87C9E00DFC3FB /* AttachmentLinkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentLinkView.xib; sourceTree = "<group>"; };
 		A3D4B0C01FA8842500DFC3FB /* AttachmentLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentLinkView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				A38022DA1FA08EEB003954F8 /* UIView+LayoutAttachAll.swift */,
 				A38022DC1FA08F10003954F8 /* UIView+FromNib.swift */,
 				A38022E01FA0A3A6003954F8 /* UIStackView+Clean.swift */,
+				A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3F92C591F94E16100C446A2 /* GetUserPhotosResponse.swift in Sources */,
 				A38022CA1F9F9994003954F8 /* NewsFeedService.swift in Sources */,
+				A3C5085C1FAD0935006734C8 /* UIImage+MaskWithColor.swift in Sources */,
 				A3BFC32F1FABA43900616E3D /* PollAnswerModel.swift in Sources */,
 				A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */,
 				A38022EC1FA0AB7E003954F8 /* PollAttachment.swift in Sources */,

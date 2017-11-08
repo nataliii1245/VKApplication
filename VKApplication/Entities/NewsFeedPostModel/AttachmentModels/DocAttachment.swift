@@ -18,17 +18,17 @@ class DocAttachment: Attachment {
     let date: Int
     
     init?(json: JSON) {
-        guard let id = json["id"].int else { return nil }
+        guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
         self.id = id
-        guard let title = json["title"].string else { return nil }
+        guard let title = json["title"].string else { Bug.shared.catch(json); return nil }
         self.title = title
-        guard let size = json["size"].int else { return nil }
+        guard let size = json["size"].int else { Bug.shared.catch(json); return nil }
         self.size = size
-        guard let ext = json["ext"].string else { return nil }
+        guard let ext = json["ext"].string else { Bug.shared.catch(json); return nil }
         self.ext = ext
-        guard let url = json["url"].string else { return nil }
+        guard let url = json["url"].string else { Bug.shared.catch(json); return nil }
         self.url = url
-        guard let date = json["date"].int else { return nil }
+        guard let date = json["date"].int else { Bug.shared.catch(json); return nil }
         self.date = date
     }
     

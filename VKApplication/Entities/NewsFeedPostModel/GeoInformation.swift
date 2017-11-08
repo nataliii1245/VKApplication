@@ -25,19 +25,19 @@ class GeoInformation {
     let showmap: Bool
     
     init?(json: JSON) {
-        guard let place_id = json["place_id"].int else { return nil }
+        guard let place_id = json["place_id"].int else { Bug.shared.catch(json); return nil }
         self.place_id = place_id
-        guard let title = json["title"].string else { return nil }
+        guard let title = json["title"].string else { Bug.shared.catch(json); return nil }
         self.title = title
-        guard let typeOfPlace = json["typeOfPlace"].string else { return nil }
+        guard let typeOfPlace = json["typeOfPlace"].string else { Bug.shared.catch(json); return nil }
         self.typeOfPlace = typeOfPlace
-        guard let country_id = json["country_id"].int else { return nil }
+        guard let country_id = json["country_id"].int else { Bug.shared.catch(json); return nil }
         self.country_id = country_id
-        guard let city_id = json["city_id"].int else { return nil }
+        guard let city_id = json["city_id"].int else { Bug.shared.catch(json); return nil }
         self.city_id = city_id
-        guard let address = json["address"].string else { return nil }
+        guard let address = json["address"].string else { Bug.shared.catch(json); return nil }
         self.address = address
-        guard let showmap = json["showmap"].int else { return nil }
+        guard let showmap = json["showmap"].int else { Bug.shared.catch(json); return nil }
         self.showmap = showmap == 1
     }
     

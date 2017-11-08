@@ -22,15 +22,15 @@ class PollAttachment: Attachment {
     let pollAnswerAttachments:[PollAnswerModel]
     
     init?(json: JSON) {
-        guard let id = json["id"].int else { return nil }
+        guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
         self.id = id
-        guard let owner_id = json["owner_id"].int else { return nil }
+        guard let owner_id = json["owner_id"].int else { Bug.shared.catch(json); return nil }
         self.owner_id = owner_id
-        guard let question = json["question"].string else { return nil }
+        guard let question = json["question"].string else { Bug.shared.catch(json); return nil }
         self.question = question
-        guard let votes = json["votes"].int else { return nil }
+        guard let votes = json["votes"].int else { Bug.shared.catch(json); return nil }
         self.votes = votes
-        guard let pollAnswerAttachmentsArray = json["answers"].array else { return nil }
+        guard let pollAnswerAttachmentsArray = json["answers"].array else { Bug.shared.catch(json); return nil }
         var pollAnswerArray: [PollAnswerModel] = []
         for pollAnswer in pollAnswerAttachmentsArray {
             if let answer = PollAnswerModel(json: pollAnswer) {

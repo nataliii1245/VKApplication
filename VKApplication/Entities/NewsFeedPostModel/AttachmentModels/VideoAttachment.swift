@@ -19,9 +19,9 @@ class VideoAttachment: Attachment {
     let height: Int
     
     init?(json: JSON) {
-        guard let id = json["id"].int else { return nil }
+        guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
         self.id = id
-        guard let title = json["title"].string else { return nil }
+        guard let title = json["title"].string else { Bug.shared.catch(json); return nil }
         self.title = title
         
         if let photo_800 = json["photo_800"].string {
@@ -41,12 +41,12 @@ class VideoAttachment: Attachment {
             width = 130
             height = 98
         } else {
-            return nil
+            Bug.shared.catch(json); return nil
         }
         
-        guard let access_key = json["access_key"].string else { return nil }
+        guard let access_key = json["access_key"].string else { Bug.shared.catch(json); return nil }
         self.access_key = access_key
-        guard let duration = json["duration"].int else { return nil }
+        guard let duration = json["duration"].int else { Bug.shared.catch(json); return nil }
         self.duration = duration
     }
 }

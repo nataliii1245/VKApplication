@@ -44,6 +44,7 @@ extension NewsFeedTableViewController {
             self.news = news
             self.groupsSource = groups
             self.profilesSource = profiles
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

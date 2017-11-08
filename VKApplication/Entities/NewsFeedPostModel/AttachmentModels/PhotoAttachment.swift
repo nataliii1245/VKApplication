@@ -20,7 +20,7 @@ class PhotoAttachment: Attachment {
     let height: Int?
     
     init?(json: JSON) {
-        guard let id = json["id"].int else { return nil }
+        guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
         self.id = id
         
         if let photo_2560 = json["photo_2560"].string {

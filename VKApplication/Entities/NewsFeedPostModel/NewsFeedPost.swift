@@ -46,32 +46,28 @@ class NewsFeedPost {
         self.type = json["type"].string
         
         if !isRepost {
-            guard let source_id = json["source_id"].int else { return nil }
+            guard let source_id = json["source_id"].int else { Bug.shared.catch(json); return nil }
             self.source_id = source_id
         } else {
-            guard let owner_id = json["owner_id"].int else { return nil }
+            guard let owner_id = json["owner_id"].int else { Bug.shared.catch(json); return nil }
             self.owner_id = owner_id
         }
         
-        guard let date = json["date"].int else { return nil }
+        guard let date = json["date"].int else { Bug.shared.catch(json); return nil }
         self.date = date
         
         self.post_type = json["post_type"].string
-        
-        //guard let post_id = json["post_id"].int else { return nil }
         self.post_id = json["post_id"].int
         
-        guard let text = json["text"].string else { return nil }
+        guard let text = json["text"].string else { Bug.shared.catch(json); return nil }
         self.text = text
-        //guard let commentsCount = json["comments"]["count"].int else { return nil }
+        
         self.commentsCount = json["comments"]["count"].int
-        //guard let likesCount = json["likes"]["count"].int else { return nil }
         self.likesCount = json["likes"]["count"].int
-//        guard let repostsCount = json["reposts"]["count"].int else { return nil }
         self.repostsCount = json["reposts"]["count"].int
         self.views = json["views"]["count"].int
-        var repostPostsArray: [NewsFeedPost] = []
         
+        var repostPostsArray: [NewsFeedPost] = []
         if let repostJSONArray = json["copy_history"].array, !repostJSONArray.isEmpty {
             for repostJSON in repostJSONArray {
                 guard let repostNewsFeedPost = NewsFeedPost(json: repostJSON, isRepost: true ) else { continue }
@@ -89,7 +85,9 @@ class NewsFeedPost {
         }
         self.attachments = attachments
         
-        let geo = GeoInformation(json: json["geo"])
-        self.geo = geo
+//        let geo = GeoInformation(json: json["geo"])
+//        self.geo = geo
+        self.geo = nil
     }
+    
 }
