@@ -21,6 +21,7 @@ final class AttachmentDocView: UIView {
     ///
     @IBOutlet private weak var date: UILabel!
     
+    @IBOutlet private weak var icon: UIImageView!
     // MARK: - Публичные свойства
     
     /// Дата поста, с которого сделан репост
@@ -32,6 +33,26 @@ final class AttachmentDocView: UIView {
         }
     }
     
+    /// Расширение файла
+    @IBInspectable
+    var `extension`: String = "" {
+        willSet {
+            switch newValue {
+            case "jpg":
+                if let url = url {
+                    icon.sd_setImage(with: url) { image, error, type, url in
+                        print()
+                    }
+                } else {
+                    icon.image = #imageLiteral(resourceName: "file")
+                }
+            default:
+                icon.image = #imageLiteral(resourceName: "file")
+            }
+        }
+    }
+    
+    var url: URL?
     
     // MARK: - Инициализация
     
@@ -93,10 +114,8 @@ private extension AttachmentDocView {
         let view = fromNib()
         self.addSubview(view)
         
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layoutAttachAll(to: self)
-        
     }
     
 }

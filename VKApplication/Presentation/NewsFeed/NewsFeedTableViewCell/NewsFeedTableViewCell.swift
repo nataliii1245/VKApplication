@@ -189,7 +189,10 @@ private extension NewsFeedTableViewCell {
                 let attachmentDocView = AttachmentDocView(frame: .zero)
                 self.docsStackView.addArrangedSubview(attachmentDocView)
                 
+                attachmentDocView.size = String(docAttachment.size)
                 attachmentDocView.nameAndExtension = docAttachment.title
+                attachmentDocView.url = URL(string: docAttachment.url)
+                attachmentDocView.extension = docAttachment.ext
                 attachmentDocView.postDate = docAttachment.date
             } else if let pollAttachment = attachment as? PollAttachment {
                 let attachmentPollView = AttachmentPollView(frame: .zero)
