@@ -37,6 +37,8 @@ class NewsFeedPost {
     /// ID источника репоста
     var owner_id: Int = 0
     
+    var signer_id: Int?
+    
     let isRepost: Bool = false
     
     var repostPosts: [NewsFeedPost] = []
@@ -66,6 +68,7 @@ class NewsFeedPost {
         self.likesCount = json["likes"]["count"].int
         self.repostsCount = json["reposts"]["count"].int
         self.views = json["views"]["count"].int
+        self.signer_id = json["signer_id"].int
         
         var repostPostsArray: [NewsFeedPost] = []
         if let repostJSONArray = json["copy_history"].array, !repostJSONArray.isEmpty {

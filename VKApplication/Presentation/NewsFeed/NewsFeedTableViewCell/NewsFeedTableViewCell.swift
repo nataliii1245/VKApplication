@@ -36,6 +36,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     
     /// Автор записи
     @IBOutlet weak var sourceAuthorLabel: UILabel!
+    @IBOutlet weak var authorImage:UIImageView!
     
     @IBOutlet weak var likesCounterLabel: UILabel!
     @IBOutlet weak var commentsCounterLabel: UILabel!
@@ -64,6 +65,7 @@ extension NewsFeedTableViewCell {
         configureRepostBlock(for: newsItem)
         configureAttachments(for: newsItem)
         configurePostStatistics(for: newsItem)
+        configureSigner_IdInformation(for: newsItem)
     }
     
 }
@@ -94,6 +96,7 @@ private extension NewsFeedTableViewCell {
         pollStackView.isHidden = true
         
         sourceAuthorLabel.isHidden = true
+        authorImage.isHidden = true
     }
 
     func configureAuthorInformation(for newsItem: NewsFeedPost) {
@@ -159,6 +162,30 @@ private extension NewsFeedTableViewCell {
         postTextLabel.text = newsItem.text
     }
 
+    // Конфигурирование подписи автора поста
+    func configureSigner_IdInformation(for newsItem: NewsFeedPost) {
+        sourceAuthorLabel.isHidden = newsItem.signer_id == nil
+        authorImage.isHidden = newsItem.signer_id == nil
+        if let signerId = newsItem.signer_id {
+            if signerId < 0 {
+                if let group = dataSource?.getGroupBy(id: -signerId) {
+                    sourceAuthorLabel.text = group.name
+                } else {
+                    sourceAuthorLabel.isHidden = true
+                    authorImage.isHidden = true
+                }
+            } else {
+                if let user = dataSource?.getProfileBy(id: signerId) {
+                    sourceAuthorLabel.text = user.name
+                } else {
+                    sourceAuthorLabel.isHidden = true
+                    authorImage.isHidden = true
+                }
+            }
+        }
+        
+    }
+    
     func configureAttachments(for newsItem: NewsFeedPost) {
         for attachment in newsItem.attachments {
             if let photoAttachment = attachment as? PhotoAttachment {
@@ -251,3 +278,6 @@ let dateFormatter: DateFormatter = {
     
     return dateFormatter
 }()
+
+
+// MARK: - TODO создать created_by
