@@ -22,14 +22,19 @@ class PhotoService {
             "v" : "5.68"
         ]
         
-        sessionManager.request("https://api.vk.com/method/photos.getAll", parameters: parameters).responseJSON { response in
+        sessionManager.request("https://api.vk.com/method/photos.getAll", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
                 let photosResponse = GetUserPhotosResponse(json: JSON(value))
                 let photos = photosResponse?.photos
-                completion(photos!)
+                
+                DispatchQueue.main.async {
+                    completion(photos ?? [])
+                }
             case .failure(let error):
-                failure(error)
+                DispatchQueue.main.async {
+                    failure(error)
+                }
             }
         }
     }

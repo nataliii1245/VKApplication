@@ -17,7 +17,7 @@ class NewsFeedService {
     
     // Создание запроса на получение новостей
     
-    class func getNewsFeed(_ completion: @escaping ([NewsFeedPost], [Group], [Friend]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
+    class func getNewsFeed(_ completion: @escaping ([NewsFeedPost], [Group], [Friend], String?) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
         let parameters: Parameters = [
             "filters" : "post",
             "count" : "100",
@@ -25,8 +25,8 @@ class NewsFeedService {
             "v" : 5.68
         ]
         
-        print(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)
-        let request = sessionManager.request("https://api.vk.com/method/newsfeed.get", parameters: parameters).responseJSON { response in
+//        print(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)
+        let request = sessionManager.request("https://api.vk.com/method/newsfeed.get", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -34,9 +34,15 @@ class NewsFeedService {
                 let news = newsFeedResponse.newsFeedPosts
                 let groups = newsFeedResponse.groupsSource
                 let profiles = newsFeedResponse.profilesSource
-                completion(news, groups, profiles)
+                let nextFrom = newsFeedResponse.nextFrom
+                
+                DispatchQueue.main.async {
+                    completion(news, groups, profiles, nextFrom)
+                }
             case .failure(let error):
-                failure(error)
+                DispatchQueue.main.async {
+                    failure(error)
+                }
             }
         }
         

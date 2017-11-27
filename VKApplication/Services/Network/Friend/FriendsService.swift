@@ -22,14 +22,19 @@ class FriendsService {
             "order": "hints"
         ]
         
-        let request = sessionManager.request("https://api.vk.com/method/friends.get", parameters: parameters).responseJSON { response in
+        let request = sessionManager.request("https://api.vk.com/method/friends.get", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
                 let friendsResponse = GetUserFriendsResponse(json: JSON(value))
                 let friends = friendsResponse?.friends
-                completion(friends!)
+                
+                DispatchQueue.main.async {
+                    completion(friends ?? [])
+                }
             case .failure(let error):
-                failure(error)
+                DispatchQueue.main.async {
+                    failure(error)
+                }
             }
         }
         

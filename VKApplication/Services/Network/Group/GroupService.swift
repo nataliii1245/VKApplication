@@ -21,14 +21,19 @@ class GroupService {
             "extended" : "1"
         ]
         
-        let request = sessionManager.request("https://api.vk.com/method/groups.get", parameters: parameters).responseJSON { response in
+        let request = sessionManager.request("https://api.vk.com/method/groups.get", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
                 let groupsResponse = GetUserGroupsResponse(json: JSON(value))
                 let groups = groupsResponse?.groups
-                completion(groups!)
+                
+                DispatchQueue.main.async {
+                    completion(groups ?? [])
+                }
             case .failure(let error):
-                failure(error)
+                DispatchQueue.main.async {
+                    failure(error)
+                }
             }
         }
         
@@ -39,25 +44,28 @@ class GroupService {
     class func searchGroups(keyWords: String, _ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) -> Request? {
         
         if !keyWords.isEmpty {
-        let parameters: Parameters = [
-            "q" : "\(keyWords)",
-            "v" : "5.68",
-            "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)"
-        ]
-        
-        let request = sessionManager.request("https://api.vk.com/method/groups.search", parameters: parameters).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let groupsResponse = SearchGroupsResponse(json: JSON(value))
-                let groups = groupsResponse?.groups
-                completion(groups!)
-            case .failure(let error):
-                failure(error)
-            }
-        }
-        
-            return request
+            let parameters: Parameters = [
+                "q" : "\(keyWords)",
+                "v" : "5.68",
+                "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)"
+            ]
             
+            let request = sessionManager.request("https://api.vk.com/method/groups.search", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
+                switch response.result {
+                case .success(let value):
+                    let groupsResponse = SearchGroupsResponse(json: JSON(value))
+                    let groups = groupsResponse?.groups
+                    
+                    DispatchQueue.main.async {
+                        completion(groups ?? [])
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        failure(error)
+                    }
+                }
+            }
+            return request
         } else {
             return(nil)
         }
@@ -72,13 +80,18 @@ class GroupService {
             "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)"
         ]
         
-        sessionManager.request("https://api.vk.com/method/groups.join", parameters: parameters).responseJSON { response in
+        sessionManager.request("https://api.vk.com/method/groups.join", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
                 let joinGroupsResponse = JoinGroupResponse(json: JSON(value))
-                completion((joinGroupsResponse != nil))
+                
+                DispatchQueue.main.async {
+                    completion((joinGroupsResponse != nil))
+                }
             case .failure(let error):
-                failure(error)
+                DispatchQueue.main.async {
+                    failure(error)
+                }
             }
         }
     }
@@ -92,13 +105,18 @@ class GroupService {
             "access_token" : "\(KeychainWrapper.standard.string(forKey: "token")!)"
         ]
         
-        sessionManager.request("https://api.vk.com/method/groups.leave", parameters: parameters).responseJSON { response in
+        sessionManager.request("https://api.vk.com/method/groups.leave", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
                 let leaveGroupsResponse = LeaveGroupResponse(json: JSON(value))
-                completion((leaveGroupsResponse != nil))
+                
+                DispatchQueue.main.async {
+                    completion((leaveGroupsResponse != nil))
+                }
             case .failure(let error):
-                failure(error)
+                DispatchQueue.main.async {
+                    failure(error)
+                }
             }
         }
     }
