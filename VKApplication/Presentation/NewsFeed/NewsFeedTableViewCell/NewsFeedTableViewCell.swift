@@ -267,6 +267,7 @@ private extension NewsFeedTableViewCell {
     func configureDatePostInformation(for newsItem: NewsFeedPost) {
         let date = Date(timeIntervalSince1970: Double(newsItem.date) as TimeInterval)
         dateLabel.text = dateFormatter.string(from: date)
+        dateLabel.text = DateTimeFormatter.completeDateShortMonthFormatter.string(from: date)
     }
     
 }

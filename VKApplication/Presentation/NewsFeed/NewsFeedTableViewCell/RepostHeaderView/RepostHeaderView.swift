@@ -41,6 +41,7 @@ final class RepostHeaderView: UIView {
         willSet {
             let date = Date(timeIntervalSince1970: Double(newValue) as TimeInterval)
             postDateLabel.text = dateFormatter.string(from: date)
+            postDateLabel.text = DateTimeFormatter.completeDateShortMonthFormatter.string(from: date)
         }
     }
     

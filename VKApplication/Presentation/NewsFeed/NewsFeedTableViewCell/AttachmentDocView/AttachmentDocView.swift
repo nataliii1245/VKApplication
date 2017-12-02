@@ -29,7 +29,7 @@ final class AttachmentDocView: UIView {
     var postDate: Int = 0 {
         willSet {
             let date = Date(timeIntervalSince1970: Double(newValue) as TimeInterval)
-            self.date.text = dateFormatter.string(from: date)
+            self.date.text = DateTimeFormatter.completeDateShortMonthFormatter.string(from: date)
         }
     }
     
