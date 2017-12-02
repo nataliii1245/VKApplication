@@ -9,9 +9,10 @@
 import Foundation
 import RealmSwift
 
+/// Менеджер работы с базой данных Realm
 final class DatabaseManager {
  
-    // MARK: - Friends
+    // MARK: - Публичные методы
     
     /// Загрузка списка друзей из БД
     class func loadFriends() -> Results<Friend>? {
@@ -63,8 +64,6 @@ final class DatabaseManager {
         }
     }
     
-    // MARK: - Groups
-    
     /// Загрузка списка групп из бд
     class func loadGroups() -> Results<Group>? {
         do {
@@ -115,8 +114,6 @@ final class DatabaseManager {
         }
     }
     
-    // MARK: - Photos
-    
     /// Сохранение списка фотографий в бд
     class func savePhotos(_ photos: [Photo]) {
         do {
@@ -142,6 +139,7 @@ final class DatabaseManager {
             print(error)
         }
     }
+    
     /// Загрузка списка фотографий из бд
     class func loadPhotos() -> [Photo] {
         do {

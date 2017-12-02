@@ -9,18 +9,17 @@
 import UIKit
 import SDWebImage
 
-class FriendListTableViewCell: UITableViewCell {
+final class FriendListTableViewCell: UITableViewCell {
 
+    // MARK: - Outlet
+    
     @IBOutlet private weak var friendName: UILabel!
     @IBOutlet weak var friendPhoto: UIImageView!
+
     
+    // MARK: - Публичные методы
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        friendPhoto.layer.cornerRadius = friendPhoto.bounds.width / 2
-        friendPhoto.clipsToBounds = true
-    }
+    /// Сконфигурировать ячейку
     
     func configure(for friend: Friend) {
         friendName.text = friend.name
@@ -29,8 +28,22 @@ class FriendListTableViewCell: UITableViewCell {
         friendPhoto.sd_setImage(with: imageUrl, placeholderImage: nil)
     }
     
+    /// Очистить ячейку
     func clean() {
         friendName.text = nil
         friendPhoto.image = nil
     }
+    
+}
+
+
+// MARK: - NSObject
+extension FriendListTableViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        friendPhoto.layer.cornerRadius = friendPhoto.bounds.width / 2
+        friendPhoto.clipsToBounds = true
+    }
+    
 }

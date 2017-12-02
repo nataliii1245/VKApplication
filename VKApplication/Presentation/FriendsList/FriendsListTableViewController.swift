@@ -10,15 +10,23 @@ import UIKit
 import RealmSwift
 import Alamofire
 
-class FriendsListTableViewController: UITableViewController {
+final class FriendsListTableViewController: UITableViewController {
 
+    // MARK: - Приватные свойства
+    
     /// Друзья
     private var friends: Results<Friend>?
+    
+    
+    // MARK: - Публичные свойства
     
     /// Активный запрос на получение друзей
     var activeRequest: Request?
     /// Токен Realm
     var token: NotificationToken?
+    
+    
+    // MARK: - Публичные методы
     
     func pairFriendListTableAndRealm() {
         friends = DatabaseManager.loadFriends()
@@ -43,6 +51,7 @@ class FriendsListTableViewController: UITableViewController {
     
 }
 
+
 // MARK: - UIViewController
 
 extension FriendsListTableViewController {
@@ -55,7 +64,7 @@ extension FriendsListTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            
+        
         // Запрашиваем заново друзей
         self.activeRequest?.cancel()
         self.activeRequest = FriendsService.getUserFriends({ friends in
@@ -74,8 +83,7 @@ extension FriendsListTableViewController {
                 self.present(alertController, animated: true)
             }
         }
-        }
-    
+    }
     
     // Передача объекта типа Friend на экран коллекции фотографий пользователя
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -132,4 +140,3 @@ extension FriendsListTableViewController {
     }
     
 }
-

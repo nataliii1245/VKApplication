@@ -6,10 +6,10 @@
 //
 
 protocol NewsFeedTableViewCellDataSource: class {
-    
-    ///
+
+    /// Получить группу по идентификатору
     func getGroupBy(id: Int) -> Group?
-    ///
+    /// Получить информацию о профиле по идентификатору
     func getProfileBy(id: Int) -> Friend?
     
 }

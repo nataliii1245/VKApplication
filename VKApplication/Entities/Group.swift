@@ -9,12 +9,21 @@
 import RealmSwift
 import SwiftyJSON
 
-class Group: Object {
+final class Group: Object {
     
+    // MARK: - Публичные свойства
+    
+    /// Идентификатор группы
     @objc dynamic var id = 0
+    /// Название группы
     @objc dynamic var name = ""
+    /// Ссылка на аватар группы
     @objc dynamic var photo = ""
+    /// Тип группы
     @objc dynamic var type = ""
+    
+    
+    // MARK: - Инициализация
     
     convenience init?(json: JSON) {
         self.init()
@@ -29,12 +38,13 @@ class Group: Object {
         self.name = name
         self.photo = photo
         self.type = type
-        
     }
+    
+    
+    // MARK: - Object
     
     override static func primaryKey() -> String? {
         return "id"
     }
-    
-}
 
+}

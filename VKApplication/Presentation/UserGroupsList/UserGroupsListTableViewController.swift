@@ -10,44 +10,45 @@ import UIKit
 import RealmSwift
 import Alamofire
 
-class UserGroupsListTableViewController: UITableViewController {
+final class UserGroupsListTableViewController: UITableViewController {
+    
+    // MARK: - Публичные свойства
     
     let groupsSearchController = UISearchController(searchResultsController: nil)
-    
     /// Группы
     var groups: Results<Group>?
     /// Отфильтрованные группы
     var filteredGroups = [Group]()
-    
     /// Активный запрос на получение групп
     var activeRequest: Request?
     /// Токен Realm
     var token: NotificationToken?
     
+    
+    // MARK: - Публичные свойства
+    
     /// Есть ли текст в поисковой строке
     var isSearchBarEmpty: Bool {
         return groupsSearchController.searchBar.text?.isEmpty ?? true
     }
-    
-    /// Отфильтрованы ли данный
+    /// Отфильтрованы ли данные
     var isFiltering: Bool {
         return groupsSearchController.isActive && !isSearchBarEmpty
     }
     
+    
+    // MARK: - Публичные методы
+    
     /// Синхронизация между базой данных и таблицей
     func pairGroupListTableAndRealm() {
-        
         // Загружаем группы
         groups = DatabaseManager.loadGroups()
         // Добавляем блок уведомлений
         token = groups?.observe { [weak self] changes in
-            
             // Если можем создать экземпляр контроллера
             guard let `self` = self else { return }
-            
             // Получаем ссылку на tableView
             guard let tableView = self.tableView else { return }
-            
             // Смотрим изменения
             switch changes {
             case .initial:
@@ -73,14 +74,12 @@ class UserGroupsListTableViewController: UITableViewController {
     
     /// Фильтрация групп согласно поисковой строке
     func filterContentForSearchText(_ searchText: String) {
-        
         // Defer - выполнится в любом случае
         defer { self.tableView.reloadData() }
         guard let groups = groups else {
             filteredGroups.removeAll()
             return
         }
-        
         // Отфильтрованные группы
         filteredGroups = groups.filter { $0.name.lowercased().contains(searchText.lowercased()) }
     }
@@ -89,7 +88,7 @@ class UserGroupsListTableViewController: UITableViewController {
     func leaveGroup(group: Group) {
         GroupService.leaveGroup(id: group.id, { isSuccess in
             let groupName = group.name
-            
+
             // Удаляем группу из БД
             DatabaseManager.removeGroup(group)
             
@@ -121,6 +120,7 @@ class UserGroupsListTableViewController: UITableViewController {
         groupsSearchController.searchResultsUpdater = self
         groupsSearchController.dimsBackgroundDuringPresentation = false
     }
+    
 }
 
 // MARK: - UIViewController

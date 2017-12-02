@@ -8,7 +8,9 @@
 
 import SwiftyJSON
 
-class PollAnswerModel {
+final class PollAnswerModel {
+    
+    // MARK: - Публичные свойства
     
     /// Идентификатор ответа
     let id: Int
@@ -18,6 +20,9 @@ class PollAnswerModel {
     let votes: Int
     /// Рейтинг ответа
     let rate: Double
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
@@ -29,4 +34,5 @@ class PollAnswerModel {
         guard let rate = json["rate"].double else { Bug.shared.catch(json); return nil }
         self.rate = rate
     }
+    
 }

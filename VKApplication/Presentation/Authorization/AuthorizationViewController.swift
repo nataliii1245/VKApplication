@@ -10,7 +10,9 @@ import Foundation
 import WebKit
 import SwiftKeychainWrapper
 
-class AuthorizationViewController: UIViewController {
+final class AuthorizationViewController: UIViewController {
+    
+    // MARK: - Outlet
     
     @IBOutlet weak var webView: WKWebView! {
         didSet{
@@ -18,6 +20,12 @@ class AuthorizationViewController: UIViewController {
         }
     }
     
+}
+
+
+// MARK: - UIViewController
+
+extension AuthorizationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +39,7 @@ class AuthorizationViewController: UIViewController {
 
 extension AuthorizationViewController: WKNavigationDelegate {
     
-    // Метод вызывается до того, как произойдет переход на другую страницу
+    /// Метод вызывается до того, как произойдет переход на другую страницу
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         
         // Проверяем: если экран отображает не токен, то позволяем переход

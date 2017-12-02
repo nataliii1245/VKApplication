@@ -18,7 +18,7 @@ final class AttachmentVideoView: UIView {
     @IBOutlet private weak var imageView: UIImageView!
     /// Продолжительность видео
     @IBOutlet private weak var durationLabel: UILabel!
-    
+    /// Иконка воспроизведения
     @IBOutlet private weak var playIconImageView: UIImageView!
     
     
@@ -36,7 +36,6 @@ final class AttachmentVideoView: UIView {
             }
         }
     }
-    
     /// Длительность
     @IBInspectable
     var duration: Int = 0 {
@@ -48,6 +47,7 @@ final class AttachmentVideoView: UIView {
     
     // MARK: - Приватные свойства
     
+    /// Констрейнты соотношения сторон
     private weak var imageViewAspectRatioLayoutConstraint: NSLayoutConstraint?
     
     
@@ -104,6 +104,28 @@ private extension AttachmentVideoView {
 }
 
 
+// MARK: - Приватные методы
+
+private extension AttachmentVideoView {
+    
+    /// Подготовка корневого view
+    func setupRootView() {
+        let view = fromNib()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(view)
+        view.layoutAttachAll(to: self)
+    }
+    
+    /// Настройка
+    func setup() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        playIconImageView.clipsToBounds = true
+    }
+    
+}
+
+
 // MARK: - UIView
 
 extension AttachmentVideoView {
@@ -125,28 +147,6 @@ extension AttachmentVideoView {
         
         imageViewAspectRatioLayoutConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: aspectRatio)
         imageViewAspectRatioLayoutConstraint?.isActive = true
-    }
-    
-}
-
-
-// MARK: - Приватные методы
-
-private extension AttachmentVideoView {
-    
-    /// Подготовка корневого view
-    func setupRootView() {
-        let view = fromNib()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.addSubview(view)
-        view.layoutAttachAll(to: self)
-    }
-    
-    /// Настройка
-    func setup() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        playIconImageView.clipsToBounds = true
     }
     
 }

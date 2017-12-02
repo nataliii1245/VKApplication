@@ -10,12 +10,21 @@ import Foundation
 import RealmSwift
 import SwiftyJSON
 
-class Friend: Object {
+final class Friend: Object {
     
+    // MARK: - Публичные свойства
+    
+    /// id пользователя
     @objc dynamic var id = 0
+    /// Имя пользователя
     @objc dynamic var name = ""
+    /// Ссылка на аватар пользователя
     @objc dynamic var photo = ""
+    /// Номер в порядке отображения
     @objc dynamic var displaySequence = 0
+    
+    
+    // MARK: - Инициализация
     
     convenience init?(json: JSON) {
         self.init()
@@ -37,8 +46,11 @@ class Friend: Object {
         }
     }
     
-    override static func primaryKey() -> String {
+    
+    // MARK: - Object
+    
+    override static func primaryKey() -> String? {
         return "id"
     }
-    
+
 }

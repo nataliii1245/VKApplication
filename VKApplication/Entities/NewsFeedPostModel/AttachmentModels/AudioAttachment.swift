@@ -8,12 +8,21 @@
 
 import SwiftyJSON
 
-class AudioAttachment: Attachment {
+final class AudioAttachment: Attachment {
     
+    // MARK: - Публичные свойства
+    
+    /// Идентификатор аудиозаписи
     let id: Int
+    /// Имя артиста
     let artist: String
+    /// Название аудиозаписи
     let title: String
+    /// Длительность аудиозаписи
     let duration: Int
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let id = json["id"].int else { Bug.shared.catch(json); return nil }

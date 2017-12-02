@@ -8,7 +8,9 @@
 
 import UIKit
 
-class NewsFeedTableViewCell: UITableViewCell {
+// TODO: - создать created_by
+
+final class NewsFeedTableViewCell: UITableViewCell {
    
     // MARK: - Outlet
     
@@ -18,12 +20,10 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var authorNameLabel: UILabel!
     /// Дата
     @IBOutlet weak var dateLabel: UILabel!
-    
     /// Текст поста
     @IBOutlet weak var postTextLabel: UILabel!
     
-
-    ///
+    /// Стек шапок репостов
     @IBOutlet weak var repostHeadersStackView: UIStackView!
     /// Стек фото/видео-вложений
     @IBOutlet weak var imagesStackView: UIStackView!
@@ -31,22 +31,29 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var audiosStackView: UIStackView!
     /// Стек ссылок-вложений
     @IBOutlet weak var linksStackView: UIStackView!
+    /// Стек файлов-вложений
     @IBOutlet weak var docsStackView: UIStackView!
+    /// Стек опросов-вложений
     @IBOutlet weak var pollStackView: UIStackView!
     
-    /// Автор записи
+    /// Имя автор записи
     @IBOutlet weak var sourceAuthorLabel: UILabel!
+    /// Аватар автора записи
     @IBOutlet weak var authorImage:UIImageView!
     
+    /// Количество лайков
     @IBOutlet weak var likesCounterLabel: UILabel!
+    /// Количество комментариев
     @IBOutlet weak var commentsCounterLabel: UILabel!
+    /// Количество просмотров
     @IBOutlet weak var viewsCounterLabel: UILabel!
+    /// Количество репостов
     @IBOutlet weak var repostCounterLabel: UILabel!
     
     
     // MARK: - Публичные свойства
-    
     weak var dataSource: NewsFeedTableViewCellDataSource?
+    weak var delegate: NewsFeedTableViewCellDelegate?
     
 }
 
@@ -55,7 +62,7 @@ class NewsFeedTableViewCell: UITableViewCell {
 
 extension NewsFeedTableViewCell {
     
-    /// Настройка
+    /// Настройка ячейки
     func configure(for newsItem: NewsFeedPost) {
         clean()
         
@@ -99,6 +106,7 @@ private extension NewsFeedTableViewCell {
         authorImage.isHidden = true
     }
 
+    /// Сконфигурировать информацию об авторе/сообществе, которое опубликовало запись
     func configureAuthorInformation(for newsItem: NewsFeedPost) {
         
         // Настройка ImageView
@@ -123,7 +131,7 @@ private extension NewsFeedTableViewCell {
         }
     }
     
-    // Конфигурирование блока информации об исходной записи( для записей, являющихся репостом)
+    /// Конфигурирование блока информации об исходной записи( для записей, являющихся репостом)
     func configureRepostBlock(for newsItem: NewsFeedPost) {
         if !newsItem.repostPosts.isEmpty {
             for repostItem in newsItem.repostPosts {
@@ -149,14 +157,13 @@ private extension NewsFeedTableViewCell {
                 }
                 if !repostItem.attachments.isEmpty {
                     configureAttachments(for: repostItem)
+                }
             }
         }
-        }
-        
         repostHeadersStackView.isHidden = repostHeadersStackView.arrangedSubviews.isEmpty
     }
     
-    // Конфигурирование блока контента самого поста
+    /// Конфигурирование текста записи
     func configurePostInformation(for newsItem: NewsFeedPost) {
         postTextLabel.isHidden = newsItem.text.isEmpty
         postTextLabel.text = newsItem.text
@@ -183,9 +190,9 @@ private extension NewsFeedTableViewCell {
                 }
             }
         }
-        
     }
     
+    /// Конфигурирование вложений
     func configureAttachments(for newsItem: NewsFeedPost) {
         for attachment in newsItem.attachments {
             if let photoAttachment = attachment as? PhotoAttachment {
@@ -204,7 +211,6 @@ private extension NewsFeedTableViewCell {
             
                 let imageSize = CGSize(width: videoAttachment.width, height: videoAttachment.height)
                 attachmentVideoView.imageSize = imageSize
-                
                 attachmentVideoView.imageUrl = URL(string: videoAttachment.photoUrl)
             } else if let audioAttachment = attachment as? AudioAttachment {
                 let attachmentAudioView = AttachmentAudioView(frame: .zero)
@@ -228,10 +234,15 @@ private extension NewsFeedTableViewCell {
                 attachmentPollView.answers = pollAttachment.pollAnswerAttachments
                 attachmentPollView.theme = pollAttachment.question
                 attachmentPollView.info = "Общее количество голосов: (\(pollAttachment.votes))"
-                
             } else if let linkAttachment = attachment as? LinkAttachment {
                 let attachmentLinkView = AttachmentLinkView(frame: .zero)
                 self.linksStackView.addArrangedSubview(attachmentLinkView)
+                
+                attachmentLinkView.delegate = self
+                
+                attachmentLinkView.url = URL(string: linkAttachment.url)
+                attachmentLinkView.title = linkAttachment.title
+                attachmentLinkView.caption = linkAttachment.caption
                 
                 if let width = linkAttachment.width, let height = linkAttachment.height {
                     let imageSize = CGSize(width: width, height: height)
@@ -240,14 +251,8 @@ private extension NewsFeedTableViewCell {
                 if let photoUrl = linkAttachment.photoUrl {
                     attachmentLinkView.photoUrl = URL(string: photoUrl)
                 }
-                
-                attachmentLinkView.title = linkAttachment.title
-                attachmentLinkView.caption = linkAttachment.caption
-            } else {
-                continue
             }
         }
-        
         imagesStackView.isHidden = imagesStackView.arrangedSubviews.isEmpty
         audiosStackView.isHidden = audiosStackView.arrangedSubviews.isEmpty
         linksStackView.isHidden = linksStackView.arrangedSubviews.isEmpty
@@ -255,7 +260,7 @@ private extension NewsFeedTableViewCell {
         pollStackView.isHidden = pollStackView.arrangedSubviews.isEmpty
     }
     
-    // Конфигурирование блока статистики записи
+    /// Конфигурирование блока статистики записи
     func configurePostStatistics(for newsItem: NewsFeedPost) {
         likesCounterLabel.text = String(newsItem.likesCount ?? 0)
         commentsCounterLabel.text = String(newsItem.commentsCount ?? 0)
@@ -263,22 +268,21 @@ private extension NewsFeedTableViewCell {
         viewsCounterLabel.text = String(newsItem.views ?? 0)
     }
     
-    // Конфигурирование информации о дате поста
+    /// Конфигурирование информации о дате поста
     func configureDatePostInformation(for newsItem: NewsFeedPost) {
         let date = Date(timeIntervalSince1970: Double(newsItem.date) as TimeInterval)
-        dateLabel.text = dateFormatter.string(from: date)
         dateLabel.text = DateTimeFormatter.completeDateShortMonthFormatter.string(from: date)
     }
     
 }
 
-let dateFormatter: DateFormatter = {
-    let dateFormatter = DateFormatter()
-    dateFormatter.locale = Locale.current
-    dateFormatter.dateFormat = "dd MMM yyyy в HH:mm"
+
+// MARK: - AttachmentLinkViewDelegate
+
+extension NewsFeedTableViewCell: AttachmentLinkViewDelegate {
     
-    return dateFormatter
-}()
-
-
-// MARK: - TODO создать created_by
+    func attachmentLinkView(_ attachmentLinkView: AttachmentLinkView, didSelect url: URL?) {
+        delegate?.newsFeedTableViewCell(self, willOpen: url)
+    }
+    
+}

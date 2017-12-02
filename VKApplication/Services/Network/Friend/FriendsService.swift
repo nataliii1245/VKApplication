@@ -11,7 +11,9 @@ import Alamofire
 import SwiftyJSON
 import SwiftKeychainWrapper
 
-class FriendsService {
+final class FriendsService {
+    
+    // MARK: - Публичные методы
     
     /// Запрос на получение друзей пользователя
     class func getUserFriends(_ completion: @escaping ([Friend]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
@@ -37,9 +39,7 @@ class FriendsService {
                 }
             }
         }
-        
         return request
     }
 
 }
-

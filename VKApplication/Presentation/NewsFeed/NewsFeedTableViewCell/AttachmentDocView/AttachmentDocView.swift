@@ -14,14 +14,16 @@ final class AttachmentDocView: UIView {
     
     // MARK: - Outlet
     
-    /// Изображение
+    /// Название документа и расширение
     @IBOutlet private weak var fileNameAndExtension: UILabel!
-    ///
+    /// Размер файла
     @IBOutlet private weak var fileSize: UILabel!
-    ///
+    /// Дата публикации файла
     @IBOutlet private weak var date: UILabel!
-    
+    /// Иконка файла
     @IBOutlet private weak var icon: UIImageView!
+    
+    
     // MARK: - Публичные свойства
     
     /// Дата поста, с которого сделан репост
@@ -52,7 +54,9 @@ final class AttachmentDocView: UIView {
         }
     }
     
+    /// Ссылка на файл
     var url: URL?
+    
     
     // MARK: - Инициализация
     

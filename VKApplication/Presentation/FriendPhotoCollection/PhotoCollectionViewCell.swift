@@ -9,13 +9,19 @@
 import UIKit
 import SDWebImage
 
-class PhotoCollectionViewCell: UICollectionViewCell {
+final class PhotoCollectionViewCell: UICollectionViewCell {
     
-   
+    // MARK: - Outlet
+    
     @IBOutlet weak var photoView: UIImageView!
+    
+    
+    // MARK: - Публичные методы
+    
+    // Сконфигурировать ячейку коллекции
     func configure(for photo: Photo) {
-        
         let imageUrl = URL(string: photo.url)
         photoView.sd_setImage(with: imageUrl, placeholderImage: nil)
-        }
+    }
+    
 }

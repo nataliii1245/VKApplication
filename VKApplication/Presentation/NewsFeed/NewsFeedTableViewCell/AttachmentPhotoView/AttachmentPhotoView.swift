@@ -63,7 +63,7 @@ final class AttachmentPhotoView: UIView {
 }
 
 
-// MARK: - Публичные свойства
+// MARK: - Вычисляемые свойства
 
 extension AttachmentPhotoView {
     
@@ -93,6 +93,27 @@ private extension AttachmentPhotoView {
 }
 
 
+// MARK: - Приватные методы
+
+private extension AttachmentPhotoView {
+    
+    /// Подготовка корневого view
+    func setupRootView() {
+        let view = fromNib()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(view)
+        view.layoutAttachAll(to: self)
+    }
+    
+    /// Настройка изображения
+    func setup() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+}
+
+
 // MARK: - UIView
 
 extension AttachmentPhotoView {
@@ -108,27 +129,6 @@ extension AttachmentPhotoView {
         
         imageViewAspectRatioLayoutConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: aspectRatio)
         imageViewAspectRatioLayoutConstraint?.isActive = true
-    }
-    
-}
-
-
-// MARK: - Приватные методы
-
-private extension AttachmentPhotoView {
-    
-    /// Подготовка корневого view
-    func setupRootView() {
-        let view = fromNib()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.addSubview(view)
-        view.layoutAttachAll(to: self)
-    }
-    
-    /// Настройка
-    func setup() {
-        imageView.translatesAutoresizingMaskIntoConstraints = false
     }
     
 }

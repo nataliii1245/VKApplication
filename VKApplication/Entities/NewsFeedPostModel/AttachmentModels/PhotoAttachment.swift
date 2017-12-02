@@ -8,7 +8,9 @@
 
 import SwiftyJSON
 
-class PhotoAttachment: Attachment {
+final class PhotoAttachment: Attachment {
+    
+    // MARK: - Публичные свойства
     
     /// Идентификатор фотографии
     let id: Int
@@ -18,6 +20,9 @@ class PhotoAttachment: Attachment {
     let width: Int?
     /// Высота оригинала фотографии в пикселах
     let height: Int?
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let id = json["id"].int else { Bug.shared.catch(json); return nil }

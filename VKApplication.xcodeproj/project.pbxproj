@@ -16,6 +16,7 @@
 		A30BCCB71F9553F600C6495F /* SearchGroupsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCB61F9553F600C6495F /* SearchGroupsListTableViewController.swift */; };
 		A30BCCB91F95541F00C6495F /* UserGroupsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */; };
 		A30BCCBB1F95543500C6495F /* UserGroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */; };
+		A345FBFB1FD324A700E1632C /* DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */; };
 		A3573CBA1FAC6BB000235C93 /* AttachmentPollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */; };
 		A3573CBC1FAC6BC200235C93 /* AttachmentPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */; };
 		A3573CBE1FAC71A500235C93 /* AttachmentDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */; };
@@ -56,6 +57,8 @@
 		A3BFC3321FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */; };
 		A3C5085C1FAD0935006734C8 /* UIImage+MaskWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */; };
 		A3C713CB1F94764800387AD6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C713CA1F94764800387AD6 /* TabBarController.swift */; };
+		A3CCB6B71FD094580032A5F4 /* AttachmentLinkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCB6B61FD094580032A5F4 /* AttachmentLinkViewDelegate.swift */; };
+		A3CCB6B91FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCB6B81FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift */; };
 		A3D4B0BF1FA87C9E00DFC3FB /* AttachmentLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D4B0BE1FA87C9E00DFC3FB /* AttachmentLinkView.xib */; };
 		A3D4B0C11FA8842500DFC3FB /* AttachmentLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4B0C01FA8842500DFC3FB /* AttachmentLinkView.swift */; };
 		A3D4B0C41FA8BD4600DFC3FB /* RepostHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D4B0C31FA8BD4500DFC3FB /* RepostHeaderView.xib */; };
@@ -91,6 +94,7 @@
 		A30BCCB61F9553F600C6495F /* SearchGroupsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsListTableViewController.swift; sourceTree = "<group>"; };
 		A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewController.swift; sourceTree = "<group>"; };
 		A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewCell.swift; sourceTree = "<group>"; };
+		A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormatter.swift; sourceTree = "<group>"; };
 		A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentPollView.xib; sourceTree = "<group>"; };
 		A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentPollView.swift; sourceTree = "<group>"; };
 		A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentDocView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellDataSource.swift; sourceTree = "<group>"; };
 		A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+MaskWithColor.swift"; sourceTree = "<group>"; };
 		A3C713CA1F94764800387AD6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = VKApplication/Presentation/TabBarController.swift; sourceTree = SOURCE_ROOT; };
+		A3CCB6B61FD094580032A5F4 /* AttachmentLinkViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentLinkViewDelegate.swift; sourceTree = "<group>"; };
+		A3CCB6B81FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		A3D4B0BE1FA87C9E00DFC3FB /* AttachmentLinkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentLinkView.xib; sourceTree = "<group>"; };
 		A3D4B0C01FA8842500DFC3FB /* AttachmentLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentLinkView.swift; sourceTree = "<group>"; };
 		A3D4B0C31FA8BD4500DFC3FB /* RepostHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepostHeaderView.xib; sourceTree = "<group>"; };
@@ -408,6 +414,7 @@
 			children = (
 				A38022D21FA05C8A003954F8 /* NewsFeedTableViewCell.swift */,
 				A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */,
+				A3CCB6B81FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift */,
 				A3D4B0C21FA8BD2800DFC3FB /* RepostHeaderView */,
 				A38022D41FA08D05003954F8 /* AttachmentPhotoView */,
 				A374C7D11FA62419000ED379 /* AttachmentVideoView */,
@@ -434,6 +441,7 @@
 			children = (
 				A3D4B0BE1FA87C9E00DFC3FB /* AttachmentLinkView.xib */,
 				A3D4B0C01FA8842500DFC3FB /* AttachmentLinkView.swift */,
+				A3CCB6B61FD094580032A5F4 /* AttachmentLinkViewDelegate.swift */,
 			);
 			path = AttachmentLinkView;
 			sourceTree = "<group>";
@@ -453,6 +461,7 @@
 				A3E18E731F93E9D50060AB55 /* UserDefaultsKey.swift */,
 				A3E18E751F93E9E20060AB55 /* SegueIdentifier.swift */,
 				A3E18E771F93EE430060AB55 /* KeychainKey.swift */,
+				A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -664,6 +673,7 @@
 				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3F92C591F94E16100C446A2 /* GetUserPhotosResponse.swift in Sources */,
 				A38022CA1F9F9994003954F8 /* NewsFeedService.swift in Sources */,
+				A3CCB6B71FD094580032A5F4 /* AttachmentLinkViewDelegate.swift in Sources */,
 				A3C5085C1FAD0935006734C8 /* UIImage+MaskWithColor.swift in Sources */,
 				A3BFC32F1FABA43900616E3D /* PollAnswerModel.swift in Sources */,
 				A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */,
@@ -683,6 +693,7 @@
 				A38022F01FA12A02003954F8 /* GeoInformation.swift in Sources */,
 				A38022EA1FA0AB5F003954F8 /* DocAttachment.swift in Sources */,
 				A374C7D31FA6243B000ED379 /* AttachmentVideoView.swift in Sources */,
+				A3CCB6B91FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift in Sources */,
 				A3E18E861F9417670060AB55 /* PhotoService.swift in Sources */,
 				A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */,
 				A3573CBC1FAC6BC200235C93 /* AttachmentPollView.swift in Sources */,
@@ -703,6 +714,7 @@
 				A30076391F9536210064598E /* PhotoCollectionViewController.swift in Sources */,
 				A38022D11FA05C71003954F8 /* NewsFeedTableViewController.swift in Sources */,
 				A38022D81FA08D5E003954F8 /* AttachmentPhotoView.swift in Sources */,
+				A345FBFB1FD324A700E1632C /* DateTimeFormatter.swift in Sources */,
 				A30BCCB71F9553F600C6495F /* SearchGroupsListTableViewController.swift in Sources */,
 				A3F92C571F94E05F00C446A2 /* GetUserFriendsResponse.swift in Sources */,
 				A3875B9A1F920B74004A1D47 /* AppDelegate.swift in Sources */,

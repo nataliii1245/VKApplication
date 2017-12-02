@@ -7,9 +7,14 @@
 //
 import SwiftyJSON
 
-class AttachmentModel {
+final class AttachmentModel {
+    
+    // MARK: - Публичные свойства
     
     let entity: Attachment?
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let type = json["type"].string else { Bug.shared.catch(json); return nil }
@@ -36,8 +41,10 @@ class AttachmentModel {
             entity = LinkAttachment(json: linkJSON)
         }
     }
+    
 }
 
+/// Список доступных типов вложений
 enum AttachmentType: String {
     
     case photo

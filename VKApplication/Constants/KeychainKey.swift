@@ -9,7 +9,7 @@
 // Структура хранит все доступные названия полей Keychain приложения
 struct KeychainKey {
     
+    /// Поле ключа
     static let token = "token"
     
 }
-

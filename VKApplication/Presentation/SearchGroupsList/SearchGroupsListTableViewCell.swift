@@ -9,18 +9,16 @@
 import UIKit
 import SDWebImage
 
-class SearchGroupsListTableViewCell: UITableViewCell {
+final class SearchGroupsListTableViewCell: UITableViewCell {
 
+    // MARK: - Outlet
+    
     @IBOutlet weak var groupPhoto: UIImageView!
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var groupTheme: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        groupPhoto.layer.cornerRadius = groupPhoto.bounds.width / 2
-        groupPhoto.clipsToBounds = true
-    }
+    
+    // MARK: - Публичные методы
     
     func configure(for group: Group) {
         groupName.text = group.name
@@ -29,4 +27,19 @@ class SearchGroupsListTableViewCell: UITableViewCell {
         let imageUrl = URL(string: group.photo)
         groupPhoto.sd_setImage(with: imageUrl, placeholderImage: nil)
     }
+
+}
+
+
+// MARK: - NSObject
+
+extension SearchGroupsListTableViewCell {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        groupPhoto.layer.cornerRadius = groupPhoto.bounds.width / 2
+        groupPhoto.clipsToBounds = true
+    }
+    
 }

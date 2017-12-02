@@ -11,7 +11,13 @@ import SwiftyJSON
 /// Модель ответа на запрос на получение друзей пользователя
 final class GetUserFriendsResponse {
     
+    // MARK: - Публичные свойства
+    
+    /// Массив друзей
     let friends: [Friend]
+    
+    
+    // MARK: - Инициализация
     
     required init?(json: JSON) {
         guard let friendsJSONArray = json["response"]["items"].array else { return nil }
@@ -30,4 +36,5 @@ final class GetUserFriendsResponse {
         
         self.friends = friends
     }
+    
 }

@@ -8,7 +8,9 @@
 
 import SwiftyJSON
 
-class PollAttachment: Attachment {
+final class PollAttachment: Attachment {
+    
+    // MARK: - Публичные свойства
     
     /// Идентификатор опроса для получения информации о нем через метод
     let id: Int
@@ -20,6 +22,9 @@ class PollAttachment: Attachment {
     let votes: Int
     /// Масив ответов на опрос
     let pollAnswerAttachments:[PollAnswerModel]
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
@@ -38,9 +43,6 @@ class PollAttachment: Attachment {
             }
         }
         self.pollAnswerAttachments =  pollAnswerArray
-        
     }
     
 }
-
-

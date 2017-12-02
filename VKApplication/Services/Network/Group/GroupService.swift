@@ -11,7 +11,9 @@ import Alamofire
 import SwiftyJSON
 import SwiftKeychainWrapper
 
-class GroupService {
+final class GroupService {
+    
+    // MARK: - Публичные методы
     
     /// Запрос на получение груп пользователя
     class func getUsersGroups(_ completion: @escaping ([Group]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
@@ -122,4 +124,3 @@ class GroupService {
     }
     
 }
-

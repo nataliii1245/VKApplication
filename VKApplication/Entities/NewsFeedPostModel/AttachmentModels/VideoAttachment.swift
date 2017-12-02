@@ -8,15 +8,27 @@
 
 import SwiftyJSON
 
-class VideoAttachment: Attachment {
+final class VideoAttachment: Attachment {
     
+    // MARK: - Публичные свойства
+    
+    /// Идентификатор видеозаписи
     let id: Int
+    /// Название видео
     let title: String
+    /// Ссылка на превью
     let photoUrl: String
+    /// Ключ доступа
     let access_key: String
+    /// Длительность видео
     let duration: Int
+    /// Ширина видео
     let width: Int
+    /// Высота видео
     let height: Int
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let id = json["id"].int else { Bug.shared.catch(json); return nil }
@@ -49,4 +61,5 @@ class VideoAttachment: Attachment {
         guard let duration = json["duration"].int else { Bug.shared.catch(json); return nil }
         self.duration = duration
     }
+    
 }

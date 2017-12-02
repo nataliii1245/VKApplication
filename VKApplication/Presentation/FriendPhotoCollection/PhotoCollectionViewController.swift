@@ -9,20 +9,21 @@
 import UIKit
 private let reuseIdentifier = "Cell"
 
-class PhotoCollectionViewController: UICollectionViewController {
+final class PhotoCollectionViewController: UICollectionViewController {
+    
+    // MARK: - Публичные свойства
     
     /// Объект хранит данные типа  Friend
     var friend: Friend!
-    
     /// Объект хранит массив объектов типа Photo
     var photos: [Photo] = []
-    
     // Количество элементов в строке коллекции
     let itemsPerRow: CGFloat = 1
-    
     // Задание отступов
     let sectionInsets = UIEdgeInsets(top: 30.0, left: 15.0, bottom: 30.0, right: 15.0)
+    
 }
+
 
 // MARK: - UIViewController
 
@@ -61,7 +62,7 @@ extension PhotoCollectionViewController {
     
 }
 
-// MARK: - UICollectionView
+// MARK: - UICollectionViewDataSource
 
 extension PhotoCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -81,7 +82,7 @@ extension PhotoCollectionViewController {
     
 }
 
-// MARK: - UICollectionViewFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension PhotoCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

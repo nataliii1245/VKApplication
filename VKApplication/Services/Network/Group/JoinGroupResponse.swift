@@ -11,7 +11,13 @@ import SwiftyJSON
 /// Модель ответа на запрос о вступлении в группу
 final class JoinGroupResponse {
     
+    // MARK: - Публичные свойства
+    
+    /// Флаг успешного вступления в группу
     let successful: Bool
+    
+    
+    // MARK: - Инициализация
     
     required init?(json: JSON) {
         guard let response = json["response"].int else { return nil }

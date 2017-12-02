@@ -12,9 +12,17 @@ import SwiftyJSON
 
 class Photo: Object {
     
+    // MARK: - Публичные свойства
+    
+    /// Идентификатор фотографии
     @objc dynamic var id = 0
+    /// Идентификатор пользователя, чья фотография
     @objc dynamic var ownerId = 0
+    /// Ссылка на фотографию
     @objc dynamic var url = ""
+    
+    
+    // MARK: - Инициализация
     
     convenience init?(json: JSON) {
         self.init()
@@ -29,8 +37,11 @@ class Photo: Object {
         self.url = url
     }
     
+    
+    // MARK: - Object
+    
     override static func primaryKey() -> String? {
         return "id"
     }
-    
+
 }

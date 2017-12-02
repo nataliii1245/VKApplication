@@ -12,11 +12,12 @@ import Alamofire
 import SwiftyJSON
 import SwiftKeychainWrapper
 
+// Создание запроса на получение новостей
+final class NewsFeedService {
 
-class NewsFeedService {
+    // MARK: - Публичные методы
     
-    // Создание запроса на получение новостей
-    
+    /// Получить новости пользователя
     class func getNewsFeed(_ completion: @escaping ([NewsFeedPost], [Group], [Friend], String?) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
         let parameters: Parameters = [
             "filters" : "post",
@@ -24,8 +25,6 @@ class NewsFeedService {
             "access_token" : "\(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)",
             "v" : 5.68
         ]
-        
-//        print(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)
         let request = sessionManager.request("https://api.vk.com/method/newsfeed.get", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):
@@ -45,7 +44,7 @@ class NewsFeedService {
                 }
             }
         }
-        
         return request
     }
+    
 }

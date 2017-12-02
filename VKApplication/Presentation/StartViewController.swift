@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Контроллер стартового экрана
 final class StartViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {

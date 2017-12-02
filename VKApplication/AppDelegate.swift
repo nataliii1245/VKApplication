@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-class Bug {
+final class Bug {
     
     static var shared = Bug()
     

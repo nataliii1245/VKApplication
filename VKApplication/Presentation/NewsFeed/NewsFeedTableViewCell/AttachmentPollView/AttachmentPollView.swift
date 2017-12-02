@@ -14,17 +14,17 @@ final class AttachmentPollView: UIView {
     
     // MARK: - Outlet
     
-    /// Изображение
+    /// Тема опроса
     @IBOutlet private weak var themeLabel: UILabel!
-    ///
+    /// Информация об опросе
     @IBOutlet private weak var informationLabel: UILabel!
-    
+    /// Стек ответов на опрос
     @IBOutlet private weak var pollAnswersStackView: UIStackView!
     
     
     // MARK: - Публичные свойства
     
-    ///
+    /// Массив ответов на опрос
     var answers: [PollAnswerModel] = [] {
         didSet {
             for answer in answers {
@@ -103,6 +103,7 @@ private extension AttachmentPollView {
         view.layoutAttachAll(to: self)
     }
     
+    /// Настройка отображения блока опроса
     func setup() {
         layer.borderColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1).cgColor
         layer.borderWidth = 1

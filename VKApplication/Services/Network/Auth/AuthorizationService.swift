@@ -9,9 +9,9 @@
 import Foundation
 import WebKit
 
-class AuthorizationService {
+final class AuthorizationService {
     
-    // Создание запроса на авторизацию
+    ///  Создание запроса на авторизацию
     class func getRequest() -> URLRequest{
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -30,4 +30,5 @@ class AuthorizationService {
         
         return request
     }
+    
 }

@@ -9,6 +9,8 @@ import SwiftyJSON
 
 class GeoInformation {
 
+    // MARK: - Публичные свойства
+    
     /// Идентификатор места
     let place_id: Int
     /// Название места
@@ -23,6 +25,9 @@ class GeoInformation {
     let address: String
     /// Данный параметр указывается, если местоположение является прикреплённой картой
     let showmap: Bool
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let place_id = json["place_id"].int else { Bug.shared.catch(json); return nil }
@@ -42,4 +47,3 @@ class GeoInformation {
     }
     
 }
-

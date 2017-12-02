@@ -14,15 +14,15 @@ final class RepostHeaderView: UIView {
     
     // MARK: - Outlet
     
-    /// Изображение
+    /// Аватар источника репоста
     @IBOutlet private weak var photoImageView: UIImageView!
-    ///
+    /// Имя источника репоста
     @IBOutlet private weak var authorNameLabel: UILabel!
-    ///
+    /// Дата источника репоста
     @IBOutlet private weak var postDateLabel: UILabel!
-    
+    /// Текст источника репоста
     @IBOutlet private weak var repostTextLabel: UILabel!
-    
+    /// Иконка репоста
     @IBOutlet private weak var repostIconImageView: UIImageView!
     
     
@@ -35,12 +35,11 @@ final class RepostHeaderView: UIView {
         }
     }
     
-    /// Дата поста, с которого сделан репост
+    /// Дата поста с которого сделан репост
     @IBInspectable
     var postDate: Int = 0 {
         willSet {
             let date = Date(timeIntervalSince1970: Double(newValue) as TimeInterval)
-            postDateLabel.text = dateFormatter.string(from: date)
             postDateLabel.text = DateTimeFormatter.completeDateShortMonthFormatter.string(from: date)
         }
     }
@@ -65,15 +64,15 @@ final class RepostHeaderView: UIView {
         setupRootView()
         setup()
     }
-    
+
 }
 
 
-// MARK: - Публичные свойства
+// MARK: - Вычисляемые свойства
 
 extension RepostHeaderView {
     
-    /// Изображение
+    /// Аватар источника репоста
     @IBInspectable
     var image: UIImage? {
         get {
@@ -84,7 +83,7 @@ extension RepostHeaderView {
         }
     }
     
-    /// Название
+    /// Имя источника репоста
     @IBInspectable
     var authorName: String? {
         get {
@@ -95,7 +94,7 @@ extension RepostHeaderView {
         }
     }
     
-    /// Текст
+    /// Текст репоста
     @IBInspectable
     var repostText: String? {
         get {
@@ -122,6 +121,7 @@ private extension RepostHeaderView {
         view.layoutAttachAll(to: self)
     }
     
+    /// Настройка отображения аватара источника репоста
     func setup() {
         photoImageView.layer.cornerRadius = photoImageView.bounds.width / 2
         photoImageView.clipsToBounds = true

@@ -8,14 +8,25 @@
 
 import SwiftyJSON
 
-class DocAttachment: Attachment {
+final class DocAttachment: Attachment {
     
+    // MARK: - Публичные свойства
+    
+    /// Идентификатор вложения
     let id: Int
+    /// Название вложения
     let title: String
+    /// Размер вложения
     let size: Int
+    /// Расширение вложения
     let ext: String
+    /// Ссылка на вложение
     let url: String
+    /// Дата создания вложения
     let date: Int
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let id = json["id"].int else { Bug.shared.catch(json); return nil }

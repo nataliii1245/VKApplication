@@ -11,9 +11,19 @@ import SwiftyJSON
 /// Модель ответа на запрос на получение новостей пользователя
 final class GetNewsFeedResponse {
     
+    // MARK: - Публичные свойства
+    
+    /// Массив новостей
     let newsFeedPosts: [NewsFeedPost]
+    /// Массив групп - источников новостей
     let groupsSource: [Group]
+    /// Массив пользователей - источников новостей
     let profilesSource: [Friend]
+    /// Идентификатор для загрузки следующего блока новостей
+    let nextFrom: String?
+    
+    
+    // MARK: - Инициализация
     
     required init?(json: JSON) {
         /*
@@ -21,8 +31,8 @@ final class GetNewsFeedResponse {
          {
              "response": {
                  "items": // тут массив записей (реализовано)
-                 "groups": // тут массив групп, чьи записи выше
-                 "profiles": // тут массив друзей, чьи записи выше
+                 "groups": // тут массив групп, чьи записи выше(реализовано)
+                 "profiles": // тут массив друзей, чьи записи выше(реализовано)
                  "next_from": // данные для получения следующей порции постов ленты
              }
          }
@@ -39,6 +49,9 @@ final class GetNewsFeedResponse {
         guard let profilesSourceJSONArray = json["response"]["profiles"].array else { return nil }
         let profilesSource = profilesSourceJSONArray.flatMap { Friend(json: $0) }
         self.profilesSource = profilesSource
+        
+        guard let nextFrom = json["response"]["next_from"].string else { return nil }
+        self.nextFrom = nextFrom
     }
     
 }

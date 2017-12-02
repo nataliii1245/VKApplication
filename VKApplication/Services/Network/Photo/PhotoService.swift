@@ -11,7 +11,11 @@ import Alamofire
 import SwiftyJSON
 import SwiftKeychainWrapper
 
-class PhotoService {
+final class PhotoService {
+    
+    // MARK: - Публичные методы
+    
+    /// Получить фотографии пользователя
     class func getUserPhotos(ownerID: Int, _ completion: @escaping ([Photo]) -> Void, _ failure: @escaping (Error) -> Void) {
         let parameters: Parameters = [
             "owner_id": ownerID,
@@ -40,4 +44,3 @@ class PhotoService {
     }
     
 }
-

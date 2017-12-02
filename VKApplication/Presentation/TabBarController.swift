@@ -11,11 +11,12 @@ import UIKit
 import UIKit
 import Alamofire
 
+/// Конфигурация
 let configuration = URLSessionConfiguration.default
+/// Менеджер сессий
 let sessionManager = SessionManager(configuration: configuration)
 
-
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 

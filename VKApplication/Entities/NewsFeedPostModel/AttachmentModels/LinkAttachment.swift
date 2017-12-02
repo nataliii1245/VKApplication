@@ -8,21 +8,25 @@
 
 import SwiftyJSON
 
-class LinkAttachment: Attachment {
+final class LinkAttachment: Attachment {
+    
+    // MARK: - Публичные свойства
     
     /// URL ссылки
     let url: String
     /// Заголовок ссылки
-    var title: String? = nil
+    var title: String?
     /// Подпись ссылки (если имеется).
-    var caption: String? = nil
+    var caption: String?
     /// Ссылка на фото
-    var photoUrl: String? = nil
+    var photoUrl: String?
     /// Ширина фото
-    var width: Int? = nil
+    var width: Int?
     /// Высота фото
-    var height: Int? = nil
+    var height: Int?
     
+    
+    // MARK: - Инициализация
     
     init?(json: JSON) {
         guard let url = json["url"].string else { Bug.shared.catch(json); return nil }
@@ -49,5 +53,3 @@ class LinkAttachment: Attachment {
     }
     
 }
-
-

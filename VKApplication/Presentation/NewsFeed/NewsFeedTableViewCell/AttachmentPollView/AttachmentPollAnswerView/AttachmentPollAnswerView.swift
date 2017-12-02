@@ -14,14 +14,15 @@ final class AttachmentPollAnswerView: UIView {
     
     // MARK: - Outlet
     
-    /// Изображение
+    /// Подкрашенный блок
     @IBOutlet private weak var coloredView: UIView!
-    ///
+    /// Наименование ответа
     @IBOutlet private weak var nameLabel: UILabel!
-    
+    /// Констрейнты подкрашенного блока
     @IBOutlet private weak var coloredViewEqualWidthLayoutConstraint: NSLayoutConstraint!
-    
+    /// Фоновый блок
     @IBOutlet private weak var backgroundView: UIView!
+    
     
     // MARK: - Инициализация
     
@@ -91,6 +92,7 @@ private extension AttachmentPollAnswerView {
         view.layoutAttachAll(to: self)
     }
     
+    /// Настройка отображения блока конкретного ответа
     func setup() {
         backgroundView.layer.cornerRadius = backgroundView.frame.height / 10
         backgroundView.layer.masksToBounds = true

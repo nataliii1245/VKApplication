@@ -11,7 +11,13 @@ import SwiftyJSON
 /// Модель ответа на запрос о получении фотографий пользователя
 final class GetUserPhotosResponse {
     
+    // MARK: - Публичные свойства
+    
+    /// Массив фотографий
     let photos: [Photo]
+    
+    
+    // MARK: - Инициализация
     
     required init?(json: JSON) {
         guard let photosJSONArray = json["response"]["items"].array else { return nil }

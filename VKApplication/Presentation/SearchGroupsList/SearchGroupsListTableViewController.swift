@@ -10,14 +10,20 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-class SearchGroupsListTableViewController: UITableViewController {
+final class SearchGroupsListTableViewController: UITableViewController {
 
+    // MARK: - Публичные свойства
+    
+    /// Активный запрос на получение групп по поисковому слову
     var activeRequest: Request?
-    
     let groupsSearchController = UISearchController(searchResultsController: nil)
-    
+    /// Массив групп
     var groups: [Group] = []
 
+    
+    // MARK: - Публичные методы
+    
+    /// Отфильтровать содержимое
     func filterContentForSearchText(_ searchText: String) {
         activeRequest?.cancel()
         
@@ -45,6 +51,7 @@ class SearchGroupsListTableViewController: UITableViewController {
         }
     }
     
+    /// Вступить в группу
     func joinGroup(_ group: Group) {
         GroupService.joinGroup(id: group.id, { isSuccess in
             do {
@@ -132,4 +139,3 @@ extension SearchGroupsListTableViewController: UISearchResultsUpdating {
     }
 
 }
-

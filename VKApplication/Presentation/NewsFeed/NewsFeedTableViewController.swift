@@ -9,16 +9,20 @@
 import UIKit
 import Alamofire
 
-class NewsFeedTableViewController: UITableViewController  {
+final class NewsFeedTableViewController: UITableViewController  {
     
     // MARK: - Приватные свойства
     
     /// Активный запрос на получение новостей
     private var activeRequest: Request?
-    
+    /// Массив новостей
     private var news: [NewsFeedPost] = []
+    /// Массив груп - источников новостей
     private var groupsSource: [Group] = []
+    /// Массив пользователей - источников новостей
     private var profilesSource: [Friend] = []
+    /// Ключ для получения следующего блока новостей
+    private var nextFrom: String? = nil
     
 }
 
@@ -50,16 +54,53 @@ extension NewsFeedTableViewController {
     
 }
 
+
+// MARK: - UITableViewDataSource
+
+extension NewsFeedTableViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let newsItem = news[indexPath.row]
+        
+        // Получаем ячейку из пула
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
+        cell.dataSource = self
+        cell.delegate = self
+        
+        cell.configure(for: newsItem)
+        
+        return cell
+    }
+    
+}
+
+
+// MARK: - UITableViewDelegate
+
+extension NewsFeedTableViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+
 // MARK: - Приватные методы
 
 private extension NewsFeedTableViewController {
     
     func loadData() {
         self.activeRequest?.cancel()
-        self.activeRequest = NewsFeedService.getNewsFeed({ news, groups, profiles in
+        self.activeRequest = NewsFeedService.getNewsFeed({ news, groups, profiles, nextFrom in
             self.news = news
             self.groupsSource = groups
             self.profilesSource = profiles
+            self.nextFrom = nextFrom
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -80,40 +121,8 @@ private extension NewsFeedTableViewController {
         }
     }
     
-    @objc private func refreshData() {
+    @objc func refreshData() {
         loadData()
-    }
-    
-}
-
-// MARK: - UITableViewDataSource
-
-extension NewsFeedTableViewController {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let newsItem = news[indexPath.row]
-        
-        // Получаем ячейку из пула
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
-        cell.dataSource = self
-        cell.configure(for: newsItem)
-        
-        return cell
-    }
-    
-}
-
-
-// MARK: - UITableViewDelegate
-
-extension NewsFeedTableViewController {
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
@@ -123,6 +132,7 @@ extension NewsFeedTableViewController {
 
 extension NewsFeedTableViewController: NewsFeedTableViewCellDataSource {
     
+    /// Получить информацию о группе по идентификатору
     func getGroupBy(id: Int) -> Group? {
         for group in groupsSource {
             if group.id == id {
@@ -133,6 +143,7 @@ extension NewsFeedTableViewController: NewsFeedTableViewCellDataSource {
         return nil
     }
     
+    /// Получить информацию о пользователе по идентификатору
     func getProfileBy(id: Int) -> Friend? {
         for profile in profilesSource {
             if profile.id == id {

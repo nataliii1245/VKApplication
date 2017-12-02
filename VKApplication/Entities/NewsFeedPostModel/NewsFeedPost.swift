@@ -36,12 +36,15 @@ class NewsFeedPost {
     let views: Int?
     /// ID источника репоста
     var owner_id: Int = 0
-    
+    /// Идентификатор автора поста
     var signer_id: Int?
-    
+    /// Является ли репостом
     let isRepost: Bool = false
-    
+    /// Массив репостов
     var repostPosts: [NewsFeedPost] = []
+    
+    
+    // MARK: - Инициализация
     
     init?(json: JSON, isRepost: Bool) {
         

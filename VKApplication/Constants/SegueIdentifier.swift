@@ -11,9 +11,13 @@ import UIKit
 /// Структура хранит все доступные имена Segue приложения
 enum SegueIdentifier: String {
     
+    /// Отобразить таббар для уже авторизованного пользователя
     case showTabBarControllerFromStart = "ShowTabBarControllerFromStartSegue"
+    /// Отобразить экран авторизации
     case showAuthorization = "ShowAuthorizationSegue"
+    /// Отобразить таббар после успешной авторизации
     case showTabBarControllerFromAuthorization = "ShowTabBarControllerFromAuthorizationSegue"
+    /// Отобразить фотографии друзей
     case showFriendPhotos = "ShowFriendPhotosSegue"
 }
 

@@ -11,7 +11,13 @@ import SwiftyJSON
 /// Модель ответа на запрос о поиске группы
 final class SearchGroupsResponse {
     
+    // MARK: - Публичные свойства
+    
+    /// Список групп
     let groups: [Group]
+    
+    
+    // MARK: - Инициализация
     
     required init?(json: JSON) {
         guard let groupsJSONArray = json["response"]["items"].array else { return nil }
