@@ -14,23 +14,26 @@ final class AttachmentLinkView: UIView {
     
     // MARK: - Outlet
     
-    ///
-    @IBOutlet weak var titleLabel: UILabel!
-    ///
-    @IBOutlet weak var captionLabel: UILabel!
-    ///
-    @IBOutlet weak var imageView: UIImageView!
+    /// Изображение для ссылки
+    @IBOutlet private weak var imageView: UIImageView!
+    /// Название страницы
+    @IBOutlet private weak var titleLabel: UILabel!
+    /// Название ресурса
+    @IBOutlet private weak var captionLabel: UILabel!
     
     
     // MARK: - Публичные свойства
     
+    weak var delegate: AttachmentLinkViewDelegate?
     /// Размер изображения
     var imageSize: CGSize?
+    /// URL сайта
+    var url: URL?
     /// URL фото
     @IBInspectable
     var photoUrl: URL? {
         willSet {
-            imageView.isHidden = newValue == nil
+            imageView.isHidden = newValue == nil            
             imageView.sd_setImage(with: newValue, placeholderImage: nil) { [weak self] _, _, _, _ in
                 guard self?.imageSize == nil else { return }
                 
@@ -102,8 +105,9 @@ extension AttachmentLinkView {
             return captionLabel.text
         }
         set {
-            captionLabel.isHidden = newValue == nil
-            captionLabel.text = newValue
+            let caption = newValue ?? url?.host
+            captionLabel.isHidden = caption == nil
+            captionLabel.text = caption
         }
     }
     
@@ -114,24 +118,9 @@ extension AttachmentLinkView {
 
 private extension AttachmentLinkView {
     
-}
-
-
-// MARK: - UIView
-
-extension AttachmentLinkView {
-    
-    override func updateConstraints() {
-        super.updateConstraints()
-        
-        imageViewAspectRatioLayoutConstraint?.isActive = false
-        imageViewAspectRatioLayoutConstraint = nil
-        
-        guard let originalSize = imageSize ?? image?.size else { return }
-        let aspectRatio = originalSize.width / originalSize.height
-        
-        imageViewAspectRatioLayoutConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: aspectRatio)
-        imageViewAspectRatioLayoutConstraint?.isActive = true
+    /// Переход по ссылке
+    @IBAction func openLink() {
+        delegate?.attachmentLinkView(self, didSelect: url)
     }
     
 }
@@ -153,6 +142,26 @@ private extension AttachmentLinkView {
     /// Настройка
     func setup() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+}
+
+
+// MARK: - UIView
+
+extension AttachmentLinkView {
+
+    override func updateConstraints() {
+        super.updateConstraints()
+        
+        imageViewAspectRatioLayoutConstraint?.isActive = false
+        imageViewAspectRatioLayoutConstraint = nil
+        
+        guard let originalSize = imageSize ?? image?.size else { return }
+        let aspectRatio = originalSize.width / originalSize.height
+        
+        imageViewAspectRatioLayoutConstraint = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: aspectRatio)
+        imageViewAspectRatioLayoutConstraint?.isActive = true
     }
     
 }

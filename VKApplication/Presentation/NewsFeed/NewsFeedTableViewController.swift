@@ -144,3 +144,25 @@ extension NewsFeedTableViewController: NewsFeedTableViewCellDataSource {
     }
     
 }
+
+
+// MARK: - NewsFeedTableViewCellDelegate
+
+extension NewsFeedTableViewController: NewsFeedTableViewCellDelegate {
+
+    /// Открыть ссылку в браузере
+    func newsFeedTableViewCell(_ newsFeedTableViewCell: NewsFeedTableViewCell, willOpen url: URL?) {
+        guard let siteUrl = url, UIApplication.shared.canOpenURL(siteUrl) else {
+            let alertController = UIAlertController(title: "Ошибка", message: "Невозможно открыть сайт.", preferredStyle: .alert)
+
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(okAction)
+
+            present(alertController, animated: true)
+            return
+        }
+        
+        UIApplication.shared.open(siteUrl, options: [:], completionHandler: nil)
+    }
+    
+}
