@@ -8,5 +8,6 @@ target 'VKApplication' do
   pod 'SwiftKeychainWrapper'
   pod 'RealmSwift'
   pod 'SDWebImage'
+  pod 'KMPlaceholderTextView'
 
 end
