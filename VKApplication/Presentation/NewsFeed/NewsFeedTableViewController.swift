@@ -52,6 +52,15 @@ extension NewsFeedTableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifier.showNewPost.rawValue {
+            guard let navigationController = segue.destination as? UINavigationController,
+                let newPostViewController = navigationController.viewControllers.first as? NewPostViewController
+                else { return }
+            newPostViewController.delegate = self
+        }
+    }
+    
 }
 
 
@@ -174,6 +183,22 @@ extension NewsFeedTableViewController: NewsFeedTableViewCellDelegate {
         }
         
         UIApplication.shared.open(siteUrl, options: [:], completionHandler: nil)
+    }
+    
+}
+
+
+// MARK: - NewPostViewControllerDelegate
+
+extension NewsFeedTableViewController: NewPostViewControllerDelegate {
+    
+    func newPostViewControllerDidPosted(_ newPostViewController: NewPostViewController) {
+        dismiss(animated: true) {
+            let alertController = UIAlertController(title: nil, message: "Запись опубликована на стене!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true)
+        }
     }
     
 }

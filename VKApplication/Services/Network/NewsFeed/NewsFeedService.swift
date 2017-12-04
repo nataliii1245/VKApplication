@@ -25,6 +25,7 @@ final class NewsFeedService {
             "access_token" : "\(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)",
             "v" : 5.68
         ]
+        
         let request = sessionManager.request("https://api.vk.com/method/newsfeed.get", parameters: parameters).responseJSON(queue: .global(qos: .userInitiated)) { response in
             switch response.result {
             case .success(let value):

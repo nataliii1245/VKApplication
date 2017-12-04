@@ -19,6 +19,8 @@ enum SegueIdentifier: String {
     case showTabBarControllerFromAuthorization = "ShowTabBarControllerFromAuthorizationSegue"
     /// Отобразить фотографии друзей
     case showFriendPhotos = "ShowFriendPhotosSegue"
+    /// Отобразить окно создания новой записи на стене
+    case showNewPost = "ShowNewPostSegue"
 }
 
 

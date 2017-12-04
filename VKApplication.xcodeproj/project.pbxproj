@@ -17,6 +17,11 @@
 		A30BCCB91F95541F00C6495F /* UserGroupsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */; };
 		A30BCCBB1F95543500C6495F /* UserGroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */; };
 		A345FBFB1FD324A700E1632C /* DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */; };
+		A345FBFD1FD3407100E1632C /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFC1FD3407100E1632C /* NewPostViewController.swift */; };
+		A345FC001FD3472800E1632C /* WallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFF1FD3472800E1632C /* WallService.swift */; };
+		A345FC021FD3474E00E1632C /* NewPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FC011FD3474E00E1632C /* NewPostResponse.swift */; };
+		A345FC041FD5E7E700E1632C /* NewPostViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FC031FD5E7E700E1632C /* NewPostViewControllerDelegate.swift */; };
+		A345FC071FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FC061FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift */; };
 		A3573CBA1FAC6BB000235C93 /* AttachmentPollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */; };
 		A3573CBC1FAC6BC200235C93 /* AttachmentPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */; };
 		A3573CBE1FAC71A500235C93 /* AttachmentDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */; };
@@ -95,6 +100,11 @@
 		A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewController.swift; sourceTree = "<group>"; };
 		A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewCell.swift; sourceTree = "<group>"; };
 		A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormatter.swift; sourceTree = "<group>"; };
+		A345FBFC1FD3407100E1632C /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		A345FBFF1FD3472800E1632C /* WallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallService.swift; sourceTree = "<group>"; };
+		A345FC011FD3474E00E1632C /* NewPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostResponse.swift; sourceTree = "<group>"; };
+		A345FC031FD5E7E700E1632C /* NewPostViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A345FC061FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
 		A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentPollView.xib; sourceTree = "<group>"; };
 		A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentPollView.swift; sourceTree = "<group>"; };
 		A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentDocView.swift; sourceTree = "<group>"; };
@@ -218,6 +228,24 @@
 			path = SearchGroupsList;
 			sourceTree = "<group>";
 		};
+		A345FBFE1FD3470E00E1632C /* Wall */ = {
+			isa = PBXGroup;
+			children = (
+				A345FBFF1FD3472800E1632C /* WallService.swift */,
+				A345FC011FD3474E00E1632C /* NewPostResponse.swift */,
+			);
+			path = Wall;
+			sourceTree = "<group>";
+		};
+		A345FC051FD5E7F300E1632C /* NewPostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A345FBFC1FD3407100E1632C /* NewPostViewController.swift */,
+				A345FC031FD5E7E700E1632C /* NewPostViewControllerDelegate.swift */,
+			);
+			path = NewPostViewController;
+			sourceTree = "<group>";
+		};
 		A3573CBF1FAC8FA200235C93 /* AttachmentPollAnswerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				A38022D01FA05C71003954F8 /* NewsFeedTableViewController.swift */,
+				A345FC051FD5E7F300E1632C /* NewPostViewController */,
 				A3BFC3301FABC42C00616E3D /* NewsFeedTableViewCell */,
 			);
 			path = NewsFeed;
@@ -271,6 +300,7 @@
 				A38022DC1FA08F10003954F8 /* UIView+FromNib.swift */,
 				A38022E01FA0A3A6003954F8 /* UIStackView+Clean.swift */,
 				A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */,
+				A345FC061FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +427,7 @@
 				A3F92C661F94E89A00C446A2 /* Group */,
 				A3F92C671F94E8A800C446A2 /* Photo */,
 				A38022C81F9F9926003954F8 /* NewsFeed */,
+				A345FBFE1FD3470E00E1632C /* Wall */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -670,12 +701,15 @@
 				A3D4B0C11FA8842500DFC3FB /* AttachmentLinkView.swift in Sources */,
 				A38022E81FA0AB43003954F8 /* AudioAttachment.swift in Sources */,
 				A30076351F9530670064598E /* FriendListTableViewCell.swift in Sources */,
+				A345FC001FD3472800E1632C /* WallService.swift in Sources */,
 				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3F92C591F94E16100C446A2 /* GetUserPhotosResponse.swift in Sources */,
 				A38022CA1F9F9994003954F8 /* NewsFeedService.swift in Sources */,
 				A3CCB6B71FD094580032A5F4 /* AttachmentLinkViewDelegate.swift in Sources */,
+				A345FC021FD3474E00E1632C /* NewPostResponse.swift in Sources */,
 				A3C5085C1FAD0935006734C8 /* UIImage+MaskWithColor.swift in Sources */,
 				A3BFC32F1FABA43900616E3D /* PollAnswerModel.swift in Sources */,
+				A345FC071FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift in Sources */,
 				A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */,
 				A38022EC1FA0AB7E003954F8 /* PollAttachment.swift in Sources */,
 				A30076331F9530500064598E /* FriendsListTableViewController.swift in Sources */,
@@ -707,6 +741,7 @@
 				A30BCCBB1F95543500C6495F /* UserGroupsListTableViewCell.swift in Sources */,
 				A38022F21FA12A37003954F8 /* Attachment.swift in Sources */,
 				A38022DB1FA08EEB003954F8 /* UIView+LayoutAttachAll.swift in Sources */,
+				A345FBFD1FD3407100E1632C /* NewPostViewController.swift in Sources */,
 				A38022EE1FA121A7003954F8 /* NewsFeedPost.swift in Sources */,
 				A3E18E841F9417590060AB55 /* GroupService.swift in Sources */,
 				A38022DF1FA0964E003954F8 /* CGSize+Scaled.swift in Sources */,
@@ -718,6 +753,7 @@
 				A30BCCB71F9553F600C6495F /* SearchGroupsListTableViewController.swift in Sources */,
 				A3F92C571F94E05F00C446A2 /* GetUserFriendsResponse.swift in Sources */,
 				A3875B9A1F920B74004A1D47 /* AppDelegate.swift in Sources */,
+				A345FC041FD5E7E700E1632C /* NewPostViewControllerDelegate.swift in Sources */,
 				A30BCCB91F95541F00C6495F /* UserGroupsListTableViewController.swift in Sources */,
 				A3E18E821F9417430060AB55 /* FriendsService.swift in Sources */,
 				A30BCCB51F9553E100C6495F /* SearchGroupsListTableViewCell.swift in Sources */,
