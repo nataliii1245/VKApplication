@@ -16,6 +16,8 @@
 		A30BCCB71F9553F600C6495F /* SearchGroupsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCB61F9553F600C6495F /* SearchGroupsListTableViewController.swift */; };
 		A30BCCB91F95541F00C6495F /* UserGroupsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */; };
 		A30BCCBB1F95543500C6495F /* UserGroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */; };
+		A3103FE01FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FDF1FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift */; };
+		A3103FE21FD6CF1100CB5CFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3103FE11FD6CF1100CB5CFE /* MapKit.framework */; };
 		A345FBFB1FD324A700E1632C /* DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */; };
 		A345FBFD1FD3407100E1632C /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFC1FD3407100E1632C /* NewPostViewController.swift */; };
 		A345FC001FD3472800E1632C /* WallService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFF1FD3472800E1632C /* WallService.swift */; };
@@ -99,6 +101,8 @@
 		A30BCCB61F9553F600C6495F /* SearchGroupsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsListTableViewController.swift; sourceTree = "<group>"; };
 		A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewController.swift; sourceTree = "<group>"; };
 		A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewCell.swift; sourceTree = "<group>"; };
+		A3103FDF1FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxMapTableHeaderView.swift; sourceTree = "<group>"; };
+		A3103FE11FD6CF1100CB5CFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormatter.swift; sourceTree = "<group>"; };
 		A345FBFC1FD3407100E1632C /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		A345FBFF1FD3472800E1632C /* WallService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallService.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3103FE21FD6CF1100CB5CFE /* MapKit.framework in Frameworks */,
 				B25DBA804B9547B12146ECD9 /* Pods_VKApplication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +192,7 @@
 		63BAA43114BFAEC07A456EF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3103FE11FD6CF1100CB5CFE /* MapKit.framework */,
 				AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */,
 			);
 			name = Frameworks;
@@ -228,6 +234,14 @@
 			path = SearchGroupsList;
 			sourceTree = "<group>";
 		};
+		A3103FD81FD6AA4A00CB5CFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A3103FDF1FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A345FBFE1FD3470E00E1632C /* Wall */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +254,7 @@
 		A345FC051FD5E7F300E1632C /* NewPostViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A3103FD81FD6AA4A00CB5CFE /* View */,
 				A345FBFC1FD3407100E1632C /* NewPostViewController.swift */,
 				A345FC031FD5E7E700E1632C /* NewPostViewControllerDelegate.swift */,
 			);
@@ -580,6 +595,11 @@
 					A3875B951F920B74004A1D47 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -722,6 +742,7 @@
 				A3573CBE1FAC71A500235C93 /* AttachmentDocView.swift in Sources */,
 				A3E18E7E1F93FE750060AB55 /* Group.swift in Sources */,
 				A3E18E711F93DFF10060AB55 /* AuthorizationService.swift in Sources */,
+				A3103FE01FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift in Sources */,
 				A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */,
 				A38022E61FA0AB20003954F8 /* VideoAttachment.swift in Sources */,
 				A3F92C5D1F94E27F00C446A2 /* GetUserGroupsResponse.swift in Sources */,

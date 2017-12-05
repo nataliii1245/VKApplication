@@ -594,7 +594,11 @@
                                 <items>
                                     <barButtonItem title="Добавить  вложение" id="JmZ-rX-fhB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RCp-E6-Wcz"/>
-                                    <barButtonItem title="Геопозиция" id="pSc-lu-2eH"/>
+                                    <barButtonItem title="Геопозиция" id="pSc-lu-2eH">
+                                        <connections>
+                                            <segue destination="qZs-j7-2wZ" kind="presentation" id="dCR-H7-Nqs"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -630,6 +634,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrx-p4-eds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3836" y="2541"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rPC-Qr-kC4">
+            <objects>
+                <viewController id="3z7-D3-Vng" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zz7-xm-yDk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yGS-mN-HyA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4nA-eP-9eY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PZY-Mg-eaW"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w0K-ZG-Jwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5676" y="2540.7796101949029"/>
         </scene>
         <!--Search Groups List Table View Controller-->
         <scene sceneID="gWp-bR-bPo">
@@ -732,6 +754,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTb-KT-zQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2873" y="2541"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="63M-Ey-DFb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qZs-j7-2wZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G8v-eh-X0q">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3z7-D3-Vng" kind="relationship" relationship="rootViewController" id="cel-d1-a2x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nxy-f7-eQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4799" y="2541"/>
         </scene>
     </scenes>
     <resources>
