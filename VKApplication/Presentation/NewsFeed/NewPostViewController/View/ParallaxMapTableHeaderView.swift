@@ -8,18 +8,31 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 final class ParallaxMapTableHeaderView: UIView {
+    
+    // MARK: - Публичные свойства
+    
+    /// Информация о местоположении пользователя
+    var userLocation: CLLocation? {
+        willSet {
+            guard let userLocation = newValue else { return }
+            centerMap(on: userLocation)
+        }
+    }
+    
     
     // MARK: - Приватные свойства
     
     /// Коэффициент, с которым карта смещается
     private let parallaxDeltaFactor: CGFloat = 0.5
+    /// Радиус отображаемого региона
+    private let regionRadius: CLLocationDistance = 1500
+    
     /// View, в котором отображается видимая часть headerView
     private var visibleView: UIView!
-    /// ScrollView для headerView
-    private var scrollView: UIScrollView!
-    /// View карты
+    /// Карта
     private var mapView: MKMapView!
     
     
@@ -27,51 +40,64 @@ final class ParallaxMapTableHeaderView: UIView {
     
     // Принимает размер headerView
     convenience init(size: CGSize) {
-        
-        // Обращаемся к стандартному конструктору, размер равен размеру headerView
         self.init(frame: CGRect(origin: .zero, size: size))
         
-        // Приравнять внешние и внутренние границы
+        // Создать UIView, с внешними границами равными внутренним границам headerView
         self.visibleView = UIView(frame: self.bounds)
-        // Обрезать view, содержащее видимую часть headerView
+        // Обрезать содержимое view, выходящее за границы видимой части headerView
         self.visibleView.clipsToBounds = true
         // Добавить в headerView обрезанное view
         self.addSubview(self.visibleView)
         
-        // В scrollView записать scrollView, с шириной видимой части headerView и высотой равной высоте экрана
-        self.scrollView = UIScrollView(frame: CGRect(origin: .zero, size: CGSize(width: self.visibleView.bounds.width, height: UIScreen.main.bounds.height)))
-        // Приравнять центр scrollView центру видимой части headerView
-        self.scrollView.center = self.visibleView.center
-        // Добавить в visibleView scrollView
-        self.visibleView.addSubview(self.scrollView)
-        
-        // Создать mapView с размерами внутренней части scrollView
-        self.mapView = MKMapView(frame: self.scrollView.bounds)
+        // Создать mapView
+        self.mapView = MKMapView(frame: CGRect(origin: .zero, size: CGSize(width: self.visibleView.bounds.width, height: UIScreen.main.bounds.height)))
+        self.mapView.showsUserLocation = true
+        self.mapView.tintColor = .black
         // Запретить взаимодействие с mapView
         self.mapView.isUserInteractionEnabled = false
-        // Добавить в scrollView mapView
-        self.scrollView.addSubview(self.mapView)
+        // Приравнять центр mapView центру видимой части headerView
+        self.mapView.center = self.visibleView.center
+        // Добавить в visibleView mapView
+        self.visibleView.addSubview(self.mapView)
     }
     
+}
+
+
+// MARK: - Публичные методы
+
+extension ParallaxMapTableHeaderView {
     
-    // MARK: - Публичные методы
-    
-    /// Пересчитать расположение сожержимого с учетом сдвига
+    /// Пересчитать расположение содержимого с учетом сдвига
     func layoutForContentOffset(_ contentOffset: CGPoint) {
         // При сдвиге (промотке вниз)
         if contentOffset.y > 0 {
             // Пересчитать смещение
             let offset = contentOffset.y * self.parallaxDeltaFactor
-            // Установить значение y для центра scrollView c учетом смещения
-            self.scrollView.center.y = self.visibleView.center.y + offset
+            // Установить значение y для центра mapView c учетом смещения
+            self.mapView.center.y = self.visibleView.center.y + offset
         } else {
+            let offset = fabs(contentOffset.y)
             // Установить значение y для origin visibleView равным смещению
-            self.visibleView.frame.origin.y = contentOffset.y
+            self.visibleView.frame.origin.y = 0 - offset
             // Установить значение высоты visibleView с учетом смещения
-            self.visibleView.frame.size.height = self.bounds.height - contentOffset.y
-            // Установить значение y для центра scrollView c учетом смещения
-            self.scrollView.center.y = self.visibleView.center.y - contentOffset.y
+            self.visibleView.frame.size.height = self.bounds.height + offset
+            // Установить значение y для центра mapView c учетом смещения
+            self.mapView.center.y = self.visibleView.center.y + offset
         }
+    }
+    
+}
+
+
+// MARK: - Приватные методы
+
+private extension ParallaxMapTableHeaderView {
+    
+    /// Центрировать карту
+    func centerMap(on location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, self.regionRadius, self.regionRadius)
+        self.mapView.setRegion(coordinateRegion, animated: true)
     }
     
 }
