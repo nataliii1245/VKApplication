@@ -1,5 +1,5 @@
 //
-//  ParallaxMapTableHeaderView.swift
+//  MapTableHeaderView.swift
 //  VKApplication
 //
 //  Created by Natalia Volkova on 05.12.2017.
@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-final class ParallaxMapTableHeaderView: UIView {
+final class MapTableHeaderView: UIView {
     
     // MARK: - Публичные свойства
     
@@ -52,7 +52,7 @@ final class ParallaxMapTableHeaderView: UIView {
         // Создать mapView
         self.mapView = MKMapView(frame: CGRect(origin: .zero, size: CGSize(width: self.visibleView.bounds.width, height: UIScreen.main.bounds.height)))
         self.mapView.showsUserLocation = true
-        self.mapView.tintColor = .black
+        self.mapView.tintColor = #colorLiteral(red: 0.1607843137, green: 0.4078431373, blue: 0.7450980392, alpha: 1)
         // Запретить взаимодействие с mapView
         self.mapView.isUserInteractionEnabled = false
         // Приравнять центр mapView центру видимой части headerView
@@ -66,7 +66,7 @@ final class ParallaxMapTableHeaderView: UIView {
 
 // MARK: - Публичные методы
 
-extension ParallaxMapTableHeaderView {
+extension MapTableHeaderView {
     
     /// Пересчитать расположение содержимого с учетом сдвига
     func layoutForContentOffset(_ contentOffset: CGPoint) {
@@ -92,7 +92,7 @@ extension ParallaxMapTableHeaderView {
 
 // MARK: - Приватные методы
 
-private extension ParallaxMapTableHeaderView {
+private extension MapTableHeaderView {
     
     /// Центрировать карту
     func centerMap(on location: CLLocation) {

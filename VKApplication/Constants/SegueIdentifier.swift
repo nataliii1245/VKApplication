@@ -21,6 +21,8 @@ enum SegueIdentifier: String {
     case showFriendPhotos = "ShowFriendPhotosSegue"
     /// Отобразить окно создания новой записи на стене
     case showNewPost = "ShowNewPostSegue"
+    /// Отобразить окно выбора геопозиции
+    case showChooseUserLocation = "ShowChooseUserLocationSegue"
 }
 
 

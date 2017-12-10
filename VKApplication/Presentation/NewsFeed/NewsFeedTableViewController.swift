@@ -111,10 +111,8 @@ private extension NewsFeedTableViewController {
             self.profilesSource = profiles
             self.nextFrom = nextFrom
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-            }
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }) { error in
             guard error._code != NSURLErrorCancelled else { return }
             
@@ -123,11 +121,9 @@ private extension NewsFeedTableViewController {
             let okAction = UIAlertAction(title: "OK", style: .default)
             alertController.addAction(okAction)
             
-            DispatchQueue.main.async {
-                self.refreshControl?.endRefreshing()
-                self.present(alertController, animated: true)
+            self.refreshControl?.endRefreshing()
+            self.present(alertController, animated: true)
             }
-        }
     }
     
     @objc func refreshData() {
