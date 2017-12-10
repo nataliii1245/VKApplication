@@ -64,6 +64,43 @@ final class DatabaseManager {
         }
     }
     
+    /// Загрузка списка заявок в друзья из БД
+    class func loadFriendRequestUsers() -> Results<FriendRequestUser>? {
+        do {
+            let realm = try Realm()
+            let friendRequestUsers = realm.objects(FriendRequestUser.self).sorted(byKeyPath: "displaySequence", ascending: true)
+            
+            return friendRequestUsers
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
+    /// Сохранение списка заявок в друзья в бд
+    class func saveFriendRequestUsers(_ friendRequestUsers: [FriendRequestUser]) {
+        do {
+            let realm = try Realm()
+            
+            // Получили заявки в друзья, которые уже сохранены в бд
+            let existingFriendRequestUsers = realm.objects(FriendRequestUser.self)
+            
+            // Получаем id загруженных заявок
+            let loadedFriendRequestUsersIds = friendRequestUsers.map { $0.id }
+            
+            // Получаем заявки, которых нет среди загруженных
+            let deletionsFriendRequestUsers = existingFriendRequestUsers.filter { !loadedFriendRequestUsersIds.contains($0.id) }
+            
+            // Записываем новые данные
+            try realm.write {
+                realm.delete(deletionsFriendRequestUsers)
+                realm.add(friendRequestUsers, update: true)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     /// Загрузка списка групп из бд
     class func loadGroups() -> Results<Group>? {
         do {

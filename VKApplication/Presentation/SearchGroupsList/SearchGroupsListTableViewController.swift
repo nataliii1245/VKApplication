@@ -57,7 +57,7 @@ final class SearchGroupsListTableViewController: UITableViewController {
             do {
                 let realm = try Realm()
                 try realm.write {
-                    realm.add(group)
+                    realm.add(group, update: true)
                 }
                 
                 let alertController = UIAlertController(title: nil, message: "Группа \(group.name) успешно добавлена!", preferredStyle: .alert)
@@ -65,9 +65,7 @@ final class SearchGroupsListTableViewController: UITableViewController {
                 let okAction = UIAlertAction(title: "OK", style: .default)
                 alertController.addAction(okAction)
                 
-                DispatchQueue.main.async {
-                    self.present(alertController, animated: true)
-                }
+                self.present(alertController, animated: true)
             } catch {
                 print(error)
             }
@@ -77,9 +75,7 @@ final class SearchGroupsListTableViewController: UITableViewController {
             let okAction = UIAlertAction(title: "OK", style: .default)
             alertController.addAction(okAction)
             
-            DispatchQueue.main.async {
-                self.present(alertController, animated: true)
-            }
+            self.present(alertController, animated: true)
         }
     }
 

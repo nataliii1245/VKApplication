@@ -16,7 +16,7 @@
 		A30BCCB71F9553F600C6495F /* SearchGroupsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCB61F9553F600C6495F /* SearchGroupsListTableViewController.swift */; };
 		A30BCCB91F95541F00C6495F /* UserGroupsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */; };
 		A30BCCBB1F95543500C6495F /* UserGroupsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */; };
-		A3103FE01FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FDF1FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift */; };
+		A3103FE01FD6CEDB00CB5CFE /* MapTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FDF1FD6CEDB00CB5CFE /* MapTableHeaderView.swift */; };
 		A3103FE21FD6CF1100CB5CFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3103FE11FD6CF1100CB5CFE /* MapKit.framework */; };
 		A3103FE61FD7080D00CB5CFE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FE51FD7080D00CB5CFE /* LocationManager.swift */; };
 		A3103FE81FD70F0900CB5CFE /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FE71FD70F0900CB5CFE /* LocationManagerDelegate.swift */; };
@@ -27,6 +27,10 @@
 		A345FC021FD3474E00E1632C /* NewPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FC011FD3474E00E1632C /* NewPostResponse.swift */; };
 		A345FC041FD5E7E700E1632C /* NewPostViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FC031FD5E7E700E1632C /* NewPostViewControllerDelegate.swift */; };
 		A345FC071FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FC061FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift */; };
+		A34E5B721FD7FB21001FFCE4 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E5B711FD7FB21001FFCE4 /* PlacesService.swift */; };
+		A34E5B781FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E5B771FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift */; };
+		A34E5B7A1FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E5B791FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift */; };
+		A34E5B7C1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E5B7B1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift */; };
 		A3573CBA1FAC6BB000235C93 /* AttachmentPollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */; };
 		A3573CBC1FAC6BC200235C93 /* AttachmentPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */; };
 		A3573CBE1FAC71A500235C93 /* AttachmentDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */; };
@@ -51,7 +55,7 @@
 		A38022EA1FA0AB5F003954F8 /* DocAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38022E91FA0AB5F003954F8 /* DocAttachment.swift */; };
 		A38022EC1FA0AB7E003954F8 /* PollAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38022EB1FA0AB7E003954F8 /* PollAttachment.swift */; };
 		A38022EE1FA121A7003954F8 /* NewsFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38022ED1FA121A7003954F8 /* NewsFeedPost.swift */; };
-		A38022F01FA12A02003954F8 /* GeoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38022EF1FA12A02003954F8 /* GeoInformation.swift */; };
+		A38022F01FA12A02003954F8 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38022EF1FA12A02003954F8 /* Place.swift */; };
 		A38022F21FA12A37003954F8 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38022F11FA12A37003954F8 /* Attachment.swift */; };
 		A38022F81FA1A2BD003954F8 /* AttachmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38022F71FA1A2BD003954F8 /* AttachmentModel.swift */; };
 		A38022FB1FA1AFDE003954F8 /* AttachmentAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38022FA1FA1AFDE003954F8 /* AttachmentAudioView.xib */; };
@@ -62,6 +66,12 @@
 		A3875BA41F920B74004A1D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3875BA21F920B74004A1D47 /* LaunchScreen.storyboard */; };
 		A3875BB21F92128D004A1D47 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */; };
 		A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3875BB31F921334004A1D47 /* StartViewController.swift */; };
+		A38E14811FDD4BCE007DD5E8 /* GetInformationAboutUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14801FDD4BCE007DD5E8 /* GetInformationAboutUsersResponse.swift */; };
+		A38E14831FDD52A4007DD5E8 /* FriendRequestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14821FDD52A4007DD5E8 /* FriendRequestUser.swift */; };
+		A38E14861FDD5548007DD5E8 /* FriendRequestsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14851FDD5548007DD5E8 /* FriendRequestsListTableViewController.swift */; };
+		A38E14881FDD555D007DD5E8 /* FriendRequestsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14871FDD555D007DD5E8 /* FriendRequestsListTableViewCell.swift */; };
+		A38E148A1FDD7416007DD5E8 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14891FDD7416007DD5E8 /* UsersService.swift */; };
+		A38E148D1FDD75A8007DD5E8 /* GetRequestsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E148C1FDD75A8007DD5E8 /* GetRequestsResponse.swift */; };
 		A3A8C9B11FA2909400388BCF /* LinkAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C9B01FA2909400388BCF /* LinkAttachment.swift */; };
 		A3BFC32F1FABA43900616E3D /* PollAnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BFC32E1FABA43900616E3D /* PollAnswerModel.swift */; };
 		A3BFC3321FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */; };
@@ -104,7 +114,7 @@
 		A30BCCB61F9553F600C6495F /* SearchGroupsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsListTableViewController.swift; sourceTree = "<group>"; };
 		A30BCCB81F95541F00C6495F /* UserGroupsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewController.swift; sourceTree = "<group>"; };
 		A30BCCBA1F95543500C6495F /* UserGroupsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsListTableViewCell.swift; sourceTree = "<group>"; };
-		A3103FDF1FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxMapTableHeaderView.swift; sourceTree = "<group>"; };
+		A3103FDF1FD6CEDB00CB5CFE /* MapTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableHeaderView.swift; sourceTree = "<group>"; };
 		A3103FE11FD6CF1100CB5CFE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A3103FE51FD7080D00CB5CFE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A3103FE71FD70F0900CB5CFE /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +125,10 @@
 		A345FC011FD3474E00E1632C /* NewPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostResponse.swift; sourceTree = "<group>"; };
 		A345FC031FD5E7E700E1632C /* NewPostViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A345FC061FD5FF3800E1632C /* String+IsEmptyOrWhitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsEmptyOrWhitespace.swift"; sourceTree = "<group>"; };
+		A34E5B711FD7FB21001FFCE4 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
+		A34E5B771FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesNearCoordinateResponse.swift; sourceTree = "<group>"; };
+		A34E5B791FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserLocationTableViewCell.swift; sourceTree = "<group>"; };
+		A34E5B7B1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserLocationTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentPollView.xib; sourceTree = "<group>"; };
 		A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentPollView.swift; sourceTree = "<group>"; };
 		A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentDocView.swift; sourceTree = "<group>"; };
@@ -139,7 +153,7 @@
 		A38022E91FA0AB5F003954F8 /* DocAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocAttachment.swift; sourceTree = "<group>"; };
 		A38022EB1FA0AB7E003954F8 /* PollAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAttachment.swift; sourceTree = "<group>"; };
 		A38022ED1FA121A7003954F8 /* NewsFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedPost.swift; sourceTree = "<group>"; };
-		A38022EF1FA12A02003954F8 /* GeoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoInformation.swift; sourceTree = "<group>"; };
+		A38022EF1FA12A02003954F8 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		A38022F11FA12A37003954F8 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		A38022F71FA1A2BD003954F8 /* AttachmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentModel.swift; sourceTree = "<group>"; };
 		A38022FA1FA1AFDE003954F8 /* AttachmentAudioView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentAudioView.xib; sourceTree = "<group>"; };
@@ -152,6 +166,12 @@
 		A3875BA51F920B74004A1D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		A3875BB31F921334004A1D47 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A38E14801FDD4BCE007DD5E8 /* GetInformationAboutUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInformationAboutUsersResponse.swift; sourceTree = "<group>"; };
+		A38E14821FDD52A4007DD5E8 /* FriendRequestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestUser.swift; sourceTree = "<group>"; };
+		A38E14851FDD5548007DD5E8 /* FriendRequestsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsListTableViewController.swift; sourceTree = "<group>"; };
+		A38E14871FDD555D007DD5E8 /* FriendRequestsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsListTableViewCell.swift; sourceTree = "<group>"; };
+		A38E14891FDD7416007DD5E8 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		A38E148C1FDD75A8007DD5E8 /* GetRequestsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequestsResponse.swift; sourceTree = "<group>"; };
 		A3A8C9B01FA2909400388BCF /* LinkAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAttachment.swift; sourceTree = "<group>"; };
 		A3BFC32E1FABA43900616E3D /* PollAnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAnswerModel.swift; sourceTree = "<group>"; };
 		A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellDataSource.swift; sourceTree = "<group>"; };
@@ -240,15 +260,15 @@
 			path = SearchGroupsList;
 			sourceTree = "<group>";
 		};
-		A3103FD81FD6AA4A00CB5CFE /* View */ = {
+		A3103FD81FD6AA4A00CB5CFE /* ChooseLocationController */ = {
 			isa = PBXGroup;
 			children = (
-				A3103FDF1FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift */,
-				A3103FE51FD7080D00CB5CFE /* LocationManager.swift */,
-				A3103FE71FD70F0900CB5CFE /* LocationManagerDelegate.swift */,
+				A3103FDF1FD6CEDB00CB5CFE /* MapTableHeaderView.swift */,
 				A339A6C91FD735DE00D721AC /* ChooseUserLocationViewController.swift */,
+				A34E5B791FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift */,
+				A34E5B7B1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift */,
 			);
-			path = View;
+			path = ChooseLocationController;
 			sourceTree = "<group>";
 		};
 		A345FBFE1FD3470E00E1632C /* Wall */ = {
@@ -263,11 +283,20 @@
 		A345FC051FD5E7F300E1632C /* NewPostViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A3103FD81FD6AA4A00CB5CFE /* View */,
+				A3103FD81FD6AA4A00CB5CFE /* ChooseLocationController */,
 				A345FBFC1FD3407100E1632C /* NewPostViewController.swift */,
 				A345FC031FD5E7E700E1632C /* NewPostViewControllerDelegate.swift */,
 			);
 			path = NewPostViewController;
+			sourceTree = "<group>";
+		};
+		A34E5B701FD7FAEB001FFCE4 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				A34E5B711FD7FB21001FFCE4 /* PlacesService.swift */,
+				A34E5B771FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift */,
+			);
+			path = Places;
 			sourceTree = "<group>";
 		};
 		A3573CBF1FAC8FA200235C93 /* AttachmentPollAnswerView */ = {
@@ -366,7 +395,7 @@
 		A38023021FA1B9E9003954F8 /* NewsFeedPostModel */ = {
 			isa = PBXGroup;
 			children = (
-				A38022EF1FA12A02003954F8 /* GeoInformation.swift */,
+				A38022EF1FA12A02003954F8 /* Place.swift */,
 				A38022ED1FA121A7003954F8 /* NewsFeedPost.swift */,
 				A38022E21FA0AA18003954F8 /* AttachmentModels */,
 			);
@@ -411,8 +440,8 @@
 		A3875BAB1F920FC7004A1D47 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A38E148E1FDD7FDC007DD5E8 /* Managers */,
 				A3875BAF1F9210F0004A1D47 /* Network */,
-				A30076361F95326E0064598E /* DatabaseManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -423,6 +452,7 @@
 				A3E18E7B1F93FE2A0060AB55 /* Friend.swift */,
 				A3E18E7D1F93FE750060AB55 /* Group.swift */,
 				A3E18E7F1F93FEA70060AB55 /* Photo.swift */,
+				A38E14821FDD52A4007DD5E8 /* FriendRequestUser.swift */,
 				A38023021FA1B9E9003954F8 /* NewsFeedPostModel */,
 			);
 			path = Entities;
@@ -435,6 +465,7 @@
 				A3875BB31F921334004A1D47 /* StartViewController.swift */,
 				A3875BB01F921254004A1D47 /* Authorization */,
 				A30BCCBC1F95545600C6495F /* FriendsList */,
+				A38E14841FDD5505007DD5E8 /* FriendRequestsList */,
 				A30BCCBD1F95546900C6495F /* FriendPhotoCollection */,
 				A30BCCBE1F95548700C6495F /* UserGroupsList */,
 				A30BCCBF1F95549A00C6495F /* SearchGroupsList */,
@@ -452,6 +483,8 @@
 				A3F92C671F94E8A800C446A2 /* Photo */,
 				A38022C81F9F9926003954F8 /* NewsFeed */,
 				A345FBFE1FD3470E00E1632C /* Wall */,
+				A34E5B701FD7FAEB001FFCE4 /* Places */,
+				A38E148B1FDD7420007DD5E8 /* Users */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -462,6 +495,34 @@
 				A3875BB11F92128D004A1D47 /* AuthorizationViewController.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		A38E14841FDD5505007DD5E8 /* FriendRequestsList */ = {
+			isa = PBXGroup;
+			children = (
+				A38E14851FDD5548007DD5E8 /* FriendRequestsListTableViewController.swift */,
+				A38E14871FDD555D007DD5E8 /* FriendRequestsListTableViewCell.swift */,
+			);
+			path = FriendRequestsList;
+			sourceTree = "<group>";
+		};
+		A38E148B1FDD7420007DD5E8 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				A38E14891FDD7416007DD5E8 /* UsersService.swift */,
+				A38E14801FDD4BCE007DD5E8 /* GetInformationAboutUsersResponse.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		A38E148E1FDD7FDC007DD5E8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A30076361F95326E0064598E /* DatabaseManager.swift */,
+				A3103FE51FD7080D00CB5CFE /* LocationManager.swift */,
+				A3103FE71FD70F0900CB5CFE /* LocationManagerDelegate.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		A3BFC3301FABC42C00616E3D /* NewsFeedTableViewCell */ = {
@@ -525,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				A3F92C561F94E05F00C446A2 /* GetUserFriendsResponse.swift */,
+				A38E148C1FDD75A8007DD5E8 /* GetRequestsResponse.swift */,
 				A3E18E811F9417430060AB55 /* FriendsService.swift */,
 			);
 			path = Friend;
@@ -730,11 +792,14 @@
 				A3E18E741F93E9D50060AB55 /* UserDefaultsKey.swift in Sources */,
 				A38022E11FA0A3A6003954F8 /* UIStackView+Clean.swift in Sources */,
 				A3D4B0C11FA8842500DFC3FB /* AttachmentLinkView.swift in Sources */,
+				A34E5B7A1FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift in Sources */,
 				A38022E81FA0AB43003954F8 /* AudioAttachment.swift in Sources */,
+				A34E5B721FD7FB21001FFCE4 /* PlacesService.swift in Sources */,
 				A30076351F9530670064598E /* FriendListTableViewCell.swift in Sources */,
 				A345FC001FD3472800E1632C /* WallService.swift in Sources */,
 				A3E18E781F93EE430060AB55 /* KeychainKey.swift in Sources */,
 				A3F92C591F94E16100C446A2 /* GetUserPhotosResponse.swift in Sources */,
+				A34E5B7C1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift in Sources */,
 				A38022CA1F9F9994003954F8 /* NewsFeedService.swift in Sources */,
 				A3CCB6B71FD094580032A5F4 /* AttachmentLinkViewDelegate.swift in Sources */,
 				A345FC021FD3474E00E1632C /* NewPostResponse.swift in Sources */,
@@ -750,13 +815,15 @@
 				A3D4B0C61FA8BD5C00DFC3FB /* RepostHeaderView.swift in Sources */,
 				A3573CBE1FAC71A500235C93 /* AttachmentDocView.swift in Sources */,
 				A3E18E7E1F93FE750060AB55 /* Group.swift in Sources */,
+				A34E5B781FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift in Sources */,
 				A3E18E711F93DFF10060AB55 /* AuthorizationService.swift in Sources */,
-				A3103FE01FD6CEDB00CB5CFE /* ParallaxMapTableHeaderView.swift in Sources */,
+				A3103FE01FD6CEDB00CB5CFE /* MapTableHeaderView.swift in Sources */,
 				A3E18E761F93E9E20060AB55 /* SegueIdentifier.swift in Sources */,
 				A38022E61FA0AB20003954F8 /* VideoAttachment.swift in Sources */,
 				A3F92C5D1F94E27F00C446A2 /* GetUserGroupsResponse.swift in Sources */,
 				A3F92C611F94E2B900C446A2 /* JoinGroupResponse.swift in Sources */,
-				A38022F01FA12A02003954F8 /* GeoInformation.swift in Sources */,
+				A38022F01FA12A02003954F8 /* Place.swift in Sources */,
+				A38E14831FDD52A4007DD5E8 /* FriendRequestUser.swift in Sources */,
 				A38022EA1FA0AB5F003954F8 /* DocAttachment.swift in Sources */,
 				A374C7D31FA6243B000ED379 /* AttachmentVideoView.swift in Sources */,
 				A3CCB6B91FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift in Sources */,
@@ -764,11 +831,15 @@
 				A339A6CA1FD735DE00D721AC /* ChooseUserLocationViewController.swift in Sources */,
 				A3875BB41F921334004A1D47 /* StartViewController.swift in Sources */,
 				A3573CBC1FAC6BC200235C93 /* AttachmentPollView.swift in Sources */,
+				A38E14861FDD5548007DD5E8 /* FriendRequestsListTableViewController.swift in Sources */,
+				A38E148A1FDD7416007DD5E8 /* UsersService.swift in Sources */,
 				A3A8C9B11FA2909400388BCF /* LinkAttachment.swift in Sources */,
 				A38022F81FA1A2BD003954F8 /* AttachmentModel.swift in Sources */,
+				A38E14881FDD555D007DD5E8 /* FriendRequestsListTableViewCell.swift in Sources */,
 				A3E18E801F93FEA70060AB55 /* Photo.swift in Sources */,
 				A3E18E7C1F93FE2A0060AB55 /* Friend.swift in Sources */,
 				A3BFC3321FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift in Sources */,
+				A38E14811FDD4BCE007DD5E8 /* GetInformationAboutUsersResponse.swift in Sources */,
 				A38022CC1F9F9DA8003954F8 /* GetNewsFeedResponse.swift in Sources */,
 				A3F92C5F1F94E2A400C446A2 /* SearchGroupsResponse.swift in Sources */,
 				A30BCCBB1F95543500C6495F /* UserGroupsListTableViewCell.swift in Sources */,
@@ -792,6 +863,7 @@
 				A30BCCB91F95541F00C6495F /* UserGroupsListTableViewController.swift in Sources */,
 				A3E18E821F9417430060AB55 /* FriendsService.swift in Sources */,
 				A30BCCB51F9553E100C6495F /* SearchGroupsListTableViewCell.swift in Sources */,
+				A38E148D1FDD75A8007DD5E8 /* GetRequestsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

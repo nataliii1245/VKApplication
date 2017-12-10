@@ -20,7 +20,7 @@ final class GetUserFriendsResponse {
     // MARK: - Инициализация
     
     required init?(json: JSON) {
-        guard let friendsJSONArray = json["response"]["items"].array else { return nil }
+        guard let friendsJSONArray = json["response"]["items"].array else { Bug.shared.catch(json); return nil }
         
         var friends: [Friend] = []
         

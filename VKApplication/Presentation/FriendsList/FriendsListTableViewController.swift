@@ -74,23 +74,23 @@ extension FriendsListTableViewController {
         }) { error in
             guard error._code != NSURLErrorCancelled else { return }
             
-            DispatchQueue.main.async {
-                let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
                 
-                let okAction = UIAlertAction(title: "OK", style: .default)
-                alertController.addAction(okAction)
-                
-                self.present(alertController, animated: true)
-            }
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true)
         }
     }
     
     // Передача объекта типа Friend на экран коллекции фотографий пользователя
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let viewController = segue.destination as! PhotoCollectionViewController
-        let friend = sender as! Friend
-        
-        viewController.friend = friend
+        if segue.identifier == "ShowFriendPhotosSegue" {
+            let viewController = segue.destination as! PhotoCollectionViewController
+            let friend = sender as! Friend
+            
+            viewController.friend = friend
+        }
     }
     
 }

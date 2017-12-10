@@ -44,19 +44,15 @@ extension PhotoCollectionViewController {
             // Сохранить новые фотографии в БД
             DatabaseManager.removePhotos()
             DatabaseManager.savePhotos(self.photos)
-            
-            DispatchQueue.main.async {
-                self.collectionView?.reloadData()
-            }
+           
+            self.collectionView?.reloadData()
         }, { error in
             let alertController = UIAlertController(title: "Ошибка", message: error.localizedDescription, preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "OK", style: .default)
             alertController.addAction(okAction)
             
-            DispatchQueue.main.async {
-                self.present(alertController, animated: true)
-            }
+            self.present(alertController, animated: true)
         })
     }
     
