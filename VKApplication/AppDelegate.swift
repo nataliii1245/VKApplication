@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 import UserNotifications
 
 @UIApplicationMain
@@ -31,13 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-final class Bug {
 
 // MARK: - UIApplicationDelegate
 
 extension AppDelegate {
     
-    static var shared = Bug()
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let lastUpdate = BackgroundManager.instance.lastUpdate, abs(lastUpdate.timeIntervalSinceNow) < 30 {
             completionHandler(.noData)
@@ -61,7 +58,6 @@ extension AppDelegate {
         }
     }
     
-    private init() { }
 }
 
 
@@ -69,9 +65,6 @@ extension AppDelegate {
 
 private extension AppDelegate {
     
-    func `catch`(_ json: JSON) {
-        print("bug")
-        print(json)
     /// Получить список идентификаторов пользователей, которые отправили заявку на добавление в друзья
     func getUserFriendRequests() {
         FriendsService.getRequests({ userIds in
