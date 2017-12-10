@@ -43,6 +43,7 @@ final class FriendsService {
     }
 
     /// Запрос на получение заявок в друзья
+    @discardableResult
     class func getRequests(_ completion: @escaping ([Int]) -> Void, _ failure: @escaping (Error) -> Void) -> Request{
         let parameters: Parameters = [
             "access_token" : "\(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)",

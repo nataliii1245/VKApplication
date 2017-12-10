@@ -15,6 +15,7 @@ final class UsersService {
     // MARK: - Публичные методы
     
     /// Запрос на информации о пользователях
+    @discardableResult
     class func getInformationAboutUsers(withIds userIds: [Int], _ completion: @escaping ([FriendRequestUser]) -> Void, _ failure: @escaping (Error) -> Void) -> Request {
         let parameters: Parameters = [
             "access_token" : "\(KeychainWrapper.standard.string(forKey: KeychainKey.token)!)",

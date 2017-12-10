@@ -102,6 +102,9 @@ private extension FriendRequestsListTableViewController {
     func getInformationAboutUsers(with userIds: [Int]) {
         self.activeRequest = UsersService.getInformationAboutUsers(withIds: userIds, { friendRequests in
             
+            // Меняем бейдж
+            UIApplication.shared.applicationIconBadgeNumber = friendRequests.count
+            
             // Сохраняем в бд
             DatabaseManager.saveFriendRequestUsers(friendRequests)
         }) { [weak self] error in
