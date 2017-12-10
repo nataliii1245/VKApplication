@@ -12,7 +12,7 @@ import WebKit
 final class AuthorizationService {
     
     ///  Создание запроса на авторизацию
-    class func getRequest() -> URLRequest{
+    class func getUrl() -> URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "oauth.vk.com"
@@ -26,9 +26,7 @@ final class AuthorizationService {
             URLQueryItem(name: "v", value: "5.68")
         ]
         
-        let request = URLRequest(url: urlComponents.url!)
-        
-        return request
+        return urlComponents.url
     }
     
 }

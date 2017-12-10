@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -38,26 +39,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvy-cQ-YQX">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hq3-NY-Tld">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zvy-cQ-YQX" firstAttribute="leading" secondItem="5b4-I5-YyC" secondAttribute="leading" id="0Gx-Y6-OHl"/>
-                            <constraint firstItem="zvy-cQ-YQX" firstAttribute="bottom" secondItem="5b4-I5-YyC" secondAttribute="bottom" id="PpF-lh-lBE"/>
-                            <constraint firstItem="zvy-cQ-YQX" firstAttribute="top" secondItem="5b4-I5-YyC" secondAttribute="top" id="urL-Yt-n67"/>
-                            <constraint firstItem="zvy-cQ-YQX" firstAttribute="trailing" secondItem="5b4-I5-YyC" secondAttribute="trailing" id="zRJ-gd-1dy"/>
+                            <constraint firstItem="hq3-NY-Tld" firstAttribute="centerX" secondItem="6X2-Dn-cCp" secondAttribute="centerX" id="SXE-pm-ufN"/>
+                            <constraint firstItem="hq3-NY-Tld" firstAttribute="centerY" secondItem="6X2-Dn-cCp" secondAttribute="centerY" id="Wb8-uc-af2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5b4-I5-YyC"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="zvy-cQ-YQX" id="m4R-jl-WMz"/>
+                        <outlet property="activityIndicator" destination="hq3-NY-Tld" id="wjk-RI-yCb"/>
                         <segue destination="rK8-cc-fHH" kind="presentation" identifier="ShowTabBarControllerFromAuthorizationSegue" id="2ds-Kv-dfw"/>
                     </connections>
                 </viewController>
@@ -963,6 +957,6 @@
         <image name="views_orig" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ac8-zC-J50"/>
+        <segue reference="2ds-Kv-dfw"/>
     </inferredMetricsTieBreakers>
 </document>

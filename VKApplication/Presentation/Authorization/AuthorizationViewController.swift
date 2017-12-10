@@ -14,9 +14,15 @@ final class AuthorizationViewController: UIViewController {
     
     // MARK: - Outlet
     
-    @IBOutlet weak var webView: WKWebView! {
-        didSet{
-            webView.navigationDelegate = self
+    @IBOutlet
+    private weak var activityIndicator: UIActivityIndicatorView!
+    
+    
+    // MARK: - Приватные свойства
+    
+    private weak var webView: WKWebView! {
+        willSet {
+            newValue.navigationDelegate = self
         }
     }
     
@@ -26,10 +32,32 @@ final class AuthorizationViewController: UIViewController {
 // MARK: - UIViewController
 
 extension AuthorizationViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView.load(AuthorizationService.getRequest())
+        let webView = WKWebView(frame: .zero)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(webView)
+        webView.layoutAttachAll(to: self.view)
+        
+        webView.alpha = 0
+        
+        if let url = AuthorizationService.getUrl() {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        }
+        
+        self.webView = webView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.activityIndicator.alpha == 1 {
+            self.activityIndicator.startAnimating()
+        }
     }
     
 }
@@ -38,6 +66,13 @@ extension AuthorizationViewController {
 // MARK: - WKNavigationDelegate
 
 extension AuthorizationViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.alpha = 1
+        
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.alpha = 0
+    }
     
     /// Метод вызывается до того, как произойдет переход на другую страницу
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {

@@ -178,7 +178,11 @@ extension NewsFeedTableViewController: NewsFeedTableViewCellDelegate {
             return
         }
         
-        UIApplication.shared.open(siteUrl, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(siteUrl, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(siteUrl)
+        }
     }
     
 }
