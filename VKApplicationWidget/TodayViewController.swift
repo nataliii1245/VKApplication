@@ -15,21 +15,24 @@ final class TodayViewController: UIViewController{
     
     // MARK: - Outlet
     
-//    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var newsTextLabel: UILabel!
-    @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet private weak var tableView: UITableView! {
+        willSet {
+            newValue.dataSource = self
+            newValue.delegate = self
+        }
+    }
+    
     
     // MARK: - Приватные свойства
     
     /// Массив новостей
-    private var news: [SmallNewsfeedModel]?
+    private var news: [SmallNewsfeedModel] = []
     /// Массив групп - источников новостей
-    private var groupsSource: [Group]?
+    private var groupsSource: [Group] = []
     /// Массив пользователей - источников новостей
-    private var profilesSource: [Friend]?
+    private var profilesSource: [Friend] = []
     
-    ///
+    /// Активный запрос
     private weak var activeRequest: Request?
     
 }
@@ -38,13 +41,6 @@ final class TodayViewController: UIViewController{
 // MARK: - UIViewController
 
 extension TodayViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.sourceLabel.text = "Загрузка"
-        self.newsTextLabel.text = "..."
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -86,33 +82,7 @@ private extension TodayViewController {
     }
     
     func update() {
-        guard let news = self.news, let groups = self.groupsSource, let profiles = self.profilesSource else { return }
-        for item in news {
-            guard !item.text.isEmpty else { continue }
-            
-            if item.source_id > 0 {
-                for profile in profiles {
-                    if item.source_id == profile.id {
-                        self.sourceLabel.text = profile.name
-                        break
-                    }
-                }
-            } else {
-                for group in groups {
-                    let sourceId = abs(item.source_id)
-                    if sourceId == group.id {
-                        self.sourceLabel.text = group.name
-                        break
-                    }
-                }
-            }
-            self.newsTextLabel.text = item.text
-            if let photoUrlValue = item.photoUrl, let photoUrl = URL(string: photoUrlValue) {
-                self.newsImage.sd_setImage(with: photoUrl, placeholderImage: nil)
-            }
-            
-            break
-        }
+        self.tableView.reloadData()
     }
     
 }
@@ -136,22 +106,59 @@ extension TodayViewController: NCWidgetProviding {
 }
 
 
-//// MARK: - TableView
-//
-//extension TodayViewController: UITableViewDataSource {
-//    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return news.count
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        // Получаем ячейку из пула
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "SmallNewsFeedTableViewCell", for: indexPath) as! SmallNewsFeedTableViewCell
-//        
-//        cell.configure(with: news[indexPath.row], profileSources: profilesSource, groupSources: groupsSource)
-//        
-//        return cell
-//    }
-//    
-//}
+// MARK: - UITableViewDataSource
 
+extension TodayViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.news.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Получаем ячейку из пула
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SmallNewsFeedTableViewCell", for: indexPath) as! SmallNewsFeedTableViewCell
+        cell.configure(with: news[indexPath.row])
+        cell.dataSource = self
+        
+        return cell
+    }
+    
+}
+
+
+// MARK: - UITableViewDelegate
+
+extension TodayViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+
+// MARK: - SmallNewsFeedTableViewCellDataSource
+
+extension TodayViewController: SmallNewsFeedTableViewCellDataSource {
+    
+    func getGroupBy(id: Int) -> Group? {
+        for group in self.groupsSource {
+            if group.id == id {
+                return group
+            }
+        }
+        
+        return nil
+    }
+    
+    func getProfileBy(id: Int) -> Friend? {
+        for profile in self.profilesSource {
+            if profile.id == id {
+                return profile
+            }
+        }
+        
+        return nil
+    }
+    
+}
