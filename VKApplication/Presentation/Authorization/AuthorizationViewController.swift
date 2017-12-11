@@ -104,6 +104,10 @@ extension AuthorizationViewController: WKNavigationDelegate {
             // Добавляем токен в хранилище Keychain
             KeychainWrapper.standard.set(token, forKey: KeychainKey.token)
             
+            let defaults = UserDefaults(suiteName: "group.VKApplication")
+            defaults?.set(token, forKey: "token")
+            defaults?.synchronize()
+            
             // Устанавливаем флаг авторизации пользователя
             UserDefaults.standard.set(true, forKey: UserDefaultsKey.isUserAuthorized)
             performSegue(withIdentifier: .showTabBarControllerFromAuthorization, sender: nil)

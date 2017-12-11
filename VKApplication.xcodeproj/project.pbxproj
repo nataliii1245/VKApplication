@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AA572624ABA0D1EC47CB041 /* Pods_VKApplicationWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EBDB3C5646D638EA5E30CC /* Pods_VKApplicationWidget.framework */; };
 		A30076331F9530500064598E /* FriendsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30076321F9530500064598E /* FriendsListTableViewController.swift */; };
 		A30076351F9530670064598E /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30076341F9530670064598E /* FriendListTableViewCell.swift */; };
 		A30076371F95326E0064598E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30076361F95326E0064598E /* DatabaseManager.swift */; };
@@ -20,6 +21,8 @@
 		A3103FE21FD6CF1100CB5CFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3103FE11FD6CF1100CB5CFE /* MapKit.framework */; };
 		A3103FE61FD7080D00CB5CFE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FE51FD7080D00CB5CFE /* LocationManager.swift */; };
 		A3103FE81FD70F0900CB5CFE /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FE71FD70F0900CB5CFE /* LocationManagerDelegate.swift */; };
+		A335FE2D1FDEF16B00E3E239 /* Bug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14921FDD91E3007DD5E8 /* Bug.swift */; };
+		A335FE2F1FDEF70500E3E239 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C713CA1F94764800387AD6 /* TabBarController.swift */; };
 		A339A6CA1FD735DE00D721AC /* ChooseUserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A339A6C91FD735DE00D721AC /* ChooseUserLocationViewController.swift */; };
 		A345FBFB1FD324A700E1632C /* DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */; };
 		A345FBFD1FD3407100E1632C /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFC1FD3407100E1632C /* NewPostViewController.swift */; };
@@ -75,12 +78,18 @@
 		A38E14901FDD83E0007DD5E8 /* BackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E148F1FDD83E0007DD5E8 /* BackgroundManager.swift */; };
 		A38E14931FDD91E3007DD5E8 /* Bug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14921FDD91E3007DD5E8 /* Bug.swift */; };
 		A3A8C9B11FA2909400388BCF /* LinkAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C9B01FA2909400388BCF /* LinkAttachment.swift */; };
+		A3B402BE1FDEE81A00807173 /* SmallNewsfeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B402BD1FDEE81A00807173 /* SmallNewsfeedModel.swift */; };
+		A3B402C21FDEE86200807173 /* GetSmallNewsfeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B402C11FDEE86200807173 /* GetSmallNewsfeedResponse.swift */; };
+		A3B402C41FDEE87A00807173 /* SmallNewsfeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B402C31FDEE87A00807173 /* SmallNewsfeedService.swift */; };
+		A3B402C61FDEF0C700807173 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E7D1F93FE750060AB55 /* Group.swift */; };
+		A3B402C81FDEF0FA00807173 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E7B1F93FE2A0060AB55 /* Friend.swift */; };
 		A3BFC32F1FABA43900616E3D /* PollAnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BFC32E1FABA43900616E3D /* PollAnswerModel.swift */; };
 		A3BFC3321FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */; };
 		A3C5085C1FAD0935006734C8 /* UIImage+MaskWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */; };
 		A3C713CB1F94764800387AD6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C713CA1F94764800387AD6 /* TabBarController.swift */; };
 		A3CCB6B71FD094580032A5F4 /* AttachmentLinkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCB6B61FD094580032A5F4 /* AttachmentLinkViewDelegate.swift */; };
 		A3CCB6B91FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCB6B81FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift */; };
+		A3D2C0D51FDF034400BAE0C9 /* SmallNewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D2C0D41FDF034400BAE0C9 /* SmallNewsFeedTableViewCell.swift */; };
 		A3D4B0BF1FA87C9E00DFC3FB /* AttachmentLinkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D4B0BE1FA87C9E00DFC3FB /* AttachmentLinkView.xib */; };
 		A3D4B0C11FA8842500DFC3FB /* AttachmentLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4B0C01FA8842500DFC3FB /* AttachmentLinkView.swift */; };
 		A3D4B0C41FA8BD4600DFC3FB /* RepostHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D4B0C31FA8BD4500DFC3FB /* RepostHeaderView.xib */; };
@@ -101,12 +110,43 @@
 		A3F92C5F1F94E2A400C446A2 /* SearchGroupsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F92C5E1F94E2A400C446A2 /* SearchGroupsResponse.swift */; };
 		A3F92C611F94E2B900C446A2 /* JoinGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F92C601F94E2B900C446A2 /* JoinGroupResponse.swift */; };
 		A3F92C641F94E2DC00C446A2 /* LeaveGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F92C631F94E2DC00C446A2 /* LeaveGroupResponse.swift */; };
+		A3FEECF51FDEE25A00C16C35 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3FEECF41FDEE25A00C16C35 /* NotificationCenter.framework */; };
+		A3FEECF81FDEE25A00C16C35 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEECF71FDEE25A00C16C35 /* TodayViewController.swift */; };
+		A3FEECFB1FDEE25A00C16C35 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3FEECF91FDEE25A00C16C35 /* MainInterface.storyboard */; };
+		A3FEECFF1FDEE25A00C16C35 /* VKApplicationWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3FEECF31FDEE25A00C16C35 /* VKApplicationWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B25DBA804B9547B12146ECD9 /* Pods_VKApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A3FEECFD1FDEE25A00C16C35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3875B8E1F920B74004A1D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3FEECF21FDEE25A00C16C35;
+			remoteInfo = VKApplicationWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3FEED031FDEE25A00C16C35 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A3FEECFF1FDEE25A00C16C35 /* VKApplicationWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		02EBDB3C5646D638EA5E30CC /* Pods_VKApplicationWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApplicationWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5021D90549824CB899E60DE8 /* Pods-VKApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplication/Pods-VKApplication.release.xcconfig"; sourceTree = "<group>"; };
+		62890B828310764B445D99D9 /* Pods-VKApplicationWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplicationWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplicationWidget/Pods-VKApplicationWidget.release.xcconfig"; sourceTree = "<group>"; };
 		6A7C702F4BDDD8838F18B1AC /* Pods-VKApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplication/Pods-VKApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		9529EB1F8F35ECF5D487AC04 /* Pods-VKApplicationWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplicationWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplicationWidget/Pods-VKApplicationWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		A30076321F9530500064598E /* FriendsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewController.swift; sourceTree = "<group>"; };
 		A30076341F9530670064598E /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
 		A30076361F95326E0064598E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -177,12 +217,18 @@
 		A38E148F1FDD83E0007DD5E8 /* BackgroundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundManager.swift; sourceTree = "<group>"; };
 		A38E14921FDD91E3007DD5E8 /* Bug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bug.swift; sourceTree = "<group>"; };
 		A3A8C9B01FA2909400388BCF /* LinkAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAttachment.swift; sourceTree = "<group>"; };
+		A3B402BD1FDEE81A00807173 /* SmallNewsfeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallNewsfeedModel.swift; sourceTree = "<group>"; };
+		A3B402C11FDEE86200807173 /* GetSmallNewsfeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSmallNewsfeedResponse.swift; sourceTree = "<group>"; };
+		A3B402C31FDEE87A00807173 /* SmallNewsfeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallNewsfeedService.swift; sourceTree = "<group>"; };
 		A3BFC32E1FABA43900616E3D /* PollAnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAnswerModel.swift; sourceTree = "<group>"; };
 		A3BFC3311FABC4B800616E3D /* NewsFeedTableViewCellDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellDataSource.swift; sourceTree = "<group>"; };
 		A3C5085B1FAD0935006734C8 /* UIImage+MaskWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+MaskWithColor.swift"; sourceTree = "<group>"; };
 		A3C713CA1F94764800387AD6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = VKApplication/Presentation/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		A3CCB6B61FD094580032A5F4 /* AttachmentLinkViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentLinkViewDelegate.swift; sourceTree = "<group>"; };
 		A3CCB6B81FD0A1FD0032A5F4 /* NewsFeedTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		A3D2C0D01FDEFA7E00BAE0C9 /* VKApplicationWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VKApplicationWidget.entitlements; sourceTree = "<group>"; };
+		A3D2C0D31FDEFA8700BAE0C9 /* VKApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VKApplication.entitlements; sourceTree = "<group>"; };
+		A3D2C0D41FDF034400BAE0C9 /* SmallNewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallNewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		A3D4B0BE1FA87C9E00DFC3FB /* AttachmentLinkView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentLinkView.xib; sourceTree = "<group>"; };
 		A3D4B0C01FA8842500DFC3FB /* AttachmentLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentLinkView.swift; sourceTree = "<group>"; };
 		A3D4B0C31FA8BD4500DFC3FB /* RepostHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepostHeaderView.xib; sourceTree = "<group>"; };
@@ -203,6 +249,11 @@
 		A3F92C5E1F94E2A400C446A2 /* SearchGroupsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsResponse.swift; sourceTree = "<group>"; };
 		A3F92C601F94E2B900C446A2 /* JoinGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupResponse.swift; sourceTree = "<group>"; };
 		A3F92C631F94E2DC00C446A2 /* LeaveGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveGroupResponse.swift; sourceTree = "<group>"; };
+		A3FEECF31FDEE25A00C16C35 /* VKApplicationWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VKApplicationWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3FEECF41FDEE25A00C16C35 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A3FEECF71FDEE25A00C16C35 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		A3FEECFA1FDEE25A00C16C35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A3FEECFC1FDEE25A00C16C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -216,6 +267,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3FEECF01FDEE25A00C16C35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3FEECF51FDEE25A00C16C35 /* NotificationCenter.framework in Frameworks */,
+				3AA572624ABA0D1EC47CB041 /* Pods_VKApplicationWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -224,6 +284,8 @@
 			children = (
 				A3103FE11FD6CF1100CB5CFE /* MapKit.framework */,
 				AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */,
+				A3FEECF41FDEE25A00C16C35 /* NotificationCenter.framework */,
+				02EBDB3C5646D638EA5E30CC /* Pods_VKApplicationWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -410,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				A3875B981F920B74004A1D47 /* VKApplication */,
+				A3FEECF61FDEE25A00C16C35 /* VKApplicationWidget */,
 				A3875B971F920B74004A1D47 /* Products */,
 				F126F9D711BDE953717B62AF /* Pods */,
 				A3875BA01F920B74004A1D47 /* Assets.xcassets */,
@@ -421,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				A3875B961F920B74004A1D47 /* VKApplication.app */,
+				A3FEECF31FDEE25A00C16C35 /* VKApplicationWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -428,6 +492,7 @@
 		A3875B981F920B74004A1D47 /* VKApplication */ = {
 			isa = PBXGroup;
 			children = (
+				A3D2C0D31FDEFA8700BAE0C9 /* VKApplication.entitlements */,
 				A38022D91FA08EDA003954F8 /* Extensions */,
 				A3E18E721F93E9C10060AB55 /* Constants */,
 				A3875BAC1F920FDA004A1D47 /* Entities */,
@@ -627,11 +692,28 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		A3FEECF61FDEE25A00C16C35 /* VKApplicationWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A3D2C0D01FDEFA7E00BAE0C9 /* VKApplicationWidget.entitlements */,
+				A3FEECF71FDEE25A00C16C35 /* TodayViewController.swift */,
+				A3FEECF91FDEE25A00C16C35 /* MainInterface.storyboard */,
+				A3FEECFC1FDEE25A00C16C35 /* Info.plist */,
+				A3B402BD1FDEE81A00807173 /* SmallNewsfeedModel.swift */,
+				A3B402C31FDEE87A00807173 /* SmallNewsfeedService.swift */,
+				A3B402C11FDEE86200807173 /* GetSmallNewsfeedResponse.swift */,
+				A3D2C0D41FDF034400BAE0C9 /* SmallNewsFeedTableViewCell.swift */,
+			);
+			path = VKApplicationWidget;
+			sourceTree = "<group>";
+		};
 		F126F9D711BDE953717B62AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				6A7C702F4BDDD8838F18B1AC /* Pods-VKApplication.debug.xcconfig */,
 				5021D90549824CB899E60DE8 /* Pods-VKApplication.release.xcconfig */,
+				9529EB1F8F35ECF5D487AC04 /* Pods-VKApplicationWidget.debug.xcconfig */,
+				62890B828310764B445D99D9 /* Pods-VKApplicationWidget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -649,15 +731,36 @@
 				A3875B941F920B74004A1D47 /* Resources */,
 				CED030AC6FD2E9C6115B04FE /* [CP] Embed Pods Frameworks */,
 				AAA410FD89DA7B0598D2708E /* [CP] Copy Pods Resources */,
+				A3FEED031FDEE25A00C16C35 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A3FEECFE1FDEE25A00C16C35 /* PBXTargetDependency */,
 			);
 			name = VKApplication;
 			productName = VKApplication;
 			productReference = A3875B961F920B74004A1D47 /* VKApplication.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A3FEECF21FDEE25A00C16C35 /* VKApplicationWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3FEED021FDEE25A00C16C35 /* Build configuration list for PBXNativeTarget "VKApplicationWidget" */;
+			buildPhases = (
+				C44DA9A0E066710BA6918CE8 /* [CP] Check Pods Manifest.lock */,
+				A3FEECEF1FDEE25A00C16C35 /* Sources */,
+				A3FEECF01FDEE25A00C16C35 /* Frameworks */,
+				A3FEECF11FDEE25A00C16C35 /* Resources */,
+				2D14BCB05F1D960C4B00569C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VKApplicationWidget;
+			productName = VKApplicationWidget;
+			productReference = A3FEECF31FDEE25A00C16C35 /* VKApplicationWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -665,7 +768,7 @@
 		A3875B8E1F920B74004A1D47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Nataliia Volkova";
 				TargetAttributes = {
@@ -673,11 +776,26 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
+							};
+						};
+					};
+					A3FEECF21FDEE25A00C16C35 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
 							};
 						};
 					};
@@ -697,6 +815,7 @@
 			projectRoot = "";
 			targets = (
 				A3875B951F920B74004A1D47 /* VKApplication */,
+				A3FEECF21FDEE25A00C16C35 /* VKApplicationWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -720,9 +839,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3FEECF11FDEE25A00C16C35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3FEECFB1FDEE25A00C16C35 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2D14BCB05F1D960C4B00569C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKApplicationWidget/Pods-VKApplicationWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AAA410FD89DA7B0598D2708E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -736,6 +878,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKApplication/Pods-VKApplication-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C44DA9A0E066710BA6918CE8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VKApplicationWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CED030AC6FD2E9C6115B04FE /* [CP] Embed Pods Frameworks */ = {
@@ -878,7 +1038,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3FEECEF1FDEE25A00C16C35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B402C41FDEE87A00807173 /* SmallNewsfeedService.swift in Sources */,
+				A335FE2F1FDEF70500E3E239 /* TabBarController.swift in Sources */,
+				A3D2C0D51FDF034400BAE0C9 /* SmallNewsFeedTableViewCell.swift in Sources */,
+				A3B402BE1FDEE81A00807173 /* SmallNewsfeedModel.swift in Sources */,
+				A3FEECF81FDEE25A00C16C35 /* TodayViewController.swift in Sources */,
+				A335FE2D1FDEF16B00E3E239 /* Bug.swift in Sources */,
+				A3B402C81FDEF0FA00807173 /* Friend.swift in Sources */,
+				A3B402C61FDEF0C700807173 /* Group.swift in Sources */,
+				A3B402C21FDEE86200807173 /* GetSmallNewsfeedResponse.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3FEECFE1FDEE25A00C16C35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3FEECF21FDEE25A00C16C35 /* VKApplicationWidget */;
+			targetProxy = A3FEECFD1FDEE25A00C16C35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A3875B9D1F920B74004A1D47 /* Main.storyboard */ = {
@@ -895,6 +1079,14 @@
 				A3875BA31F920B74004A1D47 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A3FEECF91FDEE25A00C16C35 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3FEECFA1FDEE25A00C16C35 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1011,7 +1203,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A7C702F4BDDD8838F18B1AC /* Pods-VKApplication.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VKApplication/VKApplication.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88L423F77J;
 				INFOPLIST_FILE = VKApplication/Info.plist;
@@ -1028,7 +1222,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5021D90549824CB899E60DE8 /* Pods-VKApplication.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VKApplication/VKApplication.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88L423F77J;
 				INFOPLIST_FILE = VKApplication/Info.plist;
@@ -1036,6 +1232,42 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.natali.VKApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A3FEED001FDEE25A00C16C35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9529EB1F8F35ECF5D487AC04 /* Pods-VKApplicationWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VKApplicationWidget/VKApplicationWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88L423F77J;
+				INFOPLIST_FILE = VKApplicationWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.natali.VKApplication.VKApplicationWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3FEED011FDEE25A00C16C35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62890B828310764B445D99D9 /* Pods-VKApplicationWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VKApplicationWidget/VKApplicationWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88L423F77J;
+				INFOPLIST_FILE = VKApplicationWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.natali.VKApplication.VKApplicationWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1058,6 +1290,15 @@
 			buildConfigurations = (
 				A3875BA91F920B74004A1D47 /* Debug */,
 				A3875BAA1F920B74004A1D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3FEED021FDEE25A00C16C35 /* Build configuration list for PBXNativeTarget "VKApplicationWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3FEED001FDEE25A00C16C35 /* Debug */,
+				A3FEED011FDEE25A00C16C35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

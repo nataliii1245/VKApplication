@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="VKApplicationWidget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8y2-RH-ce6">
+                                <rect key="frame" x="8" y="2" width="33" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iFb-wt-Jtn">
+                                <rect key="frame" x="272" y="2" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="60B-fc-mYH"/>
+                                    <constraint firstAttribute="height" constant="40" id="KBE-ta-pte"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGa-et-MQo">
+                                <rect key="frame" x="8" y="26" width="28.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="rGa-et-MQo" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="8" id="02R-g7-taN"/>
+                            <constraint firstItem="iFb-wt-Jtn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8y2-RH-ce6" secondAttribute="trailing" constant="8" id="4n5-g9-pRT"/>
+                            <constraint firstItem="rGa-et-MQo" firstAttribute="top" secondItem="8y2-RH-ce6" secondAttribute="bottom" constant="8" id="I2N-uI-Xde"/>
+                            <constraint firstItem="iFb-wt-Jtn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rGa-et-MQo" secondAttribute="trailing" constant="8" id="QCK-9v-olV"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="iFb-wt-Jtn" secondAttribute="trailing" constant="8" id="aKs-1d-w8G"/>
+                            <constraint firstItem="8y2-RH-ce6" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="2" id="aSa-ig-7ca"/>
+                            <constraint firstItem="iFb-wt-Jtn" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="igU-nB-jAS"/>
+                            <constraint firstItem="8y2-RH-ce6" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="8" id="xWJ-85-ZDH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="44"/>
+                    <connections>
+                        <outlet property="newsImage" destination="iFb-wt-Jtn" id="psF-0I-Kdg"/>
+                        <outlet property="newsTextLabel" destination="rGa-et-MQo" id="9fA-OW-BWD"/>
+                        <outlet property="sourceLabel" destination="8y2-RH-ce6" id="v0l-7L-hWU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.59999999999999" y="117.84107946026987"/>
+        </scene>
+    </scenes>
+</document>

@@ -11,3 +11,14 @@ target 'VKApplication' do
   pod 'KMPlaceholderTextView'
 
 end
+
+target 'VKApplicationWidget' do
+
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'SDWebImage'
+  pod 'RealmSwift'
+  pod 'SwiftKeychainWrapper'
+
+end
+
