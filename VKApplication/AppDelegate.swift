@@ -49,9 +49,7 @@ extension AppDelegate {
         }
         
         BackgroundManager.instance.timer?.resume()
-        getUserFriendRequests()
-        
-        BackgroundManager.instance.fetchFriendRequestsGroup.notify(queue: .main) {
+        getUserFriendRequests() {
             BackgroundManager.instance.timer = nil
             BackgroundManager.instance.lastUpdate = Date()
             completionHandler(.newData)
@@ -66,18 +64,18 @@ extension AppDelegate {
 private extension AppDelegate {
     
     /// Получить список идентификаторов пользователей, которые отправили заявку на добавление в друзья
-    func getUserFriendRequests() {
+    func getUserFriendRequests(completionHandler completion: @escaping () -> Void) {
         FriendsService.getRequests({ userIds in
             
             // Запрашиваем информацию о списке пользователей, которые отправили заявку на добавление в друзья
-            self.getInformationAboutUsers(with: userIds)
+            self.getInformationAboutUsers(with: userIds, completion: completion)
         }) { error in
             print(error)
         }
     }
     
     /// Получить информацию о списке пользователей, которые отправили заявку на добавление в друзья
-    func getInformationAboutUsers(with userIds: [Int]) {
+    func getInformationAboutUsers(with userIds: [Int], completion: @escaping () -> Void) {
         UsersService.getInformationAboutUsers(withIds: userIds, { friendRequests in
             
             // Меняем бейдж
@@ -85,6 +83,8 @@ private extension AppDelegate {
             
             // Сохраняем в бд
             DatabaseManager.saveFriendRequestUsers(friendRequests)
+            // Уведомляем об окончании загрузки
+            completion()
         }) { error in
             print(error)
         }
