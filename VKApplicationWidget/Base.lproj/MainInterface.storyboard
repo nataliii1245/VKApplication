@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXc-cR-Tt2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет данных для отображения" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXc-cR-Tt2">
+                                <rect key="frame" x="8" y="65" width="304" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T35-Wm-R4W">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                                <rect key="frame" x="0.0" y="8" width="320" height="134"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SmallNewsFeedTableViewCell" id="0ix-x8-9iS" customClass="SmallNewsFeedTableViewCell" customModule="VKApplicationWidget" customModuleProvider="target">
@@ -74,10 +74,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Do-al-hmY" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="142"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="openVKApplication" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="EJU-eY-sfS"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M67-JY-gbU">
-                                <rect key="frame" x="16" y="178" width="288" height="22"/>
+                                <rect key="frame" x="16" y="142" width="288" height="58"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="Nnk-Iq-Fcx"/>
+                                    <constraint firstAttribute="height" constant="58" id="Nnk-Iq-Fcx"/>
                                 </constraints>
                                 <state key="normal" title="Обновить">
                                     <color key="titleColor" red="0.16078431369999999" green="0.40784313729999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,16 +95,19 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="SXc-cR-Tt2" secondAttribute="trailing" id="3fk-dK-s1L"/>
                             <constraint firstAttribute="bottom" secondItem="M67-JY-gbU" secondAttribute="bottom" id="47n-Pl-YVA"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="T35-Wm-R4W" secondAttribute="trailing" id="7ju-zr-5fC"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="M67-JY-gbU" secondAttribute="trailing" constant="16" id="8l4-Gm-pZm"/>
-                            <constraint firstItem="T35-Wm-R4W" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="Gce-NZ-T4s"/>
-                            <constraint firstItem="SXc-cR-Tt2" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="H7E-YC-1dP"/>
+                            <constraint firstItem="2Do-al-hmY" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="DLu-4Q-8nc"/>
+                            <constraint firstItem="T35-Wm-R4W" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="8" id="Gce-NZ-T4s"/>
+                            <constraint firstItem="2Do-al-hmY" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="PC7-aH-uv1"/>
                             <constraint firstItem="T35-Wm-R4W" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Qfb-qf-8WW"/>
                             <constraint firstItem="M67-JY-gbU" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="VBR-ax-ftl"/>
-                            <constraint firstItem="SXc-cR-Tt2" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="c4N-WP-r4C"/>
-                            <constraint firstItem="M67-JY-gbU" firstAttribute="top" secondItem="SXc-cR-Tt2" secondAttribute="bottom" id="kPX-9i-qF3"/>
+                            <constraint firstItem="SXc-cR-Tt2" firstAttribute="centerY" secondItem="T35-Wm-R4W" secondAttribute="centerY" id="bUv-uw-7rI"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="SXc-cR-Tt2" secondAttribute="trailing" constant="8" id="dxd-Rg-P7k"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="2Do-al-hmY" secondAttribute="trailing" id="elL-ED-mmh"/>
+                            <constraint firstItem="SXc-cR-Tt2" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="8" id="iPB-LC-yqX"/>
+                            <constraint firstItem="M67-JY-gbU" firstAttribute="top" secondItem="2Do-al-hmY" secondAttribute="bottom" id="meH-Sl-ejE"/>
                             <constraint firstItem="M67-JY-gbU" firstAttribute="top" secondItem="T35-Wm-R4W" secondAttribute="bottom" id="qF3-Gh-g0w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>

@@ -56,9 +56,7 @@ extension TodayViewController {
         super.viewDidAppear(animated)
         
         getNewsFeed { [weak self] success in
-            if success {
-                self?.update()
-            }
+            self?.update()
         }
     }
     
@@ -72,10 +70,13 @@ private extension TodayViewController {
     /// Нажата кнопка "Обновить"
     @IBAction func refreshButtonTapped() {
         getNewsFeed { [weak self] success in
-            if success {
-                self?.update()
-            }
+            self?.update()
         }
+    }
+    
+    /// Нажато view для перехода к программе
+    @IBAction func openVKApplication() {
+        extensionContext?.open(URL(string: "vkapplication://")! , completionHandler: nil)
     }
     
 }
@@ -90,9 +91,6 @@ private extension TodayViewController {
         let defaults = UserDefaults(suiteName: "group.VKApplication")
         guard let token = defaults?.string(forKey: "token") else {
             completion(false)
-            tableView.isHidden = true
-            noDataLabel.isHidden = false
-            noDataLabel.text = "Нет данных для отображения"
             return
         }
         
@@ -113,6 +111,14 @@ private extension TodayViewController {
     
     /// Обновить данные
     func update() {
+        if news.isEmpty {
+            tableView.isHidden = true
+            noDataLabel.isHidden = false
+        } else {
+            tableView.isHidden = false
+            noDataLabel.isHidden = true
+        }
+        
         self.tableView.reloadData()
     }
     
@@ -125,8 +131,9 @@ extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         getNewsFeed { [weak self] success in
+            self?.update()
+            
             if success {
-                self?.update()
                 completionHandler(.newData)
             } else {
                 completionHandler(.failed)
@@ -136,7 +143,7 @@ extension TodayViewController: NCWidgetProviding {
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
-            let height = min(maxSize.height, CGFloat(5 * 44 + 22))
+            let height = min(maxSize.height, CGFloat(8 + 5 * 44 + 58))
             preferredContentSize = CGSize(width: maxSize.width, height: height)
         } else {
             preferredContentSize = maxSize
@@ -155,7 +162,11 @@ extension TodayViewController: NCWidgetProviding {
 extension TodayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(Int(view.bounds.height) / 44, self.news.count)
+        if Int(view.bounds.height) / 44 == 2 {
+            return min(1, self.news.count)
+        } else {
+            return min(Int(view.bounds.height) / 44, self.news.count)
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
