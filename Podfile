@@ -22,3 +22,12 @@ target 'VKApplicationWidget' do
 
 end
 
+target 'VKApplicationMessage' do
+
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'SDWebImage'
+  pod 'RealmSwift'
+  pod 'SwiftKeychainWrapper'
+
+end

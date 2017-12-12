@@ -21,7 +21,6 @@
 		A3103FE21FD6CF1100CB5CFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3103FE11FD6CF1100CB5CFE /* MapKit.framework */; };
 		A3103FE61FD7080D00CB5CFE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FE51FD7080D00CB5CFE /* LocationManager.swift */; };
 		A3103FE81FD70F0900CB5CFE /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3103FE71FD70F0900CB5CFE /* LocationManagerDelegate.swift */; };
-		A335FE2D1FDEF16B00E3E239 /* Bug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14921FDD91E3007DD5E8 /* Bug.swift */; };
 		A335FE2F1FDEF70500E3E239 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C713CA1F94764800387AD6 /* TabBarController.swift */; };
 		A339A6CA1FD735DE00D721AC /* ChooseUserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A339A6C91FD735DE00D721AC /* ChooseUserLocationViewController.swift */; };
 		A345FBFB1FD324A700E1632C /* DateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345FBFA1FD324A700E1632C /* DateTimeFormatter.swift */; };
@@ -34,6 +33,21 @@
 		A34E5B781FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E5B771FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift */; };
 		A34E5B7A1FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E5B791FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift */; };
 		A34E5B7C1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E5B7B1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift */; };
+		A35037931FE06D7400A117D8 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35037921FE06D7400A117D8 /* Messages.framework */; };
+		A35037961FE06D7400A117D8 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35037951FE06D7400A117D8 /* MessagesViewController.swift */; };
+		A35037991FE06D7400A117D8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35037971FE06D7400A117D8 /* MainInterface.storyboard */; };
+		A350379B1FE06D7400A117D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A350379A1FE06D7400A117D8 /* Assets.xcassets */; };
+		A350379F1FE06D7400A117D8 /* VKApplicationMessage.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A35037911FE06D7400A117D8 /* VKApplicationMessage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A35037A81FE0727700A117D8 /* SmallNewsForMessagesFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35037A31FE0727700A117D8 /* SmallNewsForMessagesFeedTableViewCell.swift */; };
+		A35037A91FE0727700A117D8 /* GetNewsfeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35037A41FE0727700A117D8 /* GetNewsfeedResponse.swift */; };
+		A35037AB1FE0727700A117D8 /* NewsModelWithLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35037A61FE0727700A117D8 /* NewsModelWithLink.swift */; };
+		A35037AC1FE0727700A117D8 /* NewsfeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35037A71FE0727700A117D8 /* NewsfeedService.swift */; };
+		A35037AD1FE074FE00A117D8 /* SmallNewsFeedTableViewCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FB053D1FDF33DD002630A5 /* SmallNewsFeedTableViewCellDataSource.swift */; };
+		A35037AF1FE075C200A117D8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C713CA1F94764800387AD6 /* TabBarController.swift */; };
+		A35037B01FE075D300A117D8 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E7B1F93FE2A0060AB55 /* Friend.swift */; };
+		A35037B11FE075D600A117D8 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E18E7D1F93FE750060AB55 /* Group.swift */; };
+		A35037B21FE076D000A117D8 /* Bug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14921FDD91E3007DD5E8 /* Bug.swift */; };
+		A35037B31FE076E700A117D8 /* Bug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14921FDD91E3007DD5E8 /* Bug.swift */; };
 		A3573CBA1FAC6BB000235C93 /* AttachmentPollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */; };
 		A3573CBC1FAC6BC200235C93 /* AttachmentPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */; };
 		A3573CBE1FAC71A500235C93 /* AttachmentDocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */; };
@@ -76,7 +90,6 @@
 		A38E148A1FDD7416007DD5E8 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14891FDD7416007DD5E8 /* UsersService.swift */; };
 		A38E148D1FDD75A8007DD5E8 /* GetRequestsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E148C1FDD75A8007DD5E8 /* GetRequestsResponse.swift */; };
 		A38E14901FDD83E0007DD5E8 /* BackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E148F1FDD83E0007DD5E8 /* BackgroundManager.swift */; };
-		A38E14931FDD91E3007DD5E8 /* Bug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E14921FDD91E3007DD5E8 /* Bug.swift */; };
 		A3A8C9B11FA2909400388BCF /* LinkAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8C9B01FA2909400388BCF /* LinkAttachment.swift */; };
 		A3B402BE1FDEE81A00807173 /* SmallNewsfeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B402BD1FDEE81A00807173 /* SmallNewsfeedModel.swift */; };
 		A3B402C21FDEE86200807173 /* GetSmallNewsfeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B402C11FDEE86200807173 /* GetSmallNewsfeedResponse.swift */; };
@@ -116,9 +129,17 @@
 		A3FEECFB1FDEE25A00C16C35 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3FEECF91FDEE25A00C16C35 /* MainInterface.storyboard */; };
 		A3FEECFF1FDEE25A00C16C35 /* VKApplicationWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A3FEECF31FDEE25A00C16C35 /* VKApplicationWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B25DBA804B9547B12146ECD9 /* Pods_VKApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */; };
+		BFB2E8BFA603584383384E8B /* Pods_VKApplicationMessage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0FA5757B94D7A537901970 /* Pods_VKApplicationMessage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A350379D1FE06D7400A117D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3875B8E1F920B74004A1D47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A35037901FE06D7400A117D8;
+			remoteInfo = VKApplicationMessage;
+		};
 		A3FEECFD1FDEE25A00C16C35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3875B8E1F920B74004A1D47 /* Project object */;
@@ -135,6 +156,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				A350379F1FE06D7400A117D8 /* VKApplicationMessage.appex in Embed App Extensions */,
 				A3FEECFF1FDEE25A00C16C35 /* VKApplicationWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -144,9 +166,12 @@
 
 /* Begin PBXFileReference section */
 		02EBDB3C5646D638EA5E30CC /* Pods_VKApplicationWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApplicationWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0FA5757B94D7A537901970 /* Pods_VKApplicationMessage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKApplicationMessage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5021D90549824CB899E60DE8 /* Pods-VKApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplication/Pods-VKApplication.release.xcconfig"; sourceTree = "<group>"; };
 		62890B828310764B445D99D9 /* Pods-VKApplicationWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplicationWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplicationWidget/Pods-VKApplicationWidget.release.xcconfig"; sourceTree = "<group>"; };
 		6A7C702F4BDDD8838F18B1AC /* Pods-VKApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplication/Pods-VKApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		7C170B071055841A64CE9618 /* Pods-VKApplicationMessage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplicationMessage.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplicationMessage/Pods-VKApplicationMessage.release.xcconfig"; sourceTree = "<group>"; };
+		8FEB204C1CED853CEE1DCA50 /* Pods-VKApplicationMessage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplicationMessage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplicationMessage/Pods-VKApplicationMessage.debug.xcconfig"; sourceTree = "<group>"; };
 		9529EB1F8F35ECF5D487AC04 /* Pods-VKApplicationWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApplicationWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApplicationWidget/Pods-VKApplicationWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		A30076321F9530500064598E /* FriendsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewController.swift; sourceTree = "<group>"; };
 		A30076341F9530670064598E /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
@@ -172,6 +197,17 @@
 		A34E5B771FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesNearCoordinateResponse.swift; sourceTree = "<group>"; };
 		A34E5B791FD83F02001FFCE4 /* ChooseUserLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserLocationTableViewCell.swift; sourceTree = "<group>"; };
 		A34E5B7B1FD850E0001FFCE4 /* ChooseUserLocationTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseUserLocationTableViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A35037911FE06D7400A117D8 /* VKApplicationMessage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VKApplicationMessage.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A35037921FE06D7400A117D8 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		A35037951FE06D7400A117D8 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		A35037981FE06D7400A117D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A350379A1FE06D7400A117D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A350379C1FE06D7400A117D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A35037A31FE0727700A117D8 /* SmallNewsForMessagesFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SmallNewsForMessagesFeedTableViewCell.swift; path = "../../../Desktop/Новая папка 2/SmallNewsForMessagesFeedTableViewCell.swift"; sourceTree = "<group>"; };
+		A35037A41FE0727700A117D8 /* GetNewsfeedResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetNewsfeedResponse.swift; path = "../../../Desktop/Новая папка 2/GetNewsfeedResponse.swift"; sourceTree = "<group>"; };
+		A35037A61FE0727700A117D8 /* NewsModelWithLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsModelWithLink.swift; path = "../../../Desktop/Новая папка 2/NewsModelWithLink.swift"; sourceTree = "<group>"; };
+		A35037A71FE0727700A117D8 /* NewsfeedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsfeedService.swift; path = "../../../Desktop/Новая папка 2/NewsfeedService.swift"; sourceTree = "<group>"; };
+		A35037B41FE07AC000A117D8 /* VKApplicationMessage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VKApplicationMessage.entitlements; sourceTree = "<group>"; };
 		A3573CB91FAC6BB000235C93 /* AttachmentPollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentPollView.xib; sourceTree = "<group>"; };
 		A3573CBB1FAC6BC200235C93 /* AttachmentPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentPollView.swift; sourceTree = "<group>"; };
 		A3573CBD1FAC71A500235C93 /* AttachmentDocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentDocView.swift; sourceTree = "<group>"; };
@@ -260,6 +296,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A350378E1FE06D7400A117D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A35037931FE06D7400A117D8 /* Messages.framework in Frameworks */,
+				BFB2E8BFA603584383384E8B /* Pods_VKApplicationMessage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3875B931F920B74004A1D47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,6 +333,8 @@
 				AB01EFA41AF5F58B41BAA07C /* Pods_VKApplication.framework */,
 				A3FEECF41FDEE25A00C16C35 /* NotificationCenter.framework */,
 				02EBDB3C5646D638EA5E30CC /* Pods_VKApplicationWidget.framework */,
+				A35037921FE06D7400A117D8 /* Messages.framework */,
+				1A0FA5757B94D7A537901970 /* Pods_VKApplicationMessage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -365,6 +412,22 @@
 				A34E5B771FD7FFC2001FFCE4 /* GetPlacesNearCoordinateResponse.swift */,
 			);
 			path = Places;
+			sourceTree = "<group>";
+		};
+		A35037941FE06D7400A117D8 /* VKApplicationMessage */ = {
+			isa = PBXGroup;
+			children = (
+				A35037B41FE07AC000A117D8 /* VKApplicationMessage.entitlements */,
+				A35037A41FE0727700A117D8 /* GetNewsfeedResponse.swift */,
+				A35037A71FE0727700A117D8 /* NewsfeedService.swift */,
+				A35037A61FE0727700A117D8 /* NewsModelWithLink.swift */,
+				A35037A31FE0727700A117D8 /* SmallNewsForMessagesFeedTableViewCell.swift */,
+				A35037951FE06D7400A117D8 /* MessagesViewController.swift */,
+				A35037971FE06D7400A117D8 /* MainInterface.storyboard */,
+				A350379A1FE06D7400A117D8 /* Assets.xcassets */,
+				A350379C1FE06D7400A117D8 /* Info.plist */,
+			);
+			path = VKApplicationMessage;
 			sourceTree = "<group>";
 		};
 		A3573CBF1FAC8FA200235C93 /* AttachmentPollAnswerView */ = {
@@ -475,6 +538,7 @@
 			children = (
 				A3875B981F920B74004A1D47 /* VKApplication */,
 				A3FEECF61FDEE25A00C16C35 /* VKApplicationWidget */,
+				A35037941FE06D7400A117D8 /* VKApplicationMessage */,
 				A3875B971F920B74004A1D47 /* Products */,
 				F126F9D711BDE953717B62AF /* Pods */,
 				A3875BA01F920B74004A1D47 /* Assets.xcassets */,
@@ -487,6 +551,7 @@
 			children = (
 				A3875B961F920B74004A1D47 /* VKApplication.app */,
 				A3FEECF31FDEE25A00C16C35 /* VKApplicationWidget.appex */,
+				A35037911FE06D7400A117D8 /* VKApplicationMessage.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -717,6 +782,8 @@
 				5021D90549824CB899E60DE8 /* Pods-VKApplication.release.xcconfig */,
 				9529EB1F8F35ECF5D487AC04 /* Pods-VKApplicationWidget.debug.xcconfig */,
 				62890B828310764B445D99D9 /* Pods-VKApplicationWidget.release.xcconfig */,
+				8FEB204C1CED853CEE1DCA50 /* Pods-VKApplicationMessage.debug.xcconfig */,
+				7C170B071055841A64CE9618 /* Pods-VKApplicationMessage.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -724,6 +791,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A35037901FE06D7400A117D8 /* VKApplicationMessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A35037A21FE06D7400A117D8 /* Build configuration list for PBXNativeTarget "VKApplicationMessage" */;
+			buildPhases = (
+				6003F6157A48B87E916D3C19 /* [CP] Check Pods Manifest.lock */,
+				A350378D1FE06D7400A117D8 /* Sources */,
+				A350378E1FE06D7400A117D8 /* Frameworks */,
+				A350378F1FE06D7400A117D8 /* Resources */,
+				77CCA5B854775D1C690711CD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VKApplicationMessage;
+			productName = VKApplicationMessage;
+			productReference = A35037911FE06D7400A117D8 /* VKApplicationMessage.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 		A3875B951F920B74004A1D47 /* VKApplication */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3875BA81F920B74004A1D47 /* Build configuration list for PBXNativeTarget "VKApplication" */;
@@ -740,6 +826,7 @@
 			);
 			dependencies = (
 				A3FEECFE1FDEE25A00C16C35 /* PBXTargetDependency */,
+				A350379E1FE06D7400A117D8 /* PBXTargetDependency */,
 			);
 			name = VKApplication;
 			productName = VKApplication;
@@ -775,6 +862,15 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Nataliia Volkova";
 				TargetAttributes = {
+					A35037901FE06D7400A117D8 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					A3875B951F920B74004A1D47 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -819,11 +915,21 @@
 			targets = (
 				A3875B951F920B74004A1D47 /* VKApplication */,
 				A3FEECF21FDEE25A00C16C35 /* VKApplicationWidget */,
+				A35037901FE06D7400A117D8 /* VKApplicationMessage */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A350378F1FE06D7400A117D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A350379B1FE06D7400A117D8 /* Assets.xcassets in Resources */,
+				A35037991FE06D7400A117D8 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3875B941F920B74004A1D47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -866,6 +972,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKApplicationWidget/Pods-VKApplicationWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6003F6157A48B87E916D3C19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VKApplicationMessage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77CCA5B854775D1C690711CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKApplicationMessage/Pods-VKApplicationMessage-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AAA410FD89DA7B0598D2708E /* [CP] Copy Pods Resources */ = {
@@ -952,6 +1091,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A350378D1FE06D7400A117D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A35037A81FE0727700A117D8 /* SmallNewsForMessagesFeedTableViewCell.swift in Sources */,
+				A35037AF1FE075C200A117D8 /* TabBarController.swift in Sources */,
+				A35037A91FE0727700A117D8 /* GetNewsfeedResponse.swift in Sources */,
+				A35037B11FE075D600A117D8 /* Group.swift in Sources */,
+				A35037AC1FE0727700A117D8 /* NewsfeedService.swift in Sources */,
+				A35037AB1FE0727700A117D8 /* NewsModelWithLink.swift in Sources */,
+				A35037B01FE075D300A117D8 /* Friend.swift in Sources */,
+				A35037961FE06D7400A117D8 /* MessagesViewController.swift in Sources */,
+				A35037AD1FE074FE00A117D8 /* SmallNewsFeedTableViewCellDataSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3875B921F920B74004A1D47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1028,7 +1183,7 @@
 				A38022D11FA05C71003954F8 /* NewsFeedTableViewController.swift in Sources */,
 				A38022D81FA08D5E003954F8 /* AttachmentPhotoView.swift in Sources */,
 				A3103FE81FD70F0900CB5CFE /* LocationManagerDelegate.swift in Sources */,
-				A38E14931FDD91E3007DD5E8 /* Bug.swift in Sources */,
+				A35037B21FE076D000A117D8 /* Bug.swift in Sources */,
 				A345FBFB1FD324A700E1632C /* DateTimeFormatter.swift in Sources */,
 				A30BCCB71F9553F600C6495F /* SearchGroupsListTableViewController.swift in Sources */,
 				A3F92C571F94E05F00C446A2 /* GetUserFriendsResponse.swift in Sources */,
@@ -1049,8 +1204,8 @@
 				A335FE2F1FDEF70500E3E239 /* TabBarController.swift in Sources */,
 				A3D2C0D51FDF034400BAE0C9 /* SmallNewsFeedTableViewCell.swift in Sources */,
 				A3B402BE1FDEE81A00807173 /* SmallNewsfeedModel.swift in Sources */,
+				A35037B31FE076E700A117D8 /* Bug.swift in Sources */,
 				A3FEECF81FDEE25A00C16C35 /* TodayViewController.swift in Sources */,
-				A335FE2D1FDEF16B00E3E239 /* Bug.swift in Sources */,
 				A3B402C81FDEF0FA00807173 /* Friend.swift in Sources */,
 				A3B402C61FDEF0C700807173 /* Group.swift in Sources */,
 				A3B402C21FDEE86200807173 /* GetSmallNewsfeedResponse.swift in Sources */,
@@ -1061,6 +1216,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A350379E1FE06D7400A117D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A35037901FE06D7400A117D8 /* VKApplicationMessage */;
+			targetProxy = A350379D1FE06D7400A117D8 /* PBXContainerItemProxy */;
+		};
 		A3FEECFE1FDEE25A00C16C35 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A3FEECF21FDEE25A00C16C35 /* VKApplicationWidget */;
@@ -1069,6 +1229,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A35037971FE06D7400A117D8 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A35037981FE06D7400A117D8 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		A3875B9D1F920B74004A1D47 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1096,6 +1264,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A35037A01FE06D7400A117D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FEB204C1CED853CEE1DCA50 /* Pods-VKApplicationMessage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = VKApplicationMessage/VKApplicationMessage.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88L423F77J;
+				INFOPLIST_FILE = VKApplicationMessage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.natali.VKApplication.VKApplicationMessageExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A35037A11FE06D7400A117D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C170B071055841A64CE9618 /* Pods-VKApplicationMessage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = VKApplicationMessage/VKApplicationMessage.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88L423F77J;
+				INFOPLIST_FILE = VKApplicationMessage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.natali.VKApplication.VKApplicationMessageExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A3875BA61F920B74004A1D47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1280,6 +1486,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A35037A21FE06D7400A117D8 /* Build configuration list for PBXNativeTarget "VKApplicationMessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A35037A01FE06D7400A117D8 /* Debug */,
+				A35037A11FE06D7400A117D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A3875B911F920B74004A1D47 /* Build configuration list for PBXProject "VKApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
