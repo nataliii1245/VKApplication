@@ -14,6 +14,8 @@ final class TodayViewController: UIViewController{
     
     // MARK: - Outlet
     
+    @IBOutlet private weak var noDataLabel: UILabel!
+    
     @IBOutlet private weak var tableView: UITableView! {
         willSet {
             newValue.dataSource = self
@@ -45,6 +47,9 @@ extension TodayViewController {
         super.viewDidLoad()
         
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        
+        noDataLabel.isHidden = true
+        tableView.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +90,9 @@ private extension TodayViewController {
         let defaults = UserDefaults(suiteName: "group.VKApplication")
         guard let token = defaults?.string(forKey: "token") else {
             completion(false)
+            tableView.isHidden = true
+            noDataLabel.isHidden = false
+            noDataLabel.text = "Нет данных для отображения"
             return
         }
         

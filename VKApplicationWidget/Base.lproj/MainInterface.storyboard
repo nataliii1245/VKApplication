@@ -18,6 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXc-cR-Tt2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T35-Wm-R4W">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,12 +88,16 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="SXc-cR-Tt2" secondAttribute="trailing" id="3fk-dK-s1L"/>
                             <constraint firstAttribute="bottom" secondItem="M67-JY-gbU" secondAttribute="bottom" id="47n-Pl-YVA"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="T35-Wm-R4W" secondAttribute="trailing" id="7ju-zr-5fC"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="M67-JY-gbU" secondAttribute="trailing" constant="16" id="8l4-Gm-pZm"/>
                             <constraint firstItem="T35-Wm-R4W" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="Gce-NZ-T4s"/>
+                            <constraint firstItem="SXc-cR-Tt2" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="H7E-YC-1dP"/>
                             <constraint firstItem="T35-Wm-R4W" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Qfb-qf-8WW"/>
                             <constraint firstItem="M67-JY-gbU" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="VBR-ax-ftl"/>
+                            <constraint firstItem="SXc-cR-Tt2" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="c4N-WP-r4C"/>
+                            <constraint firstItem="M67-JY-gbU" firstAttribute="top" secondItem="SXc-cR-Tt2" secondAttribute="bottom" id="kPX-9i-qF3"/>
                             <constraint firstItem="M67-JY-gbU" firstAttribute="top" secondItem="T35-Wm-R4W" secondAttribute="bottom" id="qF3-Gh-g0w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
@@ -97,6 +106,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="200"/>
                     <connections>
+                        <outlet property="noDataLabel" destination="SXc-cR-Tt2" id="Yhy-KF-xW7"/>
                         <outlet property="tableView" destination="T35-Wm-R4W" id="OGH-Yn-mCd"/>
                     </connections>
                 </viewController>
