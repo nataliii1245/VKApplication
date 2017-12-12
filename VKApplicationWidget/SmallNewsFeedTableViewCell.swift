@@ -38,7 +38,13 @@ extension SmallNewsFeedTableViewCell {
         
         self.newsTextLabel.text = news.text.isEmpty ? "Новая запись" : news.text
         if let photoUrlValue = news.photoUrl, let photoUrl = URL(string: photoUrlValue) {
+            self.newsImage.sd_addActivityIndicator()
+            self.newsImage.sd_setIndicatorStyle(.gray)
             self.newsImage.sd_setImage(with: photoUrl, placeholderImage: nil)
+            self.newsImage.isHidden = false
+        } else {
+            self.newsImage.image = nil
+            self.newsImage.isHidden = true
         }
     }
     

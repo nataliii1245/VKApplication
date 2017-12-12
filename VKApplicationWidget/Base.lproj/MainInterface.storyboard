@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T35-Wm-R4W">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T35-Wm-R4W">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SmallNewsFeedTableViewCell" id="0ix-x8-9iS" customClass="SmallNewsFeedTableViewCell" customModule="VKApplicationWidget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SmallNewsFeedTableViewCell" id="0ix-x8-9iS" customClass="SmallNewsFeedTableViewCell" customModule="VKApplicationWidget" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ix-x8-9iS" id="1aI-zw-s9f">
@@ -35,7 +35,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYH-lk-zgj">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYH-lk-zgj">
                                                     <rect key="frame" x="269" y="4.5" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="c9s-oX-lAA"/>
@@ -69,12 +69,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M67-JY-gbU">
+                                <rect key="frame" x="16" y="178" width="288" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="Nnk-Iq-Fcx"/>
+                                </constraints>
+                                <state key="normal" title="Обновить">
+                                    <color key="titleColor" red="0.16078431369999999" green="0.40784313729999999" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshButtonTapped" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="db8-K7-FKj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="M67-JY-gbU" secondAttribute="bottom" id="47n-Pl-YVA"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="T35-Wm-R4W" secondAttribute="trailing" id="7ju-zr-5fC"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="M67-JY-gbU" secondAttribute="trailing" constant="16" id="8l4-Gm-pZm"/>
                             <constraint firstItem="T35-Wm-R4W" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="Gce-NZ-T4s"/>
                             <constraint firstItem="T35-Wm-R4W" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Qfb-qf-8WW"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="T35-Wm-R4W" secondAttribute="bottom" id="uHI-xb-qWb"/>
+                            <constraint firstItem="M67-JY-gbU" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="VBR-ax-ftl"/>
+                            <constraint firstItem="M67-JY-gbU" firstAttribute="top" secondItem="T35-Wm-R4W" secondAttribute="bottom" id="qF3-Gh-g0w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
